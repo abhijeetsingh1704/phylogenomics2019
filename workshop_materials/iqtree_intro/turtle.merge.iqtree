@@ -1,0 +1,211 @@
+IQ-TREE 1.7-beta6 built Nov 19 2018
+
+Partition file name: turtle.nex
+Input file name: turtle.fa
+Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
+Random seed number: 646993
+
+REFERENCES
+----------
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+To cite IQ-TREE please use:
+
+Lam-Tung Nguyen, Heiko A. Schmidt, Arndt von Haeseler, and Bui Quang Minh
+(2015) IQ-TREE: A fast and effective stochastic algorithm for estimating
+maximum likelihood phylogenies. Mol Biol Evol, 32:268-274.
+https://doi.org/10.1093/molbev/msu300
+
+Since you used ultrafast bootstrap (UFBoot) please also cite: 
+
+Diep Thi Hoang, Olga Chernomor, Arndt von Haeseler, Bui Quang Minh,
+and Le Sy Vinh (2017) UFBoot2: Improving the ultrafast bootstrap
+approximation. Mol Biol Evol, in press.
+https://doi.org/10.1093/molbev/msx281
+
+Since you used partition models please also cite:
+
+Olga Chernomor, Arndt von Haeseler, and Bui Quang Minh (2016)
+Terrace aware data structure for phylogenomic inference from
+supermatrices. Syst Biol, 65:997-1008.
+https://doi.org/10.1093/sysbio/syw037
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 16 taxa with 10 partitions and 20820 total sites (7.57024% missing data)
+
+  ID  Name                                                                                                                                                                                             Type	Seq	Site	Unique	Infor	Invar	Const
+   1  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000009879.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb                                                                                                  DNA	16	2118	1119	770	966	966
+   2  ENSGALG00000001529.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb+ENSGALG00000008916.macse_DNA_gb+ENSGALG00000011434.macse_DNA_gb                                                                  DNA	15	2307	1207	908	1034	1034
+   3  ENSGALG00000002002.macse_DNA_gb+ENSGALG00000003907.macse_DNA_gb                                                                                                                                  DNA	13	1152	526	370	576	576
+   4  ENSGALG00000002514.macse_DNA_gb+ENSGALG00000009085.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb  DNA	16	4089	1770	1198	2226	2226
+   5  ENSGALG00000003337.macse_DNA_gb                                                                                                                                                                  DNA	15	966	419	313	556	556
+   6  ENSGALG00000003700.macse_DNA_gb+ENSGALG00000008517.macse_DNA_gb                                                                                                                                  DNA	15	1425	553	386	854	854
+   7  ENSGALG00000003702.macse_DNA_gb+ENSGALG00000005820.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb                                                                  DNA	14	3321	1246	817	1867	1866
+   8  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb                                                                  DNA	16	3477	1081	676	2271	2271
+   9  ENSGALG00000011323.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb                                                                                                                                  DNA	11	1368	662	459	597	597
+  10  ENSGALG00000015326.macse_DNA_gb                                                                                                                                                                  DNA	10	597	289	187	238	238
+
+Column meanings:
+  Unique: Number of unique site patterns
+  Infor:  Number of parsimony-informative sites
+  Invar:  Number of invariant sites
+  Const:  Number of constant sites (can be subset of invariant sites)
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: HKY+F+I+G4:ENSGALG00000000223.macse_DNA_gb+ENSGALG00000009879.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb,TIM3+F+I+G4:ENSGALG00000001529.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb+ENSGALG00000008916.macse_DNA_gb+ENSGALG00000011434.macse_DNA_gb,K2P+G4:ENSGALG00000002002.macse_DNA_gb+ENSGALG00000003907.macse_DNA_gb,GTR+F+R3:ENSGALG00000002514.macse_DNA_gb+ENSGALG00000009085.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb,TIM2e+I+G4:ENSGALG00000003337.macse_DNA_gb,TIM2+F+G4:ENSGALG00000003700.macse_DNA_gb+ENSGALG00000008517.macse_DNA_gb,TIM3+F+I+G4:ENSGALG00000003702.macse_DNA_gb+ENSGALG00000005820.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb,TIM2+F+G4:ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb,HKY+F+I+G4:ENSGALG00000011323.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb,TIM+F+G4:ENSGALG00000015326.macse_DNA_gb
+
+List of best-fit models per partition:
+
+  ID  Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
+   1  HKY+F+I+G4       -13682.060   27378.119 + 7.47e-317   27378.172 - 9.88e-324   27417.727 - 6.95e-310
+   2  TIM3+F+I+G4      -15186.735   30391.470 + 7.47e-317   30391.548 - 9.88e-324   30443.163 - 6.95e-310
+   3  K2P+G4            -6618.764   13243.529 + 7.47e-317   13243.550 - 9.88e-324   13258.677 - 6.95e-310
+   4  GTR+F+R3         -23098.519   46223.039 + 7.47e-317   46223.128 - 9.88e-324   46305.148 - 6.95e-310
+   5  TIM2e+I+G4        -6233.989   12479.979 + 7.47e-317   12480.066 - 9.88e-324   12509.218 - 6.95e-310
+   6  TIM2+F+G4         -7424.244   14864.488 + 7.47e-317   14864.590 - 9.88e-324   14906.584 - 6.95e-310
+   7  TIM3+F+I+G4      -16577.760   33173.519 + 7.47e-317   33173.573 - 9.88e-324   33228.491 - 6.95e-310
+   8  TIM2+F+G4        -14858.412   29732.824 + 7.47e-317   29732.866 - 9.88e-324   29782.056 - 6.95e-310
+   9  HKY+F+I+G4        -8237.404   16488.809 + 7.47e-317   16488.891 - 9.88e-324   16525.357 - 6.95e-310
+  10  TIM+F+G4          -3758.316    7532.632 + 7.47e-317    7532.877 - 9.88e-324    7567.768 - 6.95e-310
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Edge-linked-proportional partition model but separate models between partitions
+
+  ID  Model           Speed  Parameters
+   1  HKY+F+I+G4     1.1861  HKY{4.14368}+F{0.248605,0.230669,0.223853,0.296873}+I{0.32353}+G4{1.60368}
+   2  TIM3+F+I+G4    1.3304  TIM3{1.63463,4.16392,5.96766}+F{0.282825,0.246031,0.241519,0.229624}+I{0.294328}+G4{1.31251}
+   3  K2P+G4         1.0710  K2P{4.05407}+FQ+G4{0.448212}
+   4  GTR+F+R3       1.0886  GTR{2.26572,4.73357,1.08882,1.01151,9.12603}+F{0.306087,0.195067,0.235014,0.263832}+R3{0.596151,0.0860414,0.351637,1.6701,0.0522113,6.9226}
+   5  TIM2e+I+G4     1.2558  TIM2e{1.94262,6.28017,9.60362}+FQ+I{0.465426}+G4{0.857753}
+   6  TIM2+F+G4      0.7463  TIM2{2.05116,7.10272,13.953}+F{0.352015,0.174678,0.214183,0.259124}+G4{0.284278}
+   7  TIM3+F+I+G4    0.8154  TIM3{1.31931,3.45348,6.17783}+F{0.301569,0.225388,0.240086,0.232956}+I{0.393455}+G4{1.7239}
+   8  TIM2+F+G4      0.6067  TIM2{1.73191,5.22564,9.0378}+F{0.315674,0.19024,0.240071,0.254014}+G4{0.269597}
+   9  HKY+F+I+G4     1.2851  HKY{4.1079}+F{0.283016,0.237879,0.221799,0.257305}+I{0.277094}+G4{1.71001}
+  10  TIM+F+G4       1.1744  TIM{3.28119,2.23687,7.18884}+F{0.290433,0.22574,0.31016,0.173666}+G4{0.816039}
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -115673.6799 (s.e. 649.4738)
+Unconstrained log-likelihood (without tree): -119933.9739
+Number of free parameters (#branches + #model parameters): 106
+Akaike information criterion (AIC) score: 231559.3597
+Corrected Akaike information criterion (AICc) score: 231560.4549
+Bayesian information criterion (BIC) score: 232401.3887
+
+Total tree length (sum of branch lengths): 1.9705
+Sum of internal branch lengths: 0.5401 (27.4083% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon 'protopterus' is drawn at root
+Numbers in parentheses are  ultrafast bootstrap support (%)
+
++-----------------------------------------------------------protopterus
+|
+|                                          +---------------Anolis
+|                                       +--| (48)
+|                                       |  +---------podarcis
+|                      +----------------| (100)
+|                      |                +-----------------python
+|                +-----| (100)
+|                |     |              +-------Gallus
+|                |     |  +-----------| (100)
+|                |     |  |           +-----------Taeniopygia
+|                |     +--| (99)
+|                |        |              +--alligator
+|                |        |  +-----------| (100)
+|                |        |  |           +--caiman
+|                |        +--| (70)
+|                |           |           +--emys_orbicularis
+|                |           |        +--| (95)
+|                |           |        |  +--chelonoidis_nigra
+|                |           |     +--| (100)
+|                |           |     |  +--caretta
+|                |           +-----| (100)
+|                |                 +---phrynops
++----------------| (100)
+|                |              +------------------Homo
+|                |         +----| (100)
+|                |         |    +-------------------Monodelphis
+|                +---------| (100)
+|                          +-----------------------Ornithorhynchus
+|
++--------------------------------------------------------Xenopus
+
+Tree in newick format:
+
+(protopterus:0.3289522278,((((Anolis:0.0911368689,podarcis:0.0549535388)48:0.0032530758,python:0.0998524704)100:0.0933573105,((Gallus:0.0487650324,Taeniopygia:0.0658054572)100:0.0693621889,((alligator:0.0036771244,caiman:0.0131893790)100:0.0688842941,(((emys_orbicularis:0.0069644661,chelonoidis_nigra:0.0121356323)95:0.0032019867,caretta:0.0109767119)100:0.0105772652,phrynops:0.0265256976)100:0.0371448732)70:0.0203488563)99:0.0149728532)100:0.0369776244,((Homo:0.1076143105,Monodelphis:0.1148355789)100:0.0301552412,Ornithorhynchus:0.1320446004)100:0.0569376177)100:0.0948969095,Xenopus:0.3129662471);
+
+CONSENSUS TREE
+--------------
+
+Consensus tree is constructed from 1000 bootstrap trees
+Log-likelihood of consensus tree: -115673.680089
+Robinson-Foulds distance between ML tree and consensus tree: 0
+
+Branches with support >0.000000% are kept (extended consensus)
+Branch lengths are optimized by maximum likelihood on original alignment
+Numbers in parentheses are bootstrap supports (%)
+
++-----------------------------------------------------------protopterus
+|
+|                                          +---------------Anolis
+|                                       +--| (48)
+|                                       |  +---------podarcis
+|                      +----------------| (100)
+|                      |                +-----------------python
+|                +-----| (100)
+|                |     |              +-------Gallus
+|                |     |  +-----------| (100)
+|                |     |  |           +-----------Taeniopygia
+|                |     +--| (99)
+|                |        |              +--alligator
+|                |        |  +-----------| (100)
+|                |        |  |           +--caiman
+|                |        +--| (70)
+|                |           |           +--emys_orbicularis
+|                |           |        +--| (95)
+|                |           |        |  +--chelonoidis_nigra
+|                |           |     +--| (100)
+|                |           |     |  +--caretta
+|                |           +-----| (100)
+|                |                 +---phrynops
++----------------| (100)
+|                |              +------------------Homo
+|                |         +----| (100)
+|                |         |    +-------------------Monodelphis
+|                +---------| (100)
+|                          +-----------------------Ornithorhynchus
+|
++--------------------------------------------------------Xenopus
+
+
+Consensus tree in newick format: 
+
+(protopterus:0.3288957570,((((Anolis:0.0911384203,podarcis:0.0549542359)48:0.0032513502,python:0.0998545036)100:0.0933619956,((Gallus:0.0487649603,Taeniopygia:0.0658063251)100:0.0693614115,((alligator:0.0036802650,caiman:0.0132357322)100:0.0688109843,(((emys_orbicularis:0.0069655296,chelonoidis_nigra:0.0121351226)95:0.0032012314,caretta:0.0109758241)100:0.0105760804,phrynops:0.0265258712)100:0.0371570837)70:0.0203474125)99:0.0149730260)100:0.0369724477,((Homo:0.1076126730,Monodelphis:0.1148344756)100:0.0301562116,Ornithorhynchus:0.1320439504)100:0.0569403005)100:0.0950101861,Xenopus:0.3128761966);
+
+TIME STAMP
+----------
+
+Date and time: Thu Jan 24 20:18:27 2019
+Total CPU time used: 91.457632 seconds (0h:1m:31s)
+Total wall-clock time used: 53.9788909 seconds (0h:0m:53s)
+

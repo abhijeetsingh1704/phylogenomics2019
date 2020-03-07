@@ -1,0 +1,3 @@
+InferNetwork_MP (gt1-gt225) 1 -n 10 -di -bl; 
+InferNetwork_MPL (gt1-gt225) 1 -n 10 -di ; 
+CalGTProb sn0 (gt1-gt225) -o -x 10;

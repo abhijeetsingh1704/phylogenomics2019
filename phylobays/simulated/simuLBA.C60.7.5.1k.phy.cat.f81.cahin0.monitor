@@ -1,0 +1,46 @@
+	MeanLength                    	0	74.9201	
+	MeanLength                    	0	97.1404	
+	VarLength                     	0	77.7658	
+	VarLength                     	0	97.7206	
+	ModeStatCenter                	4	9.97394	
+	ModeStatCenter                	1	79.0896	
+	ModeStatCenter                	0	97.8648	
+	ModeStatAlpha                 	3	19.4788	
+	ModeStatAlpha                 	4	82.368	
+	ModeStatAlpha                 	5	98.0733	
+	Alpha                         	1	9.75678	
+	Alpha                         	3	68.4712	
+	Alpha                         	1	96.6991	
+	EnterPartial                  	197	100	
+	OneBranchLengthPartial        	279	51.1744	
+	OneBranchLengthPartial        	202	93.2245	
+	SPRLocal                      	176	0	
+	SPRLocal                      	177	0	
+	GibbsSPR                      	262	7.95691	
+	LeavePartial                  	83	100	
+	UpdateSumRateMode             	70	100	
+	ResampleRateModeAff           	0	100	
+	ResampleSub                   	151	100	
+	ResampleRelativeRate          	84	100	
+	LengthRelRate                 	28	22.1682	
+	LengthRelRate                 	31	60.0417	
+	LengthRelRate                 	44	63.2731	
+	UpdateMode                    	54	100	
+	ResampleSub                   	156	100	
+	ResampleLength                	1	100	
+	ResampleSub                   	173	100	
+	SwitchModeIntegral            	176	22.251	
+	ResampleStat                  	51	50.7613	
+	UpdateLogProbs                	51	100	
+	ResampleSub                   	182	100	
+	GammaIntegral                 	8	24.1661	
+	GammaIntegral                 	13	86.5149	
+	GammaIntegral                 	17	98.5928	
+	UpdateSumRateMode             	81	100	
+
+
+	stat inf count : 331020
+	inf prob count : 0
+	sub overflow count : 975
+	sub max count : 13
+

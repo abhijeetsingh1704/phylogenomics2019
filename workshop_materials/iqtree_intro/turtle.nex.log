@@ -1,0 +1,262 @@
+IQ-TREE multicore version 1.7-beta6 for Linux 64-bit built Nov 19 2018
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    ip-172-30-3-212 (AVX2, FMA3, 7 GB RAM)
+Command: iqtree -s ../turtle.fa -spp ../turtle.nex -bb 1000 -nt AUTO
+Seed:    82364 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Thu Jan 24 19:54:21 2019
+Kernel:  AVX+FMA - auto-detect threads (2 CPU cores detected)
+
+Reading partition model file ../turtle.nex ...
+Reading alignment file ../turtle.fa ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 16 sequences with 20820 columns, 8574 distinct patterns
+6084 parsimony-informative, 3551 singleton sites, 11185 constant sites
+                   Gap/Ambiguity  Composition  p-value
+   1  protopterus         67.26%    failed      0.00%
+   2  Anolis               1.61%    passed     48.30%
+   3  Gallus               0.01%    passed     11.30%
+   4  Homo                 0.29%    passed     68.82%
+   5  Monodelphis          0.46%    failed      0.21%
+   6  Ornithorhynchus      3.73%    failed      0.00%
+   7  Taeniopygia          2.10%    failed      0.00%
+   8  Xenopus              1.50%    passed     27.31%
+   9  alligator           80.50%    passed     19.63%
+  10  emys_orbicularis    56.95%    passed     71.94%
+  11  phrynops            36.77%    passed     17.20%
+  12  caiman              41.06%    passed      5.16%
+  13  caretta             36.33%    passed      6.75%
+  14  python              65.18%    failed      0.00%
+  15  chelonoidis_nigra   68.53%    failed      0.77%
+  16  podarcis            76.21%    failed      0.14%
+WARNING: 6 sequences contain more than 50% gaps/ambiguity
+****  TOTAL               33.66%  7 sequences failed composition chi2 test (p-value<5%; df=3)
+NOTE: No CharPartition defined, use all CharSets
+
+Loading 29 partitions...
+Subset	Type	Seqs	Sites	Infor	Invar	Model	Name
+1		11	846	282	382		ENSGALG00000000223.macse_DNA_gb
+2		10	522	193	227		ENSGALG00000001529.macse_DNA_gb
+3		10	672	194	351		ENSGALG00000002002.macse_DNA_gb
+4		14	732	222	422		ENSGALG00000002514.macse_DNA_gb
+5		15	966	313	556		ENSGALG00000003337.macse_DNA_gb
+6		14	885	257	525		ENSGALG00000003700.macse_DNA_gb
+7		10	1545	359	833		ENSGALG00000003702.macse_DNA_gb
+8		12	480	176	225		ENSGALG00000003907.macse_DNA_gb
+9		12	576	176	318		ENSGALG00000005820.macse_DNA_gb
+10		15	696	129	483		ENSGALG00000005834.macse_DNA_gb
+11		13	570	124	334		ENSGALG00000005902.macse_DNA_gb
+12		12	792	283	334		ENSGALG00000008338.macse_DNA_gb
+13		11	540	129	329		ENSGALG00000008517.macse_DNA_gb
+14		12	546	231	262		ENSGALG00000008916.macse_DNA_gb
+15		11	930	243	547		ENSGALG00000009085.macse_DNA_gb
+16		13	597	239	261		ENSGALG00000009879.macse_DNA_gb
+17		9	900	290	406		ENSGALG00000011323.macse_DNA_gb
+18		10	447	201	211		ENSGALG00000011434.macse_DNA_gb
+19		12	981	172	659		ENSGALG00000011917.macse_DNA_gb
+20		10	468	169	191		ENSGALG00000011966.macse_DNA_gb
+21		13	753	233	387		ENSGALG00000012244.macse_DNA_gb
+22		13	519	149	292		ENSGALG00000012379.macse_DNA_gb
+23		9	630	158	382		ENSGALG00000012568.macse_DNA_gb
+24		10	1302	279	815		ENSGALG00000013227.macse_DNA_gb
+25		11	561	176	297		ENSGALG00000014038.macse_DNA_gb
+26		9	498	96	314		ENSGALG00000014648.macse_DNA_gb
+27		10	597	187	238		ENSGALG00000015326.macse_DNA_gb
+28		12	594	175	281		ENSGALG00000015397.macse_DNA_gb
+29		13	675	249	323		ENSGALG00000016241.macse_DNA_gb
+Degree of missing data: 0.276
+Info: multi-threading strategy over partitions
+
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.013 seconds
+NOTE: ModelFinder requires 68 MB RAM!
+NUMBER OF THREADS FOR PARTITION FINDING: 2
+Testing GTR+F+G on supermatrix...
+GTR+F+G4 / LnL: -116297.305 / df: 38 / AIC: 232670.610 / AICc: 232670.752 / BIC: 232972.469
+Selecting individual models for 29 charsets using BIC...
+ No. Model        Score       Charset
+   1 TN+F+G4      15316.103   ENSGALG00000003702.macse_DNA_gb
+   2 TIM3e+G4     10373.729   ENSGALG00000008338.macse_DNA_gb
+   3 TIM2e+I+G4   12509.218   ENSGALG00000003337.macse_DNA_gb
+   4 TIM2+F+G4    9496.398    ENSGALG00000003700.macse_DNA_gb
+   5 TNe+I+G4     10211.283   ENSGALG00000000223.macse_DNA_gb
+   6 TPM2u+F+I+G4 8825.823    ENSGALG00000016241.macse_DNA_gb
+   7 TVM+F+I+G4   8663.450    ENSGALG00000002514.macse_DNA_gb
+   8 TN+F+I+G4    8413.043    ENSGALG00000009879.macse_DNA_gb
+   9 SYM+G4       8807.243    ENSGALG00000012244.macse_DNA_gb
+  10 TPM2+F+G4    11207.449   ENSGALG00000013227.macse_DNA_gb	0h:0m:12s (0h:0m:23s left)
+  11 TPM3u+F+G4   10572.029   ENSGALG00000011323.macse_DNA_gb	0h:0m:13s (0h:0m:21s left)
+  12 TIM2+F+R3    9138.278    ENSGALG00000009085.macse_DNA_gb	0h:0m:14s (0h:0m:20s left)
+  13 TIM2+F+G4    6129.585    ENSGALG00000005834.macse_DNA_gb	0h:0m:14s (0h:0m:17s left)
+  14 TIM2+F+G4    7343.163    ENSGALG00000015397.macse_DNA_gb	0h:0m:15s (0h:0m:16s left)
+  15 TIM3+F+G4    8247.597    ENSGALG00000011917.macse_DNA_gb	0h:0m:15s (0h:0m:14s left)
+  16 K2P+R2       5963.228    ENSGALG00000003907.macse_DNA_gb	0h:0m:16s (0h:0m:13s left)
+  17 TNe+I        6250.853    ENSGALG00000005820.macse_DNA_gb	0h:0m:16s (0h:0m:11s left)
+  18 TIM2+F+I+G4  7206.227    ENSGALG00000008916.macse_DNA_gb	0h:0m:17s (0h:0m:10s left)
+  19 TIM+F+G4     5805.170    ENSGALG00000012379.macse_DNA_gb	0h:0m:17s (0h:0m:9s left)
+  20 TIM+F+G4     7567.768    ENSGALG00000015326.macse_DNA_gb	0h:0m:18s (0h:0m:8s left)
+  21 K2P+G4       6855.495    ENSGALG00000001529.macse_DNA_gb	0h:0m:18s (0h:0m:7s left)
+  22 TN+F+G4      6700.010    ENSGALG00000014038.macse_DNA_gb	0h:0m:19s (0h:0m:6s left)
+  23 TN+F+G4      7298.243    ENSGALG00000002002.macse_DNA_gb	0h:0m:19s (0h:0m:5s left)
+  24 TNe+G4       5763.214    ENSGALG00000005902.macse_DNA_gb	0h:0m:20s (0h:0m:4s left)
+  25 TIM3e+I+G4   6003.552    ENSGALG00000011434.macse_DNA_gb	0h:0m:20s (0h:0m:3s left)
+  26 K2P+G4       5964.548    ENSGALG00000011966.macse_DNA_gb	0h:0m:20s (0h:0m:2s left)
+  27 TPM2+F+G4    5448.936    ENSGALG00000008517.macse_DNA_gb	0h:0m:21s (0h:0m:1s left)
+  28 K2P+G4       5906.353    ENSGALG00000012568.macse_DNA_gb	0h:0m:21s (0h:0m:0s left)
+  29 TN+F+G4      4239.006    ENSGALG00000014648.macse_DNA_gb	0h:0m:22s (0h:0m:0s left)
+Full partition model BIC score: 233159.453 (LnL: -115480.951  df:221)
+Partition information was printed to ../turtle.nex.best_scheme.nex
+Partition information in Raxml format was printed to ../turtle.nex.best_scheme
+
+WARNING: Partition model has worse fit than single model!
+WARNING: Add MERGE to -m option to increase model fit!
+
+All model information printed to ../turtle.nex.model.gz
+CPU time for ModelFinder: 39.752 seconds (0h:0m:39s)
+Wall-clock time for ModelFinder: 22.388 seconds (0h:0m:22s)
+Generating 1000 samples for ultrafast bootstrap (seed: 82364)...
+
+NOTE: 47 MB RAM (0 GB) is required!
+Measuring multi-threading efficiency up to 2 CPU cores
+Increase to 10 rounds for branch lengths
+10 trees examined
+Threads: 1 / Time: 2.103 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -127911
+Threads: 2 / Time: 1.486 sec / Speedup: 1.415 / Efficiency: 71% / LogL: -127911
+BEST NUMBER OF THREADS: 2
+
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -120801.591
+Current log-likelihood at step 1: -115849.156
+Current log-likelihood at step 2: -115517.169
+Current log-likelihood at step 3: -115510.405
+Current log-likelihood at step 4: -115508.908
+Current log-likelihood at step 5: -115507.574
+Current log-likelihood at step 6: -115506.209
+Current log-likelihood at step 7: -115504.810
+Current log-likelihood at step 8: -115503.415
+Current log-likelihood at step 9: -115501.979
+Current log-likelihood at step 10: -115500.492
+Current log-likelihood at step 11: -115498.977
+Current log-likelihood at step 12: -115497.430
+Current log-likelihood at step 13: -115495.839
+Current log-likelihood at step 14: -115494.184
+Current log-likelihood at step 15: -115492.488
+Current log-likelihood at step 16: -115490.735
+Current log-likelihood at step 17: -115488.932
+Current log-likelihood at step 18: -115487.118
+Current log-likelihood at step 19: -115485.373
+Current log-likelihood at step 20: -115483.984
+Current log-likelihood at step 21: -115482.760
+Current log-likelihood at step 22: -115481.739
+Current log-likelihood at step 23: -115480.868
+Current log-likelihood at step 24: -115480.177
+Current log-likelihood at step 25: -115479.619
+Current log-likelihood at step 26: -115479.197
+Current log-likelihood at step 27: -115478.857
+Current log-likelihood at step 28: -115478.580
+Current log-likelihood at step 29: -115478.350
+Current log-likelihood at step 30: -115478.161
+Current log-likelihood at step 31: -115478.001
+Current log-likelihood at step 32: -115477.857
+Current log-likelihood at step 33: -115477.736
+Current log-likelihood at step 34: -115477.625
+Current log-likelihood at step 35: -115477.529
+Partition-specific rates:  1.106 1.316 1.103 1.072 1.264 0.766 0.885 1.096 0.793 0.472 0.655 1.061 0.705 1.548 1.129 1.213 1.294 1.688 0.611 1.312 1.104 0.973 0.818 0.695 0.921 0.648 1.175 0.997 1.273
+Parameters optimization took 34 rounds (3.170 sec)
+
+Computing ML distances based on estimated model parameters... 0.024 sec
+Computing BIONJ tree...
+0.001 seconds
+Log-likelihood of BIONJ tree: -115712.195
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 1.738 second
+Computing log-likelihood of 98 initial trees ... 2.110 seconds
+Current best score: -115477.529
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -115470.666
+Current log-likelihood at step 1: -115465.814
+Current log-likelihood at step 2: -115465.030
+Current log-likelihood at step 3: -115464.809
+Current log-likelihood at step 4: -115464.723
+Parameters optimization took 3 rounds (0.325 sec)
+
+BETTER TREE FOUND at iteration 1: -115464.723
+Iteration 10 / LogL: -115469.375 / Time: 0h:0m:15s
+Iteration 20 / LogL: -115494.341 / Time: 0h:0m:20s
+Finish initializing candidate tree set (1)
+Current best tree score: -115464.723 / CPU time: 13.437
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -115473.668 / Time: 0h:0m:24s (0h:0m:59s left)
+Iteration 40 / LogL: -115467.962 / Time: 0h:0m:28s (0h:0m:43s left)
+Iteration 50 / LogL: -115469.664 / Time: 0h:0m:31s (0h:0m:32s left)
+Log-likelihood cutoff on original alignment: -115512.835
+Iteration 60 / LogL: -115467.719 / Time: 0h:0m:34s (0h:0m:24s left)
+Iteration 70 / LogL: -115464.921 / Time: 0h:0m:38s (0h:0m:17s left)
+Iteration 80 / LogL: -115465.304 / Time: 0h:0m:41s (0h:0m:11s left)
+Iteration 90 / LogL: -115485.966 / Time: 0h:0m:45s (0h:0m:5s left)
+Iteration 100 / LogL: -115466.923 / Time: 0h:0m:49s (0h:0m:0s left)
+Log-likelihood cutoff on original alignment: -115512.835
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 1.000
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:50s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+Initial log-likelihood: -115464.723
+Current log-likelihood at step 1: -115464.675
+Current log-likelihood at step 2: -115464.636
+Current log-likelihood at step 3: -115464.604
+Current log-likelihood at step 4: -115464.576
+Current log-likelihood at step 5: -115464.548
+Current log-likelihood at step 6: -115464.526
+Current log-likelihood at step 7: -115464.505
+Current log-likelihood at step 8: -115464.487
+Current log-likelihood at step 9: -115464.470
+Current log-likelihood at step 10: -115464.456
+Current log-likelihood at step 11: -115464.442
+Current log-likelihood at step 12: -115464.432
+Current log-likelihood at step 13: -115464.422
+Partition-specific rates:  1.104 1.325 1.065 1.038 1.232 0.758 0.880 1.077 0.789 0.468 0.648 1.058 0.693 1.766 1.161 1.202 1.279 1.843 0.608 1.315 1.094 0.969 0.802 0.682 0.910 0.649 1.151 0.980 1.256
+Parameters optimization took 12 rounds (1.004 sec)
+
+Partition information was printed to ../turtle.nex.best_model.nex
+BEST SCORE FOUND : -115464.422
+Creating bootstrap support values...
+Split supports printed to NEXUS file ../turtle.nex.splits.nex
+Total tree length: 1.989
+
+Total number of iterations: 102
+CPU time used for tree search: 75.725 sec (0h:1m:15s)
+Wall-clock time used for tree search: 42.890 sec (0h:0m:42s)
+Total CPU time used: 87.729 sec (0h:1m:27s)
+Total wall-clock time used: 51.225 sec (0h:0m:51s)
+
+Computing bootstrap consensus tree...
+Reading input file ../turtle.nex.splits.nex...
+16 taxa and 37 splits.
+Consensus tree written to ../turtle.nex.contree
+Reading input trees file ../turtle.nex.contree
+Log-likelihood of consensus tree: -115464.422
+
+Analysis results written to: 
+  IQ-TREE report:                ../turtle.nex.iqtree
+  Maximum-likelihood tree:       ../turtle.nex.treefile
+  Likelihood distances:          ../turtle.nex.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          ../turtle.nex.splits.nex
+  Consensus tree:                ../turtle.nex.contree
+  Screen log file:               ../turtle.nex.log
+
+Date and Time: Thu Jan 24 19:55:34 2019

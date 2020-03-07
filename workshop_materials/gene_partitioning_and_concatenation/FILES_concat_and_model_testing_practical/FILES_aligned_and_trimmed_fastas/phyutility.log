@@ -1,0 +1,8 @@
+starting log: 23/01/19 07:24
+concat
+in filename: EOG092D1MLK.fa.mafft.trimal
+in filename: EOG092D1QZM.fa.mafft.trimal
+in filename: EOG092D1YWG.fa.mafft.trimal
+in filename: EOG092D23QW.fa.mafft.trimal
+in filename: EOG092D2PES.fa.mafft.trimal
+outfile: concatenated_supermatric.nexus

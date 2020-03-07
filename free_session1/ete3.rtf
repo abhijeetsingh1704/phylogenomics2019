@@ -1,0 +1,92 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 IPython 5.5.0 -- An enhanced Interactive Python.\
+?         -> Introduction and overview of IPython's features.\
+%quickref -> Quick reference.\
+help      -> Python's own help system.\
+object?   -> Details about 'object', use 'object??' for extra details.\
+\
+In [1]: import ete3\
+\
+In [2]: ls\
+ASPCL_0083_04882.tree.txt  PENEN_0144_10558.tree.txt  species_tree.txt\
+\
+In [3]: t = ete3.Tree("ASPCL_0083_04882.tree.txt")\
+\
+In [4]: t.show\
+Out[4]: <bound method TreeNode.show of Tree node '' (0x7fbe35fb245)>\
+\
+In [5]: t.show()\
+\
+In [6]: def node_name(node):\
+   ...:     return node.split("_")[0]\
+   ...: \
+\
+In [7]: t = ete3.PhyloTree("ASPCL_0083_04882.tree.txt", sp_naming_function=node_name)\
+\
+In [8]: t.show()\
+\
+In [9]: t.show()\
+\
+In [10]: t.get_descendant_evol_events()\
+Out[10]: \
+[<ete3.phylo.evolevents.EvolEvent instance at 0x7fbe35fbe128>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe35fa1368>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe2bbb5bd8>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe2bbb5098>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe2c617320>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe2c601e18>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe2c601170>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe54120290>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe5410c170>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe2c604c20>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe2c604ab8>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe35fa5050>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe5411e5a8>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe35fa62d8>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe35fa6ab8>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe2c6037e8>,\
+ <ete3.phylo.evolevents.EvolEvent instance at 0x7fbe2c603cb0>]\
+\
+In [11]: t.show()\
+\
+In [12]: sptree=ete3.Tree("species_tree.txt")\
+\
+In [13]: sptree.show()\
+\
+In [14]: def species_name(node):\
+    ...:     return node\
+    ...: \
+\
+In [15]: sptree=ete3.PhyloTree("species_tree.txt", spe_naming_function=species_name)\
+---------------------------------------------------------------------------\
+TypeError                                 Traceback (most recent call last)\
+<ipython-input-15-bb98621cb1b2> in <module>()\
+----> 1 sptree=ete3.PhyloTree("species_tree.txt", spe_naming_function=species_name)\
+\
+/usr/local/lib/python2.7/dist-packages/ete3/phylo/phylotree.pyc in __init__(self, newick, alignment, alg_format, sp_naming_function, format, **kargs)\
+    389         # Caution! native __init__ has to be called after setting\
+    390         # _speciesFunction to None!!\
+--> 391         TreeNode.__init__(self, newick=newick, format=format, **kargs)\
+    392 \
+    393         # This will be only executed after reading the whole tree,\
+\
+TypeError: __init__() got an unexpected keyword argument 'spe_naming_function'\
+\
+In [16]: sptree=ete3.PhyloTree("species_tree.txt", sp_naming_function=species_name)\
+\
+In [17]: sptree.show()\
+\
+In [18]: reconTree,event = t.reconcile(sptree)\
+\
+In [19]: t.show()\
+\
+In [20]: reconTree.show()\
+\
+In [21]: \
+}

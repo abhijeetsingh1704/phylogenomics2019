@@ -1,0 +1,78 @@
+#nexus
+
+BEGIN Taxa;
+DIMENSIONS ntax=28;
+TAXLABELS
+[1] '28436'   
+[2] '28723'   
+[3] '29010'   
+[4] '2903'   
+[5] '28585'   
+[6] '28718'   
+[7] '25797'   
+[8] '29148'   
+[9] '29020'   
+[10] '26916'   
+[11] '29011'   
+[12] '29105'   
+[13] '26752'   
+[14] '26754'   
+[15] '26755'   
+[16] '6101'   
+[17] '13818'   
+[18] '26156'   
+[19] '28720'   
+[20] '28721'   
+[21] '5883'   
+[22] '6394'   
+[23] '13383'   
+[24] '28063'   
+[25] '28336'   
+[26] '28439'   
+[27] '29169'   
+[28] 'O13393' 
+;
+END; [Taxa]
+
+BEGIN Characters;
+DIMENSIONS nchar=64;
+FORMAT
+	datatype=DNA
+	missing=?
+	gap=-
+	symbols="atgc"
+	labels=left
+	transpose=no
+	interleave=yes
+;
+MATRIX
+'28436' gaccatcacgatgtgggtgggctcctgaacccccaactactttcagacccacctggttgtggcg
+'28723' gaccatcacgatgtgggtgggctcctgaacccccaactactttcagacccacctggttgtggcg
+'29010' gaccatcacgatgtgggtgggctcctgaacccccaactactttcagacccacctggttgtggcg
+'2903' gaccgtcacgacgtgggtgggctcctgaacccccaactactttcagacccacctggttgtggcg
+'28585' gaccgtcacgacgtgggtgggctcctgaacccccaactactttcagacccacctggttgtggcg
+'28718' gaccgtcacgacgtgggtgggctcctgaacccccaactactttcagacccacctggttgtggcg
+'25797' tatcatcatgacgtgagtgggctcctgaacccccaactactttcagacccacttagttgtggcg
+'29148' tatcatcatgacgtgagtgggctcctgaacccccaactactttcagacccacttagttgtggca
+'29020' ggccagcacgacgtgggtggtttcctaaacccccaactactctttgacttacttggttatcacg
+'26916' ggccagcacgacgtgggtggtttcctaaacccccaactactctttgacttacttggttatcacg
+'29011' ggccagcacgacgtgggtggtttcctaaacccccaactactctttgacttacttggttatcacg
+'29105' ggccagcacgacgtgggtggtttcctaaacccccaactactctttgacttacttggttatcacg
+'26752' gaccatgacggcgtgggtgggctcctgaaccctcaactactttcagacccacttggttgtggcg
+'26754' gaccatgacaacgtgggtgggctcctgaaccctcaactactttcagacccactcggttgtggcg
+'26755' gaccatgacggcgtaggtgggctcctgaaccctcaactactttcagacccacttggttgtggcg
+'6101' gaccatcgcgacgtgggcgggcgcctgaaccccaaactactttcagacccatttgcttgtggcg
+'13818' gaccatcgcgacgtgggcgggcgcctgaaccccaaactactttcagacccatttgcttgtggcg
+'26156' gaccatcgcgacgtgggcgggcgcctgaaccccaaactactttcagacccatttgcttgtggcg
+'28720' gaccatcgcgacgtgggcgggcgcctgaaccccaaactactttcagacccatttgcttgtggcg
+'28721' gaccatcacgatgtgggtgggctcctgaacccccaactactttcagacccatttgcttgtggcg
+'5883' gactatcacgacatgggtgagcgcttgaatccccaactactttcagacccacttggctgtggcg
+'6394' gactatcacgacatgggtgagcgcctgaatccccaactactttcagacccacttggctgtggcg
+'13383' gactatcacgacatgggtgagcgcctgaatccccagctactttcagacccacttggctgtggcg
+'28063' gactatcacgacgtgggtgagcgcctgaatcgccaactactttcagacccacttggctgtggcg
+'28336' gactatcacgacatgggtgagcgcctgaatccccaactactttcagacccacttggctgtggcg
+'28439' gaccatcacgacgtgggtgagcgcctgaatccccaactactttcagacccacttggctgtggcg
+'29169' gactatcacgacgtgggtgagcgcctgaatcgccaactactttcagacccacttggctgtggcg
+'O13393' gaccatcacgacgcggataggcttcagggctcccgatcggctccacgttcccttggtcgcggag
+;
+END; [Characters]

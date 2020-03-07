@@ -1,0 +1,28 @@
+#NEXUS
+
+begin taxa;
+    dimensions ntax=6;
+    taxlabels A B C D E F;
+end;
+
+begin trees;
+    tree 1 = [&R] (A:4.2,((B:1.0,C:1.0):2.2,(D:3.1,(E:3.0,F:3.0):0.1):0.1):1.0);
+end;
+
+begin paup;
+    showtrees/userbrlens;
+end;
+
+begin dnasim;
+    simdata multilocus=y nloci=(200 500 1000 3000 5000) nsitesperlocus=200;
+    truetree source=memory treenum=1  units=2Ngen
+             scalebrlen=1.0
+             mscoal=y Ne=100000 mu=1e-8
+             showtruetree=brlens showgenetrees=n storetruetrees=n
+             seed=1;
+    lset model=jc nst=1 basefreq=eq;    [= Jukes-Cantor model]
+    beginsim nreps=100 seed=0;
+        svdq nthreads=2;
+        tally 'svdq';
+    endsim;
+end;

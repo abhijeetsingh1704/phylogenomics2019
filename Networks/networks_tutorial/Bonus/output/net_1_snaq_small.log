@@ -1,0 +1,230 @@
+optimization of topology, BL and inheritance probabilities using:
+ hmax = 1,
+ tolerance parameters: ftolRel=1.0e-6, ftolAbs=1.0e-6,
+                       xtolAbs=0.001, xtolRel=0.01.
+ max number of failed proposals = 75, liktolAbs = 1.0e-6.
+rootname for files: net_1_snaq_small
+BEGIN: 10 runs on starting tree (Aeuniaristata,Aecomosa,(Aetauschii,((Sitopsis,(Aeumbellulata,Aecaudata):0.19565150970956188):0.06431189246037054,outgroup):0.061195350654810535):0.5105282961723762);
+
+main seed 77679
+seed: 77679 for run 1, 2019-01-24 23:56:54.153
+
+BEGIN SNaQ for run 1, seed 77679 and hmax 1
+Begins heuristic optimization of network------
+
+found best network, now we re-optimize branch lengths and gamma more precisely
+STOPPED by number of failures criteria
+END optTopLevel: found minimizer topology at step 82 (failures: 75) with -loglik=101.63005 and ht_min=[0.18519, 0.36546, 0.18732, 0.12969, 0.34416, 0.21019]
+PERFORMANCE: total number of moves (proposed, successful, accepted) in general, and to fix gamma=0.0,t=0.0 cases
+	--------moves general--------				 --------moves gamma,t------	
+move	 Num.Proposed	 Num.Successful	 Num.Accepted	 | Num.Proposed	 Num.Successful	 Num.Accepted
+add		 1		 1		 1	 |	 NA 		 NA 		 NA 
+mvorigin	 25		 25		 0	 |	 0		 0		 --
+mvtarget	 18		 18		 0	 |	 0		 0		 --
+chdir		 4		 4		 0	 |	 1		 1		 --
+delete		 0		 0		 0	 |	 0		 0		 --
+nni		 34		 29		 1	 |	 0		 0		 --
+Total		 82		 77		 2	 |	 1		 1		 1
+Proportion	 -- 		 1.0		 0.0	 |	 -- 		 1.0		 1.0
+(Aeuniaristata,Aecomosa,(Aetauschii,((outgroup,(Sitopsis)#H8:::0.8148054914750353):0.1873208707498032,(Aeumbellulata,(Aecaudata,#H8:::0.18519450852496472):0.21019171510201076):0.36546236803245746):0.12969109893588765):0.34416308226110753);
+---------------------
+seed: 89492 for run 2, 2019-01-25 0:2:3.323
+
+BEGIN SNaQ for run 2, seed 89492 and hmax 1 changed starting topology by NNI move
+
+Begins heuristic optimization of network------
+
+found best network, now we re-optimize branch lengths and gamma more precisely
+STOPPED by number of failures criteria
+END optTopLevel: found minimizer topology at step 133 (failures: 75) with -loglik=84.50859 and ht_min=[0.52356, 0.61624, 0.0, 0.36799, 0.31535, 0.26093, 0.70624, 0.00017]
+PERFORMANCE: total number of moves (proposed, successful, accepted) in general, and to fix gamma=0.0,t=0.0 cases
+	--------moves general--------				 --------moves gamma,t------	
+move	 Num.Proposed	 Num.Successful	 Num.Accepted	 | Num.Proposed	 Num.Successful	 Num.Accepted
+add		 1		 1		 1	 |	 NA 		 NA 		 NA 
+mvorigin	 30		 30		 2	 |	 0		 0		 --
+mvtarget	 32		 32		 1	 |	 1		 1		 --
+chdir		 8		 8		 1	 |	 1		 1		 --
+delete		 0		 0		 0	 |	 0		 0		 --
+nni		 62		 28		 1	 |	 0		 0		 --
+Total		 133		 99		 6	 |	 2		 2		 1
+Proportion	 -- 		 1.0		 0.1	 |	 -- 		 1.0		 0.5
+(Aeuniaristata,Aecomosa,(((Aeumbellulata,Aecaudata):0.0,#H8:0.3679869879819817::0.47643703036536844):0.6162366399648134,(Aetauschii,((outgroup,Sitopsis):0.0001672026544785687)#H8:0.7062439537774113::0.5235629696346316):0.3153488198776666):0.2609338908912328);
+---------------------
+seed: 82352 for run 3, 2019-01-25 0:4:46.07
+
+BEGIN SNaQ for run 3, seed 82352 and hmax 1 changed starting topology by NNI move
+
+Begins heuristic optimization of network------
+
+found best network, now we re-optimize branch lengths and gamma more precisely
+STOPPED by number of failures criteria
+END optTopLevel: found minimizer topology at step 98 (failures: 75) with -loglik=103.08674 and ht_min=[0.31089, 0.10974, 0.12574, 0.32114, 0.07351]
+PERFORMANCE: total number of moves (proposed, successful, accepted) in general, and to fix gamma=0.0,t=0.0 cases
+	--------moves general--------				 --------moves gamma,t------	
+move	 Num.Proposed	 Num.Successful	 Num.Accepted	 | Num.Proposed	 Num.Successful	 Num.Accepted
+add		 3		 3		 1	 |	 NA 		 NA 		 NA 
+mvorigin	 25		 25		 0	 |	 0		 0		 --
+mvtarget	 31		 31		 0	 |	 0		 0		 --
+chdir		 7		 7		 1	 |	 0		 0		 --
+delete		 0		 0		 0	 |	 0		 0		 --
+nni		 32		 29		 2	 |	 0		 0		 --
+Total		 98		 95		 4	 |	 0		 0		 0
+Proportion	 -- 		 1.0		 0.0	 |	 -- 		 0.0		 0.0
+((((Aeumbellulata,Aecaudata):0.31088616280841946,(outgroup,Sitopsis):0.10973559165321504):0.12573980450510322,(Aetauschii,#H8:::0.1862722846088961):0.5019488482777441):0.5019488482777441,Aecomosa,(Aeuniaristata)#H8:::0.8137277153911038);
+---------------------
+seed: 47874 for run 4, 2019-01-25 0:6:38.167
+
+BEGIN SNaQ for run 4, seed 47874 and hmax 1
+Begins heuristic optimization of network------
+
+found best network, now we re-optimize branch lengths and gamma more precisely
+STOPPED by number of failures criteria
+END optTopLevel: found minimizer topology at step 143 (failures: 75) with -loglik=103.08674 and ht_min=[0.31089, 0.10974, 0.12574, 0.32114, 0.07351]
+PERFORMANCE: total number of moves (proposed, successful, accepted) in general, and to fix gamma=0.0,t=0.0 cases
+	--------moves general--------				 --------moves gamma,t------	
+move	 Num.Proposed	 Num.Successful	 Num.Accepted	 | Num.Proposed	 Num.Successful	 Num.Accepted
+add		 2		 2		 1	 |	 NA 		 NA 		 NA 
+mvorigin	 41		 41		 0	 |	 0		 0		 --
+mvtarget	 38		 38		 0	 |	 0		 0		 --
+chdir		 13		 13		 1	 |	 0		 0		 --
+delete		 0		 0		 0	 |	 0		 0		 --
+nni		 49		 43		 3	 |	 5		 5		 --
+Total		 143		 137		 5	 |	 5		 5		 3
+Proportion	 -- 		 1.0		 0.0	 |	 -- 		 1.0		 0.6
+(Aecomosa,(((outgroup,Sitopsis):0.1097355799085344,(Aeumbellulata,Aecaudata):0.3108868507550116):0.12573898195103073,(Aetauschii,#H8:::0.18627198964330524):0.5019490419825439):0.5019490419825439,(Aeuniaristata)#H8:::0.8137280103566948);
+---------------------
+seed: 97401 for run 5, 2019-01-25 0:9:53.073
+
+BEGIN SNaQ for run 5, seed 97401 and hmax 1
+Begins heuristic optimization of network------
+
+found best network, now we re-optimize branch lengths and gamma more precisely
+STOPPED by number of failures criteria
+END optTopLevel: found minimizer topology at step 91 (failures: 75) with -loglik=103.26271 and ht_min=[0.33012, 0.58699, 0.14011, 0.13727, 0.34566, 0.07026]
+PERFORMANCE: total number of moves (proposed, successful, accepted) in general, and to fix gamma=0.0,t=0.0 cases
+	--------moves general--------				 --------moves gamma,t------	
+move	 Num.Proposed	 Num.Successful	 Num.Accepted	 | Num.Proposed	 Num.Successful	 Num.Accepted
+add		 2		 2		 1	 |	 NA 		 NA 		 NA 
+mvorigin	 25		 25		 0	 |	 0		 0		 --
+mvtarget	 25		 25		 0	 |	 0		 0		 --
+chdir		 4		 4		 0	 |	 1		 1		 --
+delete		 0		 0		 0	 |	 0		 0		 --
+nni		 35		 26		 1	 |	 0		 0		 --
+Total		 91		 82		 2	 |	 1		 1		 1
+Proportion	 -- 		 1.0		 0.0	 |	 -- 		 1.0		 1.0
+(Aeuniaristata,Aecomosa,(Aetauschii,((Sitopsis,(outgroup,#H8:::0.3301157500233634):0.0702607151584436):0.14011136753596173,(Aecaudata,(Aeumbellulata)#H8:::0.6698842499766366):0.5869913347380503):0.13727349624803098):0.34566379129061847);
+---------------------
+seed: 4191 for run 6, 2019-01-25 0:13:16.735
+
+BEGIN SNaQ for run 6, seed 4191 and hmax 1 changed starting topology by NNI move
+
+Begins heuristic optimization of network------
+
+found best network, now we re-optimize branch lengths and gamma more precisely
+STOPPED by number of failures criteria
+END optTopLevel: found minimizer topology at step 187 (failures: 75) with -loglik=88.11373 and ht_min=[0.32432, 0.45674, 0.36367, 0.01682, 0.29297, 0.11726, 0.0, 0.36827]
+PERFORMANCE: total number of moves (proposed, successful, accepted) in general, and to fix gamma=0.0,t=0.0 cases
+	--------moves general--------				 --------moves gamma,t------	
+move	 Num.Proposed	 Num.Successful	 Num.Accepted	 | Num.Proposed	 Num.Successful	 Num.Accepted
+add		 1		 1		 1	 |	 NA 		 NA 		 NA 
+mvorigin	 53		 53		 7	 |	 0		 0		 --
+mvtarget	 54		 54		 0	 |	 1		 1		 --
+chdir		 20		 20		 0	 |	 1		 1		 --
+delete		 0		 0		 0	 |	 0		 0		 --
+nni		 59		 39		 0	 |	 1		 1		 --
+Total		 187		 167		 8	 |	 3		 3		 2
+Proportion	 -- 		 1.0		 0.0	 |	 -- 		 1.0		 0.7
+(Aeuniaristata,(((Sitopsis,((Aeumbellulata,Aecaudata):0.3636710698536572)#H8:2.4825877521457745e-18::0.6756750154509977):0.11726254760605638,outgroup):0.29297367025961213,Aetauschii):0.4567387056432197,(Aecomosa,#H8:0.3682692789838878::0.32432498454900227):0.016823397118764922);
+---------------------
+seed: 35207 for run 7, 2019-01-25 0:17:0.748
+
+BEGIN SNaQ for run 7, seed 35207 and hmax 1 changed starting topology by NNI move
+
+Begins heuristic optimization of network------
+
+found best network, now we re-optimize branch lengths and gamma more precisely
+STOPPED by number of failures criteria
+END optTopLevel: found minimizer topology at step 90 (failures: 75) with -loglik=113.78602 and ht_min=[0.02646, 0.33082, 0.0, 0.17813, 0.34354, 6.44368]
+PERFORMANCE: total number of moves (proposed, successful, accepted) in general, and to fix gamma=0.0,t=0.0 cases
+	--------moves general--------				 --------moves gamma,t------	
+move	 Num.Proposed	 Num.Successful	 Num.Accepted	 | Num.Proposed	 Num.Successful	 Num.Accepted
+add		 4		 3		 1	 |	 NA 		 NA 		 NA 
+mvorigin	 25		 25		 0	 |	 0		 0		 --
+mvtarget	 25		 25		 0	 |	 0		 0		 --
+chdir		 4		 4		 0	 |	 0		 0		 --
+delete		 0		 0		 0	 |	 0		 0		 --
+nni		 32		 22		 0	 |	 1		 1		 --
+Total		 90		 79		 1	 |	 1		 1		 1
+Proportion	 -- 		 1.0		 0.0	 |	 -- 		 1.0		 1.0
+((Aecomosa,Aeuniaristata):0.34353728529761907,(outgroup,((Aeumbellulata,(Aecaudata,#H8:::0.026457749883938595):6.443683780901819):0.33081929114846537,(Sitopsis)#H8:::0.9735422501160614):0.0):0.1781276752991692,Aetauschii);
+---------------------
+seed: 50241 for run 8, 2019-01-25 0:17:49.466
+
+BEGIN SNaQ for run 8, seed 50241 and hmax 1 changed starting topology by NNI move
+
+Begins heuristic optimization of network------
+
+found best network, now we re-optimize branch lengths and gamma more precisely
+STOPPED by number of failures criteria
+END optTopLevel: found minimizer topology at step 114 (failures: 75) with -loglik=80.74911 and ht_min=[0.42051, 0.64525, 0.17659, 0.0, 0.28473, 0.26054, 0.20656, 0.75215]
+PERFORMANCE: total number of moves (proposed, successful, accepted) in general, and to fix gamma=0.0,t=0.0 cases
+	--------moves general--------				 --------moves gamma,t------	
+move	 Num.Proposed	 Num.Successful	 Num.Accepted	 | Num.Proposed	 Num.Successful	 Num.Accepted
+add		 1		 1		 1	 |	 NA 		 NA 		 NA 
+mvorigin	 37		 37		 2	 |	 0		 0		 --
+mvtarget	 33		 33		 0	 |	 0		 0		 --
+chdir		 9		 9		 1	 |	 0		 0		 --
+delete		 0		 0		 0	 |	 0		 0		 --
+nni		 34		 25		 0	 |	 2		 2		 --
+Total		 114		 105		 4	 |	 2		 2		 1
+Proportion	 -- 		 1.0		 0.0	 |	 -- 		 1.0		 0.5
+(Aeuniaristata,Aecomosa,((Aecaudata,(Aeumbellulata,#H8:0.20655709020677526::0.42050838805106905):0.17659373922008964):0.645246113555574,(Aetauschii,((Sitopsis,outgroup):0.0)#H8:0.7521493379277122::0.579491611948931):0.28473444933986):0.2605352316991927);
+---------------------
+seed: 83037 for run 9, 2019-01-25 0:23:28.594
+
+BEGIN SNaQ for run 9, seed 83037 and hmax 1 changed starting topology by NNI move
+
+Begins heuristic optimization of network------
+
+found best network, now we re-optimize branch lengths and gamma more precisely
+STOPPED by number of failures criteria
+END optTopLevel: found minimizer topology at step 114 (failures: 75) with -loglik=80.74911 and ht_min=[0.42051, 0.64524, 0.17659, 0.75222, 0.28473, 0.26054, 0.0, 0.20646]
+PERFORMANCE: total number of moves (proposed, successful, accepted) in general, and to fix gamma=0.0,t=0.0 cases
+	--------moves general--------				 --------moves gamma,t------	
+move	 Num.Proposed	 Num.Successful	 Num.Accepted	 | Num.Proposed	 Num.Successful	 Num.Accepted
+add		 1		 1		 1	 |	 NA 		 NA 		 NA 
+mvorigin	 36		 36		 4	 |	 0		 0		 --
+mvtarget	 36		 36		 0	 |	 1		 1		 --
+chdir		 10		 10		 0	 |	 1		 1		 --
+delete		 0		 0		 0	 |	 0		 0		 --
+nni		 31		 26		 0	 |	 0		 0		 --
+Total		 114		 109		 5	 |	 2		 2		 1
+Proportion	 -- 		 1.0		 0.0	 |	 -- 		 1.0		 0.5
+(Aeuniaristata,Aecomosa,((((outgroup,Sitopsis):0.0)#H8:0.752217820791779::0.5794943281812195,Aetauschii):0.28473235231694527,(Aecaudata,(Aeumbellulata,#H8:0.20645848945174194::0.42050567181878057):0.1765938970796252):0.6452442655106814):0.26053752641538586);
+---------------------
+seed: 92808 for run 10, 2019-01-25 0:32:30.071
+
+BEGIN SNaQ for run 10, seed 92808 and hmax 1 changed starting topology by NNI move
+
+Begins heuristic optimization of network------
+
+found best network, now we re-optimize branch lengths and gamma more precisely
+STOPPED by number of failures criteria
+END optTopLevel: found minimizer topology at step 255 (failures: 75) with -loglik=81.0557 and ht_min=[0.21188, 0.29992, 0.36359, 0.0, 0.4561, 0.75609, 0.0, 9.99911]
+PERFORMANCE: total number of moves (proposed, successful, accepted) in general, and to fix gamma=0.0,t=0.0 cases
+	--------moves general--------				 --------moves gamma,t------	
+move	 Num.Proposed	 Num.Successful	 Num.Accepted	 | Num.Proposed	 Num.Successful	 Num.Accepted
+add		 1		 1		 1	 |	 NA 		 NA 		 NA 
+mvorigin	 75		 75		 7	 |	 0		 0		 --
+mvtarget	 72		 72		 2	 |	 0		 0		 --
+chdir		 21		 21		 0	 |	 0		 0		 --
+delete		 0		 0		 0	 |	 0		 0		 --
+nni		 86		 58		 0	 |	 1		 1		 --
+Total		 255		 227		 10	 |	 1		 1		 1
+Proportion	 -- 		 1.0		 0.0	 |	 -- 		 1.0		 1.0
+(Aeuniaristata,(Aetauschii,((outgroup,Sitopsis):0.0,((Aecaudata,Aeumbellulata):0.36358969822210274)#H8:0.0::0.7881201245180203):0.2999214746407893):0.4560977588224788,(Aecomosa,#H8:9.99910779252746::0.21187987548197976):0.7560850800283311);
+---------------------
+
+2019-01-25 0:44:42.565
+MaxNet is (Aeuniaristata,Aecomosa,((Aecaudata,(Aeumbellulata,#H8:0.20655709020677526::0.42050838805106905):0.17659373922008964):0.645246113555574,(Aetauschii,((Sitopsis,outgroup):0.0)#H8:0.7521493379277122::0.579491611948931):0.28473444933986):0.2605352316991927); 
+with -loglik 80.74910502504562

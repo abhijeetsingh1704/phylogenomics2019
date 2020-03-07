@@ -1,0 +1,69 @@
+#nexus
+
+BEGIN Taxa;
+DIMENSIONS ntax=25;
+TAXLABELS
+[1] 'camelina'
+[2] 'O._cabulica'
+[3] 'Physaria_gracilis'
+[4] 'Arabis_pauciflora'
+[5] 'Aethionema'
+[6] 'Crucihimalaya'
+[7] 'Neslia'
+[8] 'P._radicata'
+[9] 'P._enysii'
+[10] 'Moricandia'
+[11] 'Arabis_alpina'
+[12] 'A._halleri'
+[13] 'A._neglecta'
+[14] 'P._exilis'
+[15] 'P._stellata'
+[16] 'P._latisilique'
+[17] 'Arabis_glabra'
+[18] 'P._wallii'
+[19] 'Physaria_bellii'
+[20] 'Mathiola'
+[21] 'P._fastigiata'
+[22] 'A._thaliana'
+[23] 'A._lyrata'
+[24] 'O._pumila'
+[25] 'Cardaminopsis'
+;
+END; [Taxa]
+
+BEGIN Trees;
+PROPERTIES partialtrees=yes;
+TRANSLATE
+	 'Mathiola'	'Mathiola',
+	 'Arabis_alpina'	'Arabis_alpina',
+	 'O._cabulica'	'O._cabulica',
+	 'Arabis_pauciflora'	'Arabis_pauciflora',
+	 'O._pumila'	'O._pumila',
+	 'P._stellata'	'P._stellata',
+	 'A._thaliana'	'A._thaliana',
+	 'A._lyrata'	'A._lyrata',
+	 'Physaria_gracilis'	'Physaria_gracilis',
+	 'P._nouvaezelandia'	'P._nouvaezelandia',
+	 'A._halleri'	'A._halleri',
+	 'P._wallii'	'P._wallii',
+	 'P._exilis'	'P._exilis',
+	 'P._radicata'	'P._radicata',
+	 'Aethionema'	'Aethionema',
+	 'P._fastigiata'	'P._fastigiata',
+	 'Moricandia'	'Moricandia',
+	 'P._enysii'	'P._enysii',
+	 'camelina'	'camelina',
+	 'Crucihimalaya'	'Crucihimalaya',
+	 'A._neglecta'	'A._neglecta',
+	 'Neslia'	'Neslia',
+	 'Physaria_bellii'	'Physaria_bellii',
+	 'P._latisilique'	'P._latisilique',
+	 'Arabis_glabra'	'Arabis_glabra',
+	 'Cardaminopsis'	'Cardaminopsis',
+;
+[1] tree 'imported1'= (A._halleri:1.0,(A._thaliana:1.0,((Neslia:1.0,camelina:1.0):1.0,((((((P._stellata:1.0,P._fastigiata:1.0,P._enysii:1.0,P._latisilique:1.0):1.0,P._wallii:1.0,P._exilis:1.0,P._radicata:1.0):1.0,Crucihimalaya:1.0,(Physaria_gracilis:1.0,Physaria_bellii:1.0):1.0):1.0,(Arabis_alpina:1.0,(Moricandia:1.0,Mathiola:1.0,Aethionema:1.0):1.0):1.0):1.0,(O._pumila:1.0,O._cabulica:1.0):1.0):1.0,(Arabis_glabra:1.0,Arabis_pauciflora:1.0):1.0):1.0):1.0):1.0,A._neglecta:1.0,A._lyrata:1.0,Cardaminopsis:1.0);
+[2] tree 'imported2'= ((Neslia:1.0,camelina:1.0):1.0,Crucihimalaya:1.0,(((Arabis_alpina:1.0,Moricandia:1.0):1.0,Mathiola:1.0):1.0,(Physaria_gracilis:1.0,Physaria_bellii:1.0):1.0):1.0,(Arabis_glabra:1.0,Arabis_pauciflora:1.0):1.0,(O._pumila:1.0,O._cabulica:1.0):1.0,((P._stellata:1.0,P._fastigiata:1.0):1.0,P._exilis:1.0):1.0,(((A._neglecta:1.0,A._lyrata:1.0,Cardaminopsis:1.0):1.0,A._halleri:1.0):1.0,A._thaliana:1.0):1.0);
+[3] tree 'imported3'= (A._neglecta:1.0,A._lyrata:1.0,A._halleri:1.0,(Neslia:1.0,(P._stellata:1.0,(P._exilis:1.0,(P._fastigiata:1.0,P._wallii:1.0):1.0):1.0):1.0,A._thaliana:1.0,((Arabis_glabra:1.0,Arabis_pauciflora:1.0):1.0,Physaria_gracilis:1.0):1.0):1.0,Cardaminopsis:1.0);
+[4] tree 'imported4'= (((((Neslia:1.0,camelina:1.0):1.0,(Arabis_glabra:1.0,Arabis_pauciflora:1.0):1.0):1.0,(((P._stellata:1.0,P._nouvaezelandia:1.0):1.0,(P._fastigiata:1.0,P._exilis:1.0):1.0):1.0,Crucihimalaya:1.0):1.0):1.0,Moricandia:1.0):1.0,((A._neglecta:1.0,Cardaminopsis:1.0):1.0,A._halleri:1.0):1.0,A._thaliana:1.0);
+[5] tree 'imported5'= ((Physaria_gracilis:1.0,Physaria_bellii:1.0):1.0,camelina:1.0,Moricandia:1.0,(O._pumila:1.0,O._cabulica:1.0):1.0,Aethionema:1.0,A._halleri:1.0,A._thaliana:1.0,A._neglecta:1.0,A._lyrata:1.0,Neslia:1.0,(P._stellata:1.0,P._exilis:1.0):1.0,Crucihimalaya:1.0,(Arabis_pauciflora:1.0,Arabis_glabra:1.0):1.0);
+END; [Trees]

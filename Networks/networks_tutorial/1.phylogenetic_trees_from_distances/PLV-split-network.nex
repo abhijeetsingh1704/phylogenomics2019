@@ -1,0 +1,26 @@
+
+#nexus
+
+BEGIN Taxa;
+DIMENSIONS ntax=6;
+TAXLABELS
+[1] 'PLVvagm'
+[2] 'PLVlhoest'
+[3] 'PLVcol'
+[4] 'PLVcpz'
+[5] 'PLVsyk'
+[6] 'PLVsmm'
+;
+END; [Taxa]
+
+BEGIN Distances;
+DIMENSIONS ntax=6;
+FORMAT labels=no diagonal triangle=both;
+MATRIX
+ 0.0 18.6 29.2 17.5 18.4 11.8
+ 18.6 0.0 29.6 21.1 24.0 19.4
+ 29.2 29.6 0.0 27.5 33.2 30.0
+ 17.5 21.1 27.5 0.0 19.1 17.9
+ 18.4 24.0 33.2 19.1 0.0 17.8
+ 11.8 19.4 30.0 17.9 17.8 0.0;
+END; [Distances]

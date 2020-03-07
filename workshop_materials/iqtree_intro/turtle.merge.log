@@ -1,0 +1,412 @@
+IQ-TREE multicore version 1.7-beta6 for Linux 64-bit built Nov 19 2018
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    ip-172-30-3-212 (AVX2, FMA3, 7 GB RAM)
+Command: iqtree -s turtle.fa -spp turtle.nex -bb 1000 -nt AUTO -m MFP+MERGE -rcluster 10 -pre turtle.merge
+Seed:    646993 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Thu Jan 24 20:11:27 2019
+Kernel:  AVX+FMA - auto-detect threads (2 CPU cores detected)
+
+Reading partition model file turtle.nex ...
+Reading alignment file turtle.fa ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 16 sequences with 20820 columns, 8574 distinct patterns
+6084 parsimony-informative, 3551 singleton sites, 11185 constant sites
+                   Gap/Ambiguity  Composition  p-value
+   1  protopterus         67.26%    failed      0.00%
+   2  Anolis               1.61%    passed     48.30%
+   3  Gallus               0.01%    passed     11.30%
+   4  Homo                 0.29%    passed     68.82%
+   5  Monodelphis          0.46%    failed      0.21%
+   6  Ornithorhynchus      3.73%    failed      0.00%
+   7  Taeniopygia          2.10%    failed      0.00%
+   8  Xenopus              1.50%    passed     27.31%
+   9  alligator           80.50%    passed     19.63%
+  10  emys_orbicularis    56.95%    passed     71.94%
+  11  phrynops            36.77%    passed     17.20%
+  12  caiman              41.06%    passed      5.16%
+  13  caretta             36.33%    passed      6.75%
+  14  python              65.18%    failed      0.00%
+  15  chelonoidis_nigra   68.53%    failed      0.77%
+  16  podarcis            76.21%    failed      0.14%
+WARNING: 6 sequences contain more than 50% gaps/ambiguity
+****  TOTAL               33.66%  7 sequences failed composition chi2 test (p-value<5%; df=3)
+NOTE: No CharPartition defined, use all CharSets
+
+Loading 29 partitions...
+Subset	Type	Seqs	Sites	Infor	Invar	Model	Name
+1		11	846	282	382	MFP+MERGE	ENSGALG00000000223.macse_DNA_gb
+2		10	522	193	227	MFP+MERGE	ENSGALG00000001529.macse_DNA_gb
+3		10	672	194	351	MFP+MERGE	ENSGALG00000002002.macse_DNA_gb
+4		14	732	222	422	MFP+MERGE	ENSGALG00000002514.macse_DNA_gb
+5		15	966	313	556	MFP+MERGE	ENSGALG00000003337.macse_DNA_gb
+6		14	885	257	525	MFP+MERGE	ENSGALG00000003700.macse_DNA_gb
+7		10	1545	359	833	MFP+MERGE	ENSGALG00000003702.macse_DNA_gb
+8		12	480	176	225	MFP+MERGE	ENSGALG00000003907.macse_DNA_gb
+9		12	576	176	318	MFP+MERGE	ENSGALG00000005820.macse_DNA_gb
+10		15	696	129	483	MFP+MERGE	ENSGALG00000005834.macse_DNA_gb
+11		13	570	124	334	MFP+MERGE	ENSGALG00000005902.macse_DNA_gb
+12		12	792	283	334	MFP+MERGE	ENSGALG00000008338.macse_DNA_gb
+13		11	540	129	329	MFP+MERGE	ENSGALG00000008517.macse_DNA_gb
+14		12	546	231	262	MFP+MERGE	ENSGALG00000008916.macse_DNA_gb
+15		11	930	243	547	MFP+MERGE	ENSGALG00000009085.macse_DNA_gb
+16		13	597	239	261	MFP+MERGE	ENSGALG00000009879.macse_DNA_gb
+17		9	900	290	406	MFP+MERGE	ENSGALG00000011323.macse_DNA_gb
+18		10	447	201	211	MFP+MERGE	ENSGALG00000011434.macse_DNA_gb
+19		12	981	172	659	MFP+MERGE	ENSGALG00000011917.macse_DNA_gb
+20		10	468	169	191	MFP+MERGE	ENSGALG00000011966.macse_DNA_gb
+21		13	753	233	387	MFP+MERGE	ENSGALG00000012244.macse_DNA_gb
+22		13	519	149	292	MFP+MERGE	ENSGALG00000012379.macse_DNA_gb
+23		9	630	158	382	MFP+MERGE	ENSGALG00000012568.macse_DNA_gb
+24		10	1302	279	815	MFP+MERGE	ENSGALG00000013227.macse_DNA_gb
+25		11	561	176	297	MFP+MERGE	ENSGALG00000014038.macse_DNA_gb
+26		9	498	96	314	MFP+MERGE	ENSGALG00000014648.macse_DNA_gb
+27		10	597	187	238	MFP+MERGE	ENSGALG00000015326.macse_DNA_gb
+28		12	594	175	281	MFP+MERGE	ENSGALG00000015397.macse_DNA_gb
+29		13	675	249	323	MFP+MERGE	ENSGALG00000016241.macse_DNA_gb
+Degree of missing data: 0.276
+Info: multi-threading strategy over partitions
+
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.011 seconds
+NOTE: ModelFinder requires 68 MB RAM!
+NUMBER OF THREADS FOR PARTITION FINDING: 2
+Testing GTR+F+G on supermatrix...
+GTR+F+G4 / LnL: -116297.305 / df: 38 / AIC: 232670.610 / AICc: 232670.752 / BIC: 232972.469
+Selecting individual models for 29 charsets using BIC...
+ No. Model        Score       Charset
+   1 TN+F+G4      15316.103   ENSGALG00000003702.macse_DNA_gb
+   2 TIM3e+G4     10373.729   ENSGALG00000008338.macse_DNA_gb
+   3 TIM2e+I+G4   12509.218   ENSGALG00000003337.macse_DNA_gb
+   4 TIM2+F+G4    9496.398    ENSGALG00000003700.macse_DNA_gb
+   5 TNe+I+G4     10211.283   ENSGALG00000000223.macse_DNA_gb
+   6 TPM2u+F+I+G4 8825.823    ENSGALG00000016241.macse_DNA_gb
+   7 TVM+F+I+G4   8663.450    ENSGALG00000002514.macse_DNA_gb
+   8 TN+F+I+G4    8413.043    ENSGALG00000009879.macse_DNA_gb
+   9 SYM+G4       8807.243    ENSGALG00000012244.macse_DNA_gb
+  10 TPM2+F+G4    11207.449   ENSGALG00000013227.macse_DNA_gb	0h:0m:12s (0h:2m:11s left)
+  11 TPM3u+F+G4   10572.029   ENSGALG00000011323.macse_DNA_gb	0h:0m:13s (0h:2m:9s left)
+  12 TIM2+F+R3    9138.278    ENSGALG00000009085.macse_DNA_gb	0h:0m:15s (0h:2m:6s left)
+  13 TIM2+F+G4    6129.585    ENSGALG00000005834.macse_DNA_gb	0h:0m:15s (0h:1m:57s left)
+  14 TIM2+F+G4    7343.163    ENSGALG00000015397.macse_DNA_gb	0h:0m:16s (0h:1m:53s left)
+  15 TIM3+F+G4    8247.597    ENSGALG00000011917.macse_DNA_gb	0h:0m:16s (0h:1m:45s left)
+  16 K2P+R2       5963.228    ENSGALG00000003907.macse_DNA_gb	0h:0m:16s (0h:1m:42s left)
+  17 TNe+I        6250.853    ENSGALG00000005820.macse_DNA_gb	0h:0m:17s (0h:1m:37s left)
+  18 TIM2+F+I+G4  7206.227    ENSGALG00000008916.macse_DNA_gb	0h:0m:18s (0h:1m:36s left)
+  19 TIM+F+G4     5805.170    ENSGALG00000012379.macse_DNA_gb	0h:0m:18s (0h:1m:31s left)
+  20 TIM+F+G4     7567.768    ENSGALG00000015326.macse_DNA_gb	0h:0m:18s (0h:1m:28s left)
+  21 K2P+G4       6855.495    ENSGALG00000001529.macse_DNA_gb	0h:0m:19s (0h:1m:24s left)
+  22 TN+F+G4      6700.010    ENSGALG00000014038.macse_DNA_gb	0h:0m:20s (0h:1m:22s left)
+  23 TN+F+G4      7298.243    ENSGALG00000002002.macse_DNA_gb	0h:0m:20s (0h:1m:18s left)
+  24 TNe+G4       5763.214    ENSGALG00000005902.macse_DNA_gb	0h:0m:21s (0h:1m:17s left)
+  25 TIM3e+I+G4   6003.552    ENSGALG00000011434.macse_DNA_gb	0h:0m:21s (0h:1m:14s left)
+  26 K2P+G4       5964.548    ENSGALG00000011966.macse_DNA_gb	0h:0m:21s (0h:1m:12s left)
+  27 TPM2+F+G4    5448.936    ENSGALG00000008517.macse_DNA_gb	0h:0m:22s (0h:1m:10s left)
+  28 K2P+G4       5906.353    ENSGALG00000012568.macse_DNA_gb	0h:0m:22s (0h:1m:8s left)
+  29 TN+F+G4      4239.006    ENSGALG00000014648.macse_DNA_gb	0h:0m:22s (0h:1m:6s left)
+Full partition model BIC score: 233159.453 (LnL: -115480.951  df:221)
+Merging models to increase model fit (about 113 total partition schemes)...
+  30 TIM2e+I+G4   233194.588  ENSGALG00000002514.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb	0h:0m:27s (0h:1m:17s left)
+  31 TIM3e+R3     233125.883  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb	0h:0m:28s (0h:1m:15s left)
+  32 TIM+F+R3     233166.247  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000002514.macse_DNA_gb	0h:0m:34s (0h:1m:26s left)
+  33 TIM2e+I+G4   233112.033  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:0m:35s (0h:1m:25s left)
+  34 TIM3+F+I+G4  233146.499  ENSGALG00000008338.macse_DNA_gb+ENSGALG00000011323.macse_DNA_gb	0h:0m:38s (0h:1m:28s left)
+  35 TVM+F+I+G4   233116.580  ENSGALG00000002514.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:0m:40s (0h:1m:31s left)
+  36 SYM+I+G4     233166.132  ENSGALG00000003337.macse_DNA_gb+ENSGALG00000011434.macse_DNA_gb	0h:0m:43s (0h:1m:33s left)
+  37 TIM2+F+I+G4  233149.480  ENSGALG00000003700.macse_DNA_gb+ENSGALG00000005820.macse_DNA_gb	0h:0m:46s (0h:1m:35s left)
+  38 GTR+F+R3     233116.623  ENSGALG00000009085.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb	0h:0m:47s (0h:1m:33s left)
+  39 TIM3e+G4     233133.242  ENSGALG00000001529.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb	0h:0m:50s (0h:1m:35s left)
+  40 TIM3+F+G4    233100.946  ENSGALG00000003700.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb	0h:0m:50s (0h:1m:33s left)
+  41 TIM2+F+G4    233152.604  ENSGALG00000003702.macse_DNA_gb+ENSGALG00000008517.macse_DNA_gb	0h:0m:53s (0h:1m:34s left)
+  42 TPM3u+F+I+G4 233156.508  ENSGALG00000008916.macse_DNA_gb+ENSGALG00000009879.macse_DNA_gb	0h:0m:54s (0h:1m:32s left)
+  43 TIM3+F+I+G4  233142.857  ENSGALG00000003907.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb	0h:0m:57s (0h:1m:33s left)
+  44 HKY+F+I+G4   233139.097  ENSGALG00000008338.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb	0h:0m:58s (0h:1m:31s left)
+  45 TIM2e+I+G4   233129.047  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000001529.macse_DNA_gb	0h:1m:2s (0h:1m:34s left)
+  46 GTR+F+I+G4   233163.196  ENSGALG00000001529.macse_DNA_gb+ENSGALG00000002514.macse_DNA_gb	0h:1m:2s (0h:1m:31s left)
+  47 TIM2e+I+G4   233122.347  ENSGALG00000001529.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:1m:5s (0h:1m:31s left)
+  48 TIM2+F+I+G4  233138.322  ENSGALG00000003907.macse_DNA_gb+ENSGALG00000009085.macse_DNA_gb	0h:1m:8s (0h:1m:32s left)
+  49 TIM3e+G4     233162.646  ENSGALG00000012244.macse_DNA_gb+ENSGALG00000015326.macse_DNA_gb	0h:1m:8s (0h:1m:29s left)
+  50 K2P+I+G4     233129.781  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb	0h:1m:12s (0h:1m:30s left)
+  51 GTR+F+G4     233125.917  ENSGALG00000012244.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb	0h:1m:13s (0h:1m:29s left)
+  52 TIM+F+G4     233222.728  ENSGALG00000009085.macse_DNA_gb+ENSGALG00000015326.macse_DNA_gb	0h:1m:16s (0h:1m:29s left)
+  53 TPM2u+F+I+G4 233188.811  ENSGALG00000002514.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb	0h:1m:17s (0h:1m:27s left)
+  54 GTR+F+G4     233170.525  ENSGALG00000011323.macse_DNA_gb+ENSGALG00000015326.macse_DNA_gb	0h:1m:18s (0h:1m:25s left)
+  55 TIM2+F+G4    233097.505  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb	0h:1m:19s (0h:1m:24s left)
+  56 TIM2+F+G4    233127.433  ENSGALG00000003907.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:1m:21s (0h:1m:22s left)
+  57 TIM2+F+I+G4  233087.710  ENSGALG00000009085.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb	0h:1m:22s (0h:1m:21s left)
+  58 HKY+F+G4     233185.716  ENSGALG00000012568.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb	0h:1m:23s (0h:1m:18s left)
+  59 TIM3+F+G4    233100.657  ENSGALG00000012379.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:1m:24s (0h:1m:17s left)
+  60 HKY+F+I+G4   233133.916  ENSGALG00000011323.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb	0h:1m:25s (0h:1m:15s left)
+  61 K3P+G4       233148.464  ENSGALG00000003907.macse_DNA_gb+ENSGALG00000015326.macse_DNA_gb	0h:1m:26s (0h:1m:13s left)
+  62 TIM2+F+G4    233094.169  ENSGALG00000014038.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:1m:27s (0h:1m:11s left)
+  63 TIM2e+G4     233120.098  ENSGALG00000002002.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:1m:28s (0h:1m:10s left)
+  64 HKY+F+I+G4   233133.537  ENSGALG00000003907.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb	0h:1m:29s (0h:1m:8s left)
+  65 TIM3+F+G4    233115.362  ENSGALG00000002002.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb	0h:1m:30s (0h:1m:7s left)
+  66 TIM+F+G4     233204.406  ENSGALG00000014038.macse_DNA_gb+ENSGALG00000015326.macse_DNA_gb	0h:1m:31s (0h:1m:5s left)
+  67 TIM3+F+G4    233150.780  ENSGALG00000002002.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb	0h:1m:32s (0h:1m:3s left)
+  68 TIM3+F+G4    233115.571  ENSGALG00000011917.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb	0h:1m:34s (0h:1m:2s left)
+  69 TIM2+F+G4    233127.118  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb	0h:1m:34s (0h:1m:0s left)
+  70 TNe+G4       233131.281  ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb	0h:1m:36s (0h:0m:59s left)
+Merging ENSGALG00000009085.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb with BIC score: 233087.710 (LnL: -115489.826  df: 212)
+  71 TIM2+F+I+G4  233076.331  ENSGALG00000009085.macse_DNA_gb+ENSGALG00000011323.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb	0h:1m:44s (0h:1m:1s left)
+  72 GTR+F+R3     233057.164  ENSGALG00000009085.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb	0h:1m:46s (0h:1m:0s left)
+  73 K2P+G4       233054.485  ENSGALG00000002002.macse_DNA_gb+ENSGALG00000003907.macse_DNA_gb	0h:1m:47s (0h:0m:59s left)
+  74 TIM2+F+I+G4  233134.441  ENSGALG00000009085.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb	0h:1m:51s (0h:0m:58s left)
+  75 K2P+G4       233059.927  ENSGALG00000001529.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb	0h:1m:53s (0h:0m:57s left)
+  76 TIM+F+I+G4   233191.869  ENSGALG00000009085.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb+ENSGALG00000015326.macse_DNA_gb	0h:1m:54s (0h:0m:55s left)
+Merging ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb with BIC score: 233025.762 (LnL: -115498.627  df: 204)
+  77 TIM2+F+G4    232995.917  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb	0h:1m:58s (0h:0m:55s left)
+Merging ENSGALG00000012379.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb with BIC score: 232966.966 (LnL: -115509.004  df: 196)
+  78 TIM3+F+G4    232936.412  ENSGALG00000003907.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:2m:1s (0h:0m:54s left)
+  79 TIM3+F+G4    232935.152  ENSGALG00000002002.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:2m:2s (0h:0m:52s left)
+Merging ENSGALG00000000223.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb with BIC score: 232919.547 (LnL: -115520.097  df: 189)
+  80 HKY+F+I+G4   232878.681  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000009879.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:2m:12s (0h:0m:54s left)
+  81 TIM2e+I+G4   232926.209  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000003337.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:2m:14s (0h:0m:52s left)
+  82 TIM2+F+I+G4  232889.089  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000008916.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:2m:21s (0h:0m:53s left)
+  83 GTR+F+R3     232874.600  ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:2m:23s (0h:0m:51s left)
+Merging ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb with BIC score: 232874.600 (LnL: -115507.567  df: 187)
+  84 TIM3+F+R3    232913.987  ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000015326.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:2m:34s (0h:0m:53s left)
+  85 TIM3+F+R3    232872.697  ENSGALG00000008338.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:2m:35s (0h:0m:51s left)
+  86 TIM3+F+R3    232816.326  ENSGALG00000011323.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:2m:50s (0h:0m:53s left)
+  87 GTR+F+R3     232806.852  ENSGALG00000009085.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:2m:51s (0h:0m:51s left)
+  88 TIM3+F+R3    232880.625  ENSGALG00000011966.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:3m:0s (0h:0m:51s left)
+Merging ENSGALG00000009085.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb with BIC score: 232806.852 (LnL: -115518.440  df: 178)
+  89 TIM2e+I+G4   232809.196  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000011434.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:3m:9s (0h:0m:51s left)
+  90 TN+F+G4      232790.692  ENSGALG00000005902.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb	0h:3m:12s (0h:0m:49s left)
+  91 TIM2+F+G4    232776.441  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb	0h:3m:15s (0h:0m:47s left)
+  92 TIM3+F+R3    232830.910  ENSGALG00000009085.macse_DNA_gb+ENSGALG00000009879.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:3m:21s (0h:0m:45s left)
+Merging ENSGALG00000000223.macse_DNA_gb+ENSGALG00000009879.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb with BIC score: 232765.987 (LnL: -115532.810  df: 171)
+  93 TPM3u+F+I+G4 232788.431  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000009879.macse_DNA_gb+ENSGALG00000011434.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:3m:33s (0h:0m:45s left)
+  94 TIM2e+I+G4   232824.762  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000003337.macse_DNA_gb+ENSGALG00000009879.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:3m:35s (0h:0m:43s left)
+  95 TN+F+G4      232743.826  ENSGALG00000003702.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb	0h:3m:36s (0h:0m:41s left)
+  96 TPM2u+F+I+G4 232756.437  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000008916.macse_DNA_gb+ENSGALG00000009879.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:3m:47s (0h:0m:40s left)
+Merging ENSGALG00000002002.macse_DNA_gb+ENSGALG00000003907.macse_DNA_gb with BIC score: 232732.762 (LnL: -115555.972  df: 163)
+  97 TIM3+F+G4    232742.877  ENSGALG00000002002.macse_DNA_gb+ENSGALG00000003907.macse_DNA_gb+ENSGALG00000015326.macse_DNA_gb	0h:3m:50s (0h:0m:37s left)
+Merging ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb with BIC score: 232702.350 (LnL: -115575.569  df: 156)
+  98 TIM2+F+G4    232670.285  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb	0h:3m:55s (0h:0m:36s left)
+  99 TIM2+F+G4    232680.282  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb	0h:3m:57s (0h:0m:33s left)
+ 100 TIM3+F+G4    232734.815  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb	0h:4m:2s (0h:0m:31s left)
+Merging ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb with BIC score: 232670.285 (LnL: -115594.339  df: 149)
+ 101 TIM2+F+G4    232648.550  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb	0h:4m:9s (0h:0m:29s left)
+ 102 TIM3+F+G4    232713.377  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb	0h:4m:9s (0h:0m:26s left)
+Merging ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb with BIC score: 232642.113 (LnL: -115595.168  df: 146)
+ 103 TN+F+G4      232635.781  ENSGALG00000003702.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb	0h:4m:13s (0h:0m:24s left)
+ 104 TN+F+G4      232663.645  ENSGALG00000005902.macse_DNA_gb+ENSGALG00000008517.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb	0h:4m:14s (0h:0m:21s left)
+ 105 TIM3e+I+G4   232632.100  ENSGALG00000005820.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb	0h:4m:19s (0h:0m:19s left)
+Merging ENSGALG00000001529.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb with BIC score: 232615.902 (LnL: -115596.978  df: 143)
+ 106 TIM3+F+I+G4  232594.460  ENSGALG00000001529.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb+ENSGALG00000008916.macse_DNA_gb	0h:4m:25s (0h:0m:17s left)
+ 107 TPM3u+F+I+G4 232613.021  ENSGALG00000000223.macse_DNA_gb+ENSGALG00000001529.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb+ENSGALG00000009879.macse_DNA_gb+ENSGALG00000016241.macse_DNA_gb	0h:4m:34s (0h:0m:15s left)
+Merging ENSGALG00000011323.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb with BIC score: 232590.364 (LnL: -115599.125  df: 140)
+ 108 TPM2u+F+I+G4 232596.157  ENSGALG00000002514.macse_DNA_gb+ENSGALG00000011323.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb	0h:4m:43s (0h:0m:13s left)
+Merging ENSGALG00000001529.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb+ENSGALG00000008916.macse_DNA_gb with BIC score: 232568.923 (LnL: -115613.264  df: 135)
+ 109 TIM3+F+I+G4  232557.316  ENSGALG00000001529.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb+ENSGALG00000008916.macse_DNA_gb+ENSGALG00000011434.macse_DNA_gb	0h:4m:51s (0h:0m:10s left)
+ 110 TIM2+F+I+G4  232610.407  ENSGALG00000001529.macse_DNA_gb+ENSGALG00000003337.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb+ENSGALG00000008916.macse_DNA_gb	0h:4m:56s (0h:0m:8s left)
+Merging ENSGALG00000001529.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb+ENSGALG00000008916.macse_DNA_gb+ENSGALG00000011434.macse_DNA_gb with BIC score: 232557.316 (LnL: -115637.291  df: 129)
+ 111 GTR+F+G4     232604.337  ENSGALG00000003702.macse_DNA_gb+ENSGALG00000005834.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb	0h:5m:3s (0h:0m:5s left)
+Merging ENSGALG00000005820.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb with BIC score: 232547.303 (LnL: -115642.229  df: 127)
+ 112 TIM3+F+I+G4  232536.534  ENSGALG00000003702.macse_DNA_gb+ENSGALG00000005820.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb	0h:5m:10s (0h:0m:2s left)
+ 113 TIM3+F+I+G4  232552.823  ENSGALG00000003700.macse_DNA_gb+ENSGALG00000005820.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb	0h:5m:11s (0h:0m:0s left)
+ 114 TIM3+F+I+G4  232565.170  ENSGALG00000005820.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000008517.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb	0h:5m:19s (0h:0m:0s left)
+Merging ENSGALG00000003702.macse_DNA_gb+ENSGALG00000005820.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb with BIC score: 232536.534 (LnL: -115656.731  df: 123)
+ 115 TIM2+F+G4    232468.408  ENSGALG00000003700.macse_DNA_gb+ENSGALG00000008517.macse_DNA_gb	0h:5m:22s (0h:0m:0s left)
+ 116 TVMe+G4      232540.324  ENSGALG00000011323.macse_DNA_gb+ENSGALG00000011966.macse_DNA_gb+ENSGALG00000015326.macse_DNA_gb	0h:5m:25s (0h:0m:0s left)
+ 117 TIM3+F+I+G4  232529.278  ENSGALG00000003700.macse_DNA_gb+ENSGALG00000003702.macse_DNA_gb+ENSGALG00000005820.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb	0h:5m:30s (0h:0m:0s left)
+ 118 TIM2+F+G4    232476.006  ENSGALG00000005834.macse_DNA_gb+ENSGALG00000008517.macse_DNA_gb+ENSGALG00000011917.macse_DNA_gb+ENSGALG00000013227.macse_DNA_gb+ENSGALG00000014648.macse_DNA_gb	0h:5m:33s (0h:0m:0s left)
+Merging ENSGALG00000003700.macse_DNA_gb+ENSGALG00000008517.macse_DNA_gb with BIC score: 232468.408 (LnL: -115657.471  df: 116)
+ 119 TIM3+F+I+G4  232510.761  ENSGALG00000003700.macse_DNA_gb+ENSGALG00000003702.macse_DNA_gb+ENSGALG00000005820.macse_DNA_gb+ENSGALG00000005902.macse_DNA_gb+ENSGALG00000008517.macse_DNA_gb+ENSGALG00000012568.macse_DNA_gb	0h:5m:48s (0h:0m:0s left)
+ 120 GTR+F+R3     232406.437  ENSGALG00000002514.macse_DNA_gb+ENSGALG00000009085.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb	0h:5m:52s (0h:0m:0s left)
+Merging ENSGALG00000002514.macse_DNA_gb+ENSGALG00000009085.macse_DNA_gb+ENSGALG00000012244.macse_DNA_gb+ENSGALG00000012379.macse_DNA_gb+ENSGALG00000014038.macse_DNA_gb+ENSGALG00000015397.macse_DNA_gb with BIC score: 232406.437 (LnL: -115676.204  df: 106)
+ 121 SYM+I+G4     232444.340  ENSGALG00000001529.macse_DNA_gb+ENSGALG00000003337.macse_DNA_gb+ENSGALG00000008338.macse_DNA_gb+ENSGALG00000008916.macse_DNA_gb+ENSGALG00000011434.macse_DNA_gb	0h:6m:6s (0h:0m:0s left)
+BEST-FIT PARTITION MODEL: 
+  charpartition BIC = HKY+F+I+G4: ENSGALG00000000223.macse_DNA_gb ENSGALG00000009879.macse_DNA_gb ENSGALG00000016241.macse_DNA_gb, TIM3+F+I+G4: ENSGALG00000001529.macse_DNA_gb ENSGALG00000008338.macse_DNA_gb ENSGALG00000008916.macse_DNA_gb ENSGALG00000011434.macse_DNA_gb, K2P+G4: ENSGALG00000002002.macse_DNA_gb ENSGALG00000003907.macse_DNA_gb, GTR+F+R3: ENSGALG00000002514.macse_DNA_gb ENSGALG00000009085.macse_DNA_gb ENSGALG00000012244.macse_DNA_gb ENSGALG00000012379.macse_DNA_gb ENSGALG00000014038.macse_DNA_gb ENSGALG00000015397.macse_DNA_gb, TIM2e+I+G4: ENSGALG00000003337.macse_DNA_gb, TIM2+F+G4: ENSGALG00000003700.macse_DNA_gb ENSGALG00000008517.macse_DNA_gb, TIM3+F+I+G4: ENSGALG00000003702.macse_DNA_gb ENSGALG00000005820.macse_DNA_gb ENSGALG00000005902.macse_DNA_gb ENSGALG00000012568.macse_DNA_gb, TIM2+F+G4: ENSGALG00000005834.macse_DNA_gb ENSGALG00000011917.macse_DNA_gb ENSGALG00000013227.macse_DNA_gb ENSGALG00000014648.macse_DNA_gb, HKY+F+I+G4: ENSGALG00000011323.macse_DNA_gb ENSGALG00000011966.macse_DNA_gb, TIM+F+G4: ENSGALG00000015326.macse_DNA_gb;
+Agglomerative model selection: (((ENSGALG00000000223.macse_DNA_gb,ENSGALG00000016241.macse_DNA_gb)4:232920,ENSGALG00000009879.macse_DNA_gb)7:232766,(((ENSGALG00000001529.macse_DNA_gb,ENSGALG00000008338.macse_DNA_gb)12:232616,ENSGALG00000008916.macse_DNA_gb)14:232569,ENSGALG00000011434.macse_DNA_gb)15:232557,(ENSGALG00000002002.macse_DNA_gb,ENSGALG00000003907.macse_DNA_gb)8:232733,(ENSGALG00000002514.macse_DNA_gb,((ENSGALG00000009085.macse_DNA_gb,ENSGALG00000014038.macse_DNA_gb)1:233088,(ENSGALG00000012244.macse_DNA_gb,(ENSGALG00000012379.macse_DNA_gb,ENSGALG00000015397.macse_DNA_gb)3:232967)5:232875)6:232807)19:232406,ENSGALG00000003337.macse_DNA_gb,(ENSGALG00000003700.macse_DNA_gb,ENSGALG00000008517.macse_DNA_gb)18:232468,(ENSGALG00000003702.macse_DNA_gb,(ENSGALG00000005820.macse_DNA_gb,(ENSGALG00000005902.macse_DNA_gb,ENSGALG00000012568.macse_DNA_gb)11:232642)16:232547)17:232537,(((ENSGALG00000005834.macse_DNA_gb,ENSGALG00000011917.macse_DNA_gb)2:233026,ENSGALG00000014648.macse_DNA_gb)9:232702,ENSGALG00000013227.macse_DNA_gb)10:232670,(ENSGALG00000011323.macse_DNA_gb,ENSGALG00000011966.macse_DNA_gb)13:232590,ENSGALG00000015326.macse_DNA_gb)
+Merging into 10 partitions...
+Partition information was printed to turtle.merge.best_scheme.nex
+Partition information in Raxml format was printed to turtle.merge.best_scheme
+
+All model information printed to turtle.merge.model.gz
+CPU time for ModelFinder: 579.876 seconds (0h:9m:39s)
+Wall-clock time for ModelFinder: 366.186 seconds (0h:6m:6s)
+Generating 1000 samples for ultrafast bootstrap (seed: 646993)...
+
+NOTE: 50 MB RAM (0 GB) is required!
+Measuring multi-threading efficiency up to 2 CPU cores
+Increase to 10 rounds for branch lengths
+9 trees examined
+Threads: 1 / Time: 2.105 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -128432
+Threads: 2 / Time: 1.431 sec / Speedup: 1.471 / Efficiency: 74% / LogL: -128432
+BEST NUMBER OF THREADS: 2
+
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -120832.970
+Current log-likelihood at step 1: -116221.405
+Current log-likelihood at step 2: -115892.100
+Current log-likelihood at step 3: -115722.601
+Current log-likelihood at step 4: -115717.555
+Current log-likelihood at step 5: -115715.143
+Current log-likelihood at step 6: -115712.895
+Current log-likelihood at step 7: -115710.749
+Current log-likelihood at step 8: -115708.689
+Current log-likelihood at step 9: -115706.730
+Current log-likelihood at step 10: -115704.858
+Current log-likelihood at step 11: -115703.095
+Current log-likelihood at step 12: -115701.416
+Current log-likelihood at step 13: -115699.834
+Current log-likelihood at step 14: -115698.344
+Current log-likelihood at step 15: -115696.933
+Current log-likelihood at step 16: -115695.589
+Current log-likelihood at step 17: -115694.320
+Current log-likelihood at step 18: -115693.107
+Current log-likelihood at step 19: -115691.951
+Current log-likelihood at step 20: -115690.839
+Current log-likelihood at step 21: -115689.759
+Current log-likelihood at step 22: -115688.736
+Current log-likelihood at step 23: -115687.756
+Current log-likelihood at step 24: -115686.795
+Current log-likelihood at step 25: -115685.854
+Current log-likelihood at step 26: -115684.957
+Current log-likelihood at step 27: -115684.095
+Current log-likelihood at step 28: -115683.262
+Current log-likelihood at step 29: -115682.457
+Current log-likelihood at step 30: -115681.692
+Current log-likelihood at step 31: -115680.963
+Current log-likelihood at step 32: -115680.272
+Current log-likelihood at step 33: -115679.622
+Current log-likelihood at step 34: -115679.011
+Current log-likelihood at step 35: -115678.442
+Current log-likelihood at step 36: -115677.912
+Current log-likelihood at step 37: -115677.425
+Current log-likelihood at step 38: -115676.984
+Current log-likelihood at step 39: -115676.622
+Current log-likelihood at step 40: -115676.328
+Current log-likelihood at step 41: -115676.081
+Current log-likelihood at step 42: -115675.867
+Current log-likelihood at step 43: -115675.686
+Current log-likelihood at step 44: -115675.523
+Current log-likelihood at step 45: -115675.381
+Current log-likelihood at step 46: -115675.242
+Current log-likelihood at step 47: -115675.124
+Current log-likelihood at step 48: -115675.009
+Current log-likelihood at step 49: -115674.912
+Partition-specific rates:  1.187 1.335 1.073 1.078 1.260 0.747 0.820 0.608 1.289 1.177
+Parameters optimization took 48 rounds (5.512 sec)
+
+Computing ML distances based on estimated model parameters... 0.022 sec
+Computing BIONJ tree...
+0.001 seconds
+Log-likelihood of BIONJ tree: -115750.667
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 1.469 second
+Computing log-likelihood of 98 initial trees ... 1.984 seconds
+Current best score: -115674.912
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -115674.912
+Current log-likelihood at step 1: -115674.823
+Parameters optimization took 0 rounds (0.093 sec)
+
+BETTER TREE FOUND at iteration 1: -115674.823
+Iteration 10 / LogL: -115686.314 / Time: 0h:0m:16s
+Iteration 20 / LogL: -115675.710 / Time: 0h:0m:21s
+Finish initializing candidate tree set (1)
+Current best tree score: -115674.823 / CPU time: 11.536
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -115680.693 / Time: 0h:0m:24s (0h:1m:1s left)
+UPDATE BEST LOG-LIKELIHOOD: -115674.823
+Iteration 40 / LogL: -115674.887 / Time: 0h:0m:28s (0h:0m:43s left)
+Iteration 50 / LogL: -115679.698 / Time: 0h:0m:31s (0h:0m:32s left)
+Log-likelihood cutoff on original alignment: -115710.461
+Iteration 60 / LogL: -115678.591 / Time: 0h:0m:34s (0h:0m:24s left)
+Iteration 70 / LogL: -115675.028 / Time: 0h:0m:38s (0h:0m:17s left)
+Iteration 80 / LogL: -115675.043 / Time: 0h:0m:42s (0h:0m:11s left)
+UPDATE BEST LOG-LIKELIHOOD: -115674.823
+Iteration 90 / LogL: -115674.823 / Time: 0h:0m:45s (0h:0m:5s left)
+Iteration 100 / LogL: -115679.804 / Time: 0h:0m:49s (0h:0m:0s left)
+Log-likelihood cutoff on original alignment: -115706.578
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 1.000
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:49s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+Initial log-likelihood: -115674.822
+Current log-likelihood at step 1: -115674.743
+Current log-likelihood at step 2: -115674.669
+Current log-likelihood at step 3: -115674.595
+Current log-likelihood at step 4: -115674.525
+Current log-likelihood at step 5: -115674.462
+Current log-likelihood at step 6: -115674.403
+Current log-likelihood at step 7: -115674.347
+Current log-likelihood at step 8: -115674.295
+Current log-likelihood at step 9: -115674.247
+Current log-likelihood at step 10: -115674.201
+Current log-likelihood at step 11: -115674.159
+Current log-likelihood at step 12: -115674.119
+Current log-likelihood at step 13: -115674.082
+Current log-likelihood at step 14: -115674.052
+Current log-likelihood at step 15: -115674.019
+Current log-likelihood at step 16: -115673.988
+Current log-likelihood at step 17: -115673.964
+Current log-likelihood at step 18: -115673.936
+Current log-likelihood at step 19: -115673.914
+Current log-likelihood at step 20: -115673.889
+Current log-likelihood at step 21: -115673.870
+Current log-likelihood at step 22: -115673.847
+Current log-likelihood at step 23: -115673.829
+Current log-likelihood at step 24: -115673.813
+Current log-likelihood at step 25: -115673.798
+Current log-likelihood at step 26: -115673.783
+Current log-likelihood at step 27: -115673.770
+Current log-likelihood at step 28: -115673.757
+Current log-likelihood at step 29: -115673.744
+Current log-likelihood at step 30: -115673.733
+Current log-likelihood at step 31: -115673.721
+Current log-likelihood at step 32: -115673.710
+Current log-likelihood at step 33: -115673.699
+Current log-likelihood at step 34: -115673.689
+Current log-likelihood at step 35: -115673.680
+Partition-specific rates:  1.186 1.330 1.071 1.089 1.256 0.746 0.815 0.607 1.285 1.174
+Parameters optimization took 34 rounds (3.850 sec)
+
+Partition information was printed to turtle.merge.best_model.nex
+BEST SCORE FOUND : -115673.680
+Creating bootstrap support values...
+Split supports printed to NEXUS file turtle.merge.splits.nex
+Total tree length: 1.970
+
+Total number of iterations: 102
+CPU time used for tree search: 71.694 sec (0h:1m:11s)
+Wall-clock time used for tree search: 40.293 sec (0h:0m:40s)
+Total CPU time used: 91.458 sec (0h:1m:31s)
+Total wall-clock time used: 53.796 sec (0h:0m:53s)
+
+Computing bootstrap consensus tree...
+Reading input file turtle.merge.splits.nex...
+16 taxa and 35 splits.
+Consensus tree written to turtle.merge.contree
+Reading input trees file turtle.merge.contree
+Log-likelihood of consensus tree: -115673.680
+
+Analysis results written to: 
+  IQ-TREE report:                turtle.merge.iqtree
+  Maximum-likelihood tree:       turtle.merge.treefile
+  Likelihood distances:          turtle.merge.mldist
+  Best partitioning scheme:      turtle.merge.best_scheme.nex
+           in RAxML format:      turtle.merge.best_scheme
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          turtle.merge.splits.nex
+  Consensus tree:                turtle.merge.contree
+  Screen log file:               turtle.merge.log
+
+Date and Time: Thu Jan 24 20:18:27 2019

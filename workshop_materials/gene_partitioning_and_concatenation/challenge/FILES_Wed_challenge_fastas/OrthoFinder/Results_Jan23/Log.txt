@@ -1,0 +1,30 @@
+2019-01-23 20:15:34 : Started OrthoFinder version 2.3.2
+Command Line: /home/phylogenomics/workshop_materials/gene_partitioning_and_concatenation/challenge/OrthoFinder/orthofinder/orthofinder.py -f ./FILES_Wed_challenge_fastas
+
+WorkingDirectory_Base: /home/phylogenomics/workshop_materials/gene_partitioning_and_concatenation/challenge/FILES_Wed_challenge_fastas/OrthoFinder/Results_Jan23/WorkingDirectory/
+
+Species used: 
+0: Ambrosiozyma_ambrosiae.fa
+1: Ambrosiozyma_monospora.fa
+2: Ambrosiozyma_oregonensis.fa
+3: Ambrosiozyma_philentoma.fa
+4: Ambrosiozyma_vanderkliftii.fa
+5: Brettanomyces_anomalus.fa
+6: Brettanomyces_custersianus.fa
+7: Brewery_genome.fa
+8: Komagataella_pastoris.fa
+9: Komagataella_populi.fa
+10: Kregervanrija_delftensis.fa
+11: Kregervanrija_fluxuum.fa
+12: Ogataea_henricii.fa
+13: Ogataea_pini.fa
+14: Ogataea_polymorpha.fa
+15: Pichia_membranifaciens.fa
+16: Pichia_terricola.fa
+17: Starmerella_apicola.fa
+18: Starmerella_bombicola.fa
+19: Wickerhamiella_versatilis.fa
+
+FN_Orthogroups: /home/phylogenomics/workshop_materials/gene_partitioning_and_concatenation/challenge/FILES_Wed_challenge_fastas/OrthoFinder/Results_Jan23/WorkingDirectory/clusters_OrthoFinder_I1.5.txt_id_pairs.txt
+WorkingDirectory_Trees: /home/phylogenomics/workshop_materials/gene_partitioning_and_concatenation/challenge/FILES_Wed_challenge_fastas/OrthoFinder/Results_Jan23/WorkingDirectory/
+2019-01-23 20:16:10 : OrthoFinder run completed

@@ -1,0 +1,97 @@
+
+
+WARNING: RAxML is not checking sequences for duplicate seqs and sites with missing data!
+
+
+
+This is RAxML version 8.2.12 released by Alexandros Stamatakis on May 2018.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+RAxML IC and TC score Computation: Computing IC and TC scores induced by trees in file 1287.tree w.r.t. tree in file Asp_Pen_phylo.subset.new
+
+
+RAxML was called as follows:
+
+raxmlHPC -f i -t Asp_Pen_phylo.subset.new -z 1287.tree -m GTRCAT -n Asp_Pen_phylo.ic -C 
+
+
+
+
+Found 1 tree in File Asp_Pen_phylo.subset.new
+
+
+
+Found 1287 trees in File 1287.tree
+
+All trees in tree set have the same size, executing standard IC/TC algorithm ... 
+
+
+Found 1 tree in File Asp_Pen_phylo.subset.new
+
+Support for split number 0 in tree: 0.923854
+Support for conflicting split number 0: 0.020202
+All Newick-formatted splits for this bipartition have been written to file /home/phylogenomics/workshop_materials/free_session1/IC_and_related/FILES_internode_certainty_and_related_measures/RAxML_verboseIC.Asp_Pen_phylo.ic.0
+
+
+Support for split number 1 in tree: 0.651127
+Support for conflicting split number 0: 0.177156
+Support for conflicting split number 1: 0.171717
+All Newick-formatted splits for this bipartition have been written to file /home/phylogenomics/workshop_materials/free_session1/IC_and_related/FILES_internode_certainty_and_related_measures/RAxML_verboseIC.Asp_Pen_phylo.ic.1
+
+
+Support for split number 2 in tree: 0.997669
+Support for conflicting split number 0: 0.000777
+All Newick-formatted splits for this bipartition have been written to file /home/phylogenomics/workshop_materials/free_session1/IC_and_related/FILES_internode_certainty_and_related_measures/RAxML_verboseIC.Asp_Pen_phylo.ic.2
+
+
+Support for split number 3 in tree: 0.625486
+Support for conflicting split number 0: 0.126651
+Support for conflicting split number 1: 0.099456
+All Newick-formatted splits for this bipartition have been written to file /home/phylogenomics/workshop_materials/free_session1/IC_and_related/FILES_internode_certainty_and_related_measures/RAxML_verboseIC.Asp_Pen_phylo.ic.3
+
+
+Support for split number 4 in tree: 0.683761
+Support for conflicting split number 0: 0.052059
+All Newick-formatted splits for this bipartition have been written to file /home/phylogenomics/workshop_materials/free_session1/IC_and_related/FILES_internode_certainty_and_related_measures/RAxML_verboseIC.Asp_Pen_phylo.ic.4
+
+
+Support for split number 5 in tree: 0.407925
+Support for conflicting split number 0: 0.174825
+Support for conflicting split number 1: 0.120435
+Support for conflicting split number 2: 0.069930
+All Newick-formatted splits for this bipartition have been written to file /home/phylogenomics/workshop_materials/free_session1/IC_and_related/FILES_internode_certainty_and_related_measures/RAxML_verboseIC.Asp_Pen_phylo.ic.5
+
+
+Support for split number 6 in tree: 0.291375
+Support for conflicting split number 0: 0.264180
+Support for conflicting split number 1: 0.210567
+All Newick-formatted splits for this bipartition have been written to file /home/phylogenomics/workshop_materials/free_session1/IC_and_related/FILES_internode_certainty_and_related_measures/RAxML_verboseIC.Asp_Pen_phylo.ic.6
+
+
+Tree certainty for this tree: 4.190492
+Relative tree certainty for this tree: 0.523811
+
+Tree certainty including all conflicting bipartitions (TCA) for this tree: 4.128041
+Relative tree certainty including all conflicting bipartitions (TCA) for this tree: 0.516005
+
+Verbose PHYLIP-style formatted bipartition information written to file: /home/phylogenomics/workshop_materials/free_session1/IC_and_related/FILES_internode_certainty_and_related_measures/RAxML_verboseSplits.Asp_Pen_phylo.ic
+
+
+
+Time for Computation of TC and IC scores 0.029274
+
+Tree with IC scores as branch labels written to file:  /home/phylogenomics/workshop_materials/free_session1/IC_and_related/FILES_internode_certainty_and_related_measures/RAxML_IC_Score_BranchLabels.Asp_Pen_phylo.ic
+Execution information file written to :  /home/phylogenomics/workshop_materials/free_session1/IC_and_related/FILES_internode_certainty_and_related_measures/RAxML_info.Asp_Pen_phylo.ic
+

@@ -1,0 +1,200 @@
+>AY617126.1 Choreocolax polysiphoniae 18S ribosomal RNA gene partial sequence
+>AY617142.1 Odonthalia washintoniensis 18S ribosomal RNA gene partial sequence
+>AY617140.1 Neorhodomela larix 18S ribosomal RNA gene partial sequence
+>AY617141.1 Odonthalia floccosa 18S ribosomal RNA gene partial sequence
+>MF093958.1 Thaumatella adunca isolate PD1388 18S ribosomal RNA gene partial sequence
+>MF093926.1 Digenea simplex isolate PD1820 18S ribosomal RNA gene partial sequence
+>JX828176.1 Odonthalia corymbifera voucher OK230 small subunit ribosomal RNA gene partial sequence
+>AY617145.1 Rhodomela confervoides 18S ribosomal RNA gene partial sequence
+>MF093954.1 Rhodomela confervoides isolate PD508 18S ribosomal RNA gene partial sequence
+>L26203.1 Rhodomela confervoides DNA fragment
+>MF093915.1 Bryothamnion seaforthii isolate PD644 18S ribosomal RNA gene partial sequence
+>MF093931.1 Kuetzingia canaliculata isolate PD1540 18S ribosomal RNA gene partial sequence
+>AY237283.1 Kuetzingia canaliculata 18S ribosomal RNA gene partial sequence
+>AY237281.1 Lenormandia marginata 18S ribosomal RNA gene partial sequence
+>AF339893.1 Lenormandia latifolia 18S ribosomal RNA gene complete sequence
+>AF203897.1 Lenormandia muelleri small subunit ribosomal RNA gene complete sequence
+>AY617132.1 Leachiella pacifica isolate LeachPP1 18S ribosomal RNA gene partial sequence
+>AF339899.1 Neurymenia fraxinifolia 18S ribosomal RNA gene complete sequence
+>AF203889.1 Melanamansia mamillaris small subunit ribosomal RNA gene complete sequence
+>AF339896.1 Lenormandia spectabilis 18S ribosomal RNA gene complete sequence
+>MF093939.1 Osmundaria fimbriata isolate JW2841 18S ribosomal RNA gene partial sequence
+>MG272242.1 Neochondria ammophila voucher SAP115369 18S ribosomal RNA gene partial sequence
+>AY237286.1 Osmundaria fimbriata 18S ribosomal RNA gene partial sequence
+>MF093933.1 Laurencieae sp. isolate JFC1711 18S ribosomal RNA gene partial sequence
+>AY237284.1 Rytiphlaea tinctoria 18S ribosomal RNA gene partial sequence
+>AF339901.1 Protokuetzingia australasica 18S ribosomal RNA gene complete sequence
+>MF093921.1 Chondria sp. isolate PD1582 18S ribosomal RNA gene partial sequence
+>AY237280.1 Aneurianna dentata 18S ribosomal RNA gene partial sequence
+>AF339895.1 Lenormandia smithiae 18S ribosomal RNA gene complete sequence
+>MF093919.1 Chondria sp. isolate PD620 18S ribosomal RNA gene partial sequence
+>AF203895.1 Lenormandia prolifera small subunit ribosomal RNA gene complete sequence
+>FJ153791.2 Uncultured eukaryote clone 60 18S ribosomal RNA gene partial sequence
+>AF339900.1 Osmundaria prolifera 18S ribosomal RNA gene complete sequence
+>AF203896.1 Micropeuce strobiliferum small subunit ribosomal RNA gene complete sequence
+>AF251513.1 Halopithys incurva 18S ribosomal RNA gene complete sequence
+>MG272241.1 Neochondria ammophila voucher SAP115347 18S ribosomal RNA gene partial sequence
+>MF093940.1 Palisada sp. isolate PD1686 18S ribosomal RNA gene partial sequence
+>MF093932.1 Laurencia snackeyi isolate JFC0032 18S ribosomal RNA gene partial sequence
+>JX828167.1 Janczewskia morimotoi voucher OK228 small subunit ribosomal RNA gene partial sequence
+>AF339892.1 Lenormandia angustifolia 18S ribosomal RNA gene complete sequence
+>JX828177.1 Ophidocladus simpliciusculus voucher CH827 small subunit ribosomal RNA gene partial sequence
+>MG272244.1 Neochondria ammophila voucher SAP115371 18S ribosomal RNA gene partial sequence
+>JX828178.1 Osmundea pinnatifida voucher CH528 small subunit ribosomal RNA gene partial sequence
+>AY617143.1 Polysiphonia lanosa 18S ribosomal RNA gene partial sequence
+>MG831940.1 Chondria sp. SSut-2018a voucher SAP115390 small subunit ribosomal RNA gene partial sequence
+>MG831941.1 Chondria sp. SSut-2018a voucher SAP115391 small subunit ribosomal RNA gene partial sequence
+>MG831939.1 Chondria sp. SSut-2018a voucher SAP115389 small subunit ribosomal RNA gene partial sequence
+>MG272240.1 Chondria sp. 1 SSut-2108 voucher SAP115363 18S ribosomal RNA gene partial sequence
+>AF203894.1 Laurencia filiformis small subunit ribosomal RNA gene complete sequence
+>MF093934.1 Laurenciella marilzae isolate H1501 18S ribosomal RNA gene partial sequence
+>AY617144.1 Polysiphonia paniculata 18S ribosomal RNA gene partial sequence
+>MG831944.1 Chondria cf. curdieana voucher SAP115396 small subunit ribosomal RNA gene partial sequence
+>MG831943.1 Chondria cf. curdieana voucher SAP115395 small subunit ribosomal RNA gene partial sequence
+>AY237285.1 Osmundaria colensoi 18S ribosomal RNA gene partial sequence
+>AF251512.1 Melanamansia glomerata 18S ribosomal RNA gene complete sequence
+>MG831942.1 Chondria cf. curdieana voucher SAP115392 small subunit ribosomal RNA gene partial sequence
+>MF093920.1 Chondria sp. isolate PD0745 18S ribosomal RNA gene partial sequence
+>MG272239.1 Chondria expansa voucher SAP115366 18S ribosomal RNA gene partial sequence
+>JX828190.1 Vertebrata lanosa voucher CH828 small subunit ribosomal RNA gene partial sequence
+>AF203887.1 Murrayella periclados small subunit ribosomal RNA gene complete sequence
+>MG272243.1 Neochondria ammophila voucher SAP115370 18S ribosomal RNA gene partial sequence
+>AF203886.1 Polysiphonia lanosa small subunit ribosomal RNA gene complete sequence
+>AF339898.1 Lenormandia sp. MELU_000064 18S ribosomal RNA gene complete sequence
+>MF093928.1 Dipterosiphonia australica isolate PD1107 18S ribosomal RNA gene partial sequence
+>MG272245.1 Neochondria nidifica voucher UC2026095 18S ribosomal RNA gene partial sequence
+>AF427537.1 Womersleyella setacea small subunit ribosomal RNA gene complete sequence
+>MF093929.1 Gredgaria maugeana isolate PD1230 18S ribosomal RNA gene partial sequence
+>HM560626.1 Digenea simplex voucher Dig sim 18S ribosomal RNA gene partial sequence
+>MG272238.1 Chondria crassicaulis voucher SAP115362 18S ribosomal RNA gene partial sequence
+>AF339897.1 Lenormandia sp. MELU_000065 18S ribosomal RNA gene complete sequence
+>MF093941.1 Periphykon beckeri isolate JH1427 18S ribosomal RNA gene partial sequence
+>MF093947.1 Polysiphonia scopulorum isolate PD0899 18S ribosomal RNA gene partial sequence
+>JX828186.1 Pterosiphonia pennata voucher CH816 small subunit ribosomal RNA gene partial sequence
+>AF427526.1 Boergeseniella fruticulosa small subunit ribosomal RNA gene complete sequence
+>MF093935.1 Lophocladia kuetzingii isolate PD1509 18S ribosomal RNA gene partial sequence
+>JX828165.1 Boergeseniella thuyoides voucher CH824 small subunit ribosomal RNA gene partial sequence
+>HM582914.1 Osmundaria obtusiloba voucher 03151 small subunit ribosomal RNA gene partial sequence
+>AF427527.1 Enelittosiphonia stimpsonii small subunit ribosomal RNA gene complete sequence
+>JX828192.1 Polysiphonia brodiei voucher CH410 small subunit ribosomal RNA gene partial sequence
+>AF203890.1 Heterocladia australis small subunit ribosomal RNA gene complete sequence
+>KX499570.1 Brongniartella australis isolate PD931 small subunit ribosomal RNA gene partial sequence
+>FJ153773.2 Uncultured eukaryote clone 53 18S ribosomal RNA gene partial sequence
+>AB219915.1 Polysiphonia sp. SNI07 gene for 18S rRNA complete sequence
+>MF093961.1 Vertebrata thuyoides isolate PD0546 18S ribosomal RNA gene partial sequence
+>JX828170.1 Leptosiphonia schousboei voucher CH826 small subunit ribosomal RNA gene partial sequence
+>JX828189.1 Symphyocladia linearis voucher CH419 small subunit ribosomal RNA gene partial sequence
+>JX828171.1 Neosiphonia elongella voucher CH415 small subunit ribosomal RNA gene partial sequence
+>AF427530.1 Polysiphonia fucoides small subunit ribosomal RNA gene complete sequence
+>AF203892.1 Heterocladia umbellata small subunit ribosomal RNA gene complete sequence
+>AB219910.1 Polysiphonia sp. BRI50 gene for 18S rRNA complete sequence
+>AF203885.1 Neosiphonia savatieri small subunit ribosomal RNA gene complete sequence
+>JX828179.1 Polysiphonia atlantica voucher CH1268 small subunit ribosomal RNA gene partial sequence
+>JX828175.1 Neosiphonia yendoi voucher CH420 small subunit ribosomal RNA gene partial sequence
+>JX828181.1 Polysiphonia elongata voucher CH1416 small subunit ribosomal RNA gene partial sequence
+>MF093943.1 Polysiphonia brodiei isolate PD0516 18S ribosomal RNA gene partial sequence
+>AF427534.1 Polysiphonia nigra small subunit ribosomal RNA gene complete sequence
+>JX828168.1 Ceramiales sp. HGC-2012 voucher CH1414 small subunit ribosomal RNA gene partial sequence
+>MF093937.1 Melanothamnus harveyi isolate PD0890 18S ribosomal RNA gene partial sequence
+>AF427529.1 Polysiphonia elongata small subunit ribosomal RNA gene complete sequence
+>AY237287.1 Osmundaria spiralis 18S ribosomal RNA gene partial sequence
+>AY617133.1 Leachiella pacifica isolate LeachPP2 18S ribosomal RNA gene partial sequence
+>AY617132.1 Leachiella pacifica isolate LeachPP1 18S ribosomal RNA gene partial sequence
+>AY617128.1 Harveyella mirabilis isolate HarvGS 18S ribosomal RNA gene partial sequence
+>AY617130.1 Harveyella mirabilis isolate HarvOW 18S ribosomal RNA gene partial sequence
+>AY617140.1 Neorhodomela larix 18S ribosomal RNA gene partial sequence
+>AY617129.1 Harveyella mirabilis isolate HarvOF 18S ribosomal RNA gene partial sequence
+>AY617141.1 Odonthalia floccosa 18S ribosomal RNA gene partial sequence
+>AY617145.1 Rhodomela confervoides 18S ribosomal RNA gene partial sequence
+>AY617142.1 Odonthalia washintoniensis 18S ribosomal RNA gene partial sequence
+>MF093954.1 Rhodomela confervoides isolate PD508 18S ribosomal RNA gene partial sequence
+>AY617131.1 Harveyella mirabilis isolate HarvRC 18S ribosomal RNA gene partial sequence
+>L26203.1 Rhodomela confervoides DNA fragment
+>JX828176.1 Odonthalia corymbifera voucher OK230 small subunit ribosomal RNA gene partial sequence
+>AY237281.1 Lenormandia marginata 18S ribosomal RNA gene partial sequence
+>AF339896.1 Lenormandia spectabilis 18S ribosomal RNA gene complete sequence
+>AF203897.1 Lenormandia muelleri small subunit ribosomal RNA gene complete sequence
+>AF339894.1 Lenormandia pardalis 18S ribosomal RNA gene complete sequence
+>MF093926.1 Digenea simplex isolate PD1820 18S ribosomal RNA gene partial sequence
+>FJ153791.2 Uncultured eukaryote clone 60 18S ribosomal RNA gene partial sequence
+>AF339893.1 Lenormandia latifolia 18S ribosomal RNA gene complete sequence
+>AF339895.1 Lenormandia smithiae 18S ribosomal RNA gene complete sequence
+>MF093921.1 Chondria sp. isolate PD1582 18S ribosomal RNA gene partial sequence
+>JX828177.1 Ophidocladus simpliciusculus voucher CH827 small subunit ribosomal RNA gene partial sequence
+>AY237287.1 Osmundaria spiralis 18S ribosomal RNA gene partial sequence
+>AF203896.1 Micropeuce strobiliferum small subunit ribosomal RNA gene complete sequence
+>AY617126.1 Choreocolax polysiphoniae 18S ribosomal RNA gene partial sequence
+>MF093958.1 Thaumatella adunca isolate PD1388 18S ribosomal RNA gene partial sequence
+>MF093919.1 Chondria sp. isolate PD620 18S ribosomal RNA gene partial sequence
+>JX828186.1 Pterosiphonia pennata voucher CH816 small subunit ribosomal RNA gene partial sequence
+>AB219915.1 Polysiphonia sp. SNI07 gene for 18S rRNA complete sequence
+>AB219910.1 Polysiphonia sp. BRI50 gene for 18S rRNA complete sequence
+>AF203895.1 Lenormandia prolifera small subunit ribosomal RNA gene complete sequence
+>JX828167.1 Janczewskia morimotoi voucher OK228 small subunit ribosomal RNA gene partial sequence
+>AY237280.1 Aneurianna dentata 18S ribosomal RNA gene partial sequence
+>AF339899.1 Neurymenia fraxinifolia 18S ribosomal RNA gene complete sequence
+>MG272239.1 Chondria expansa voucher SAP115366 18S ribosomal RNA gene partial sequence
+>HM560630.1 Polysiphonia sp. DWF-2010b 18S ribosomal RNA gene partial sequence
+>AB505074.1 Polysiphonia sp. EGP155 gene for 18S rRNA partial sequence
+>GU385840.1 Polysiphonia sp. DWF-2010b voucher WNC2010-016 18S ribosomal RNA gene partial sequence
+>AY237286.1 Osmundaria fimbriata 18S ribosomal RNA gene partial sequence
+>MF093947.1 Polysiphonia scopulorum isolate PD0899 18S ribosomal RNA gene partial sequence
+>JX828184.1 Polysiphonia scopulorum voucher CH1290 small subunit ribosomal RNA gene partial sequence
+>HM565963.1 Polysiphonia sp. NZ04-515 18S ribosomal RNA gene partial sequence
+>GU223782.1 Herposiphonia sp. ARS-2010 voucher ARS03084 small subunit ribosomal RNA gene partial sequence
+>AB505062.1 Polysiphonia sp. Trang55 gene for 18S rRNA partial sequence
+>AB505061.1 Polysiphonia sp. Trang38 gene for 18S rRNA partial sequence
+>AB505059.1 Polysiphonia sp. KTK56 gene for 18S rRNA partial sequence
+>AF203889.1 Melanamansia mamillaris small subunit ribosomal RNA gene complete sequence
+>MG831939.1 Chondria sp. SSut-2018a voucher SAP115389 small subunit ribosomal RNA gene partial sequence
+>MG272240.1 Chondria sp. 1 SSut-2108 voucher SAP115363 18S ribosomal RNA gene partial sequence
+>MF093915.1 Bryothamnion seaforthii isolate PD644 18S ribosomal RNA gene partial sequence
+>AY237285.1 Osmundaria colensoi 18S ribosomal RNA gene partial sequence
+>AY237284.1 Rytiphlaea tinctoria 18S ribosomal RNA gene partial sequence
+>MG272242.1 Neochondria ammophila voucher SAP115369 18S ribosomal RNA gene partial sequence
+>AB505063.1 Polysiphonia sp. DHB184 gene for 18S rRNA partial sequence
+>AB219907.1 Polysiphonia senticulosa gene for 18S rRNA complete sequence
+>AF427532.1 Polysiphonia morrowii small subunit ribosomal RNA gene complete sequence
+>MF093933.1 Laurencieae sp. isolate JFC1711 18S ribosomal RNA gene partial sequence
+>JX828189.1 Symphyocladia linearis voucher CH419 small subunit ribosomal RNA gene partial sequence
+>JX828179.1 Polysiphonia atlantica voucher CH1268 small subunit ribosomal RNA gene partial sequence
+>HM560633.1 Polysiphonia scopulorum var. villum voucher NC-33 18S ribosomal RNA gene partial sequence
+>HM560632.1 Polysiphonia macrocarpa voucher PHYKOS-2627 18S ribosomal RNA gene partial sequence
+>AB505073.1 Polysiphonia sp. MLD62 gene for 18S rRNA partial sequence
+>AB505069.1 Polysiphonia sp. MAL128 gene for 18S rRNA partial sequence
+>AB505068.1 Polysiphonia sp. WTM117 gene for 18S rRNA partial sequence
+>AB505067.1 Polysiphonia sp. DHB185 gene for 18S rRNA partial sequence
+>AB505066.1 Polysiphhonia sp. GBR52 gene for 18S rRNA partial sequence
+>AB505065.1 Polysiphonia sp. Kohama01 gene for 18S rRNA partial sequence
+>AB505058.1 Polysiphonia sp. TRANG44 gene for 18S rRNA partial sequence
+>AB219930.1 Polysiphonia sp. HNU01 gene for 18S rRNA complete sequence
+>AB219924.1 Polysiphonia sp. MES06 gene for 18S rRNA complete sequence
+>AB219917.1 Polysiphonia sp. HSS18 gene for 18S rRNA complete sequence
+>AB219912.1 Polysiphonia sp. SRH18 gene for 18S rRNA complete sequence
+>AB219911.1 Polysiphonia sp. SRH19 gene for 18S rRNA complete sequence
+>AB219899.1 Polysiphonia sp. HSS01 gene for 18S rRNA complete sequence
+>AB219896.1 Polysiphonia sp. URS17 gene for 18S rRNA complete sequence
+>AB219866.1 Polysiphonia sp. SRH05 gene for 18S rRNA complete sequence
+>AB219865.1 Polysiphonia sp. TKN26 gene for 18S rRNA complete sequence
+>AB219864.1 Polysiphonia sp. AOB29 gene for 18S rRNA complete sequence
+>AB219863.1 Polysiphonia sp. KNR00 gene for 18S rRNA complete sequence
+>AB219862.1 Polysiphonia sp. MES19 gene for 18S rRNA complete sequence
+>AB219861.1 Polysiphonia sp. MES13 gene for 18S rRNA complete sequence
+>AY617144.1 Polysiphonia paniculata 18S ribosomal RNA gene partial sequence
+>AF427537.1 Womersleyella setacea small subunit ribosomal RNA gene complete sequence
+>MG831940.1 Chondria sp. SSut-2018a voucher SAP115390 small subunit ribosomal RNA gene partial sequence
+>MF093941.1 Periphykon beckeri isolate JH1427 18S ribosomal RNA gene partial sequence
+>MF093939.1 Osmundaria fimbriata isolate JW2841 18S ribosomal RNA gene partial sequence
+>MF093929.1 Gredgaria maugeana isolate PD1230 18S ribosomal RNA gene partial sequence
+>MG831941.1 Chondria sp. SSut-2018a voucher SAP115391 small subunit ribosomal RNA gene partial sequence
+>MG272245.1 Neochondria nidifica voucher UC2026095 18S ribosomal RNA gene partial sequence
+>MF093932.1 Laurencia snackeyi isolate JFC0032 18S ribosomal RNA gene partial sequence
+>MF093920.1 Chondria sp. isolate PD0745 18S ribosomal RNA gene partial sequence
+>HM560635.1 Polysiphonia subtilissima voucher PHYKOS-3271 18S ribosomal RNA gene partial sequence
+>FJ486059.1 Uncultured eukaryote clone 12S 18S ribosomal RNA gene partial sequence
+>FJ153775.2 Uncultured eukaryote clone 12 18S ribosomal RNA gene partial sequence
+>FJ153773.2 Uncultured eukaryote clone 53 18S ribosomal RNA gene partial sequence
+>AF427534.1 Polysiphonia nigra small subunit ribosomal RNA gene complete sequence
+>AF427531.1 Polysiphonia harveyi small subunit ribosomal RNA gene complete sequence
+>MG831944.1 Chondria cf. curdieana voucher SAP115396 small subunit ribosomal RNA gene partial sequence
+>MG272244.1 Neochondria ammophila voucher SAP115371 18S ribosomal RNA gene partial sequence

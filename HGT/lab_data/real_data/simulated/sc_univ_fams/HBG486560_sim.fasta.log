@@ -1,0 +1,141 @@
+IQ-TREE multicore version 1.7-beta6 for Linux 64-bit built Nov 19 2018
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    ip-172-30-3-212 (AVX2, FMA3, 7 GB RAM)
+Command: iqtree -m LG -bb 10000 -s HBG486560_sim.fasta -wbtl
+Seed:    285600 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Feb  1 15:49:50 2019
+Kernel:  AVX+FMA - 1 threads (2 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 2 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file HBG486560_sim.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+Alignment has 36 sequences with 600 columns, 230 distinct patterns
+187 parsimony-informative, 23 singleton sites, 390 constant sites
+                 Gap/Ambiguity  Composition  p-value
+   1  PRMAR1_1_PE245     0.00%    passed    100.00%
+   2  PROMP_1_PE223      0.00%    passed     99.57%
+   3  SYNSC_1_PE501      0.00%    passed    100.00%
+   4  CYAA5_6_PE1886     0.00%    passed     99.94%
+   5  ACAM1_1_PE3360     0.00%    passed     99.99%
+   6  SYNR3_2_PE313      0.00%    passed    100.00%
+   7  PROMM_1_PE1906     0.00%    passed    100.00%
+   8  PROM3_1_PE385      0.00%    passed    100.00%
+   9  CYAP4_1_PE2503     0.00%    passed     99.98%
+  10  SYNY3_4_PE1091     0.00%    passed     99.97%
+  11  PROM5_1_PE248      0.00%    passed     99.99%
+  12  PROM9_1_PE228      0.00%    passed     99.99%
+  13  SYNS9_1_PE1809     0.00%    passed     99.99%
+  14  TRIEI_1_PE2877     0.00%    passed    100.00%
+  15  CYAP7_1_PE4784     0.00%    passed    100.00%
+  16  NOSP7_2_PE102      0.00%    passed    100.00%
+  17  PROMS_1_PE238      0.00%    passed    100.00%
+  18  THEEB_1_PE2470     0.00%    passed    100.00%
+  19  PROM0_1_PE239      0.00%    passed     99.99%
+  20  CYAP8_1_PE3614     0.00%    passed     99.55%
+  21  SYNS3_1_PE2353     0.00%    passed     99.79%
+  22  PROM4_1_PE239      0.00%    passed    100.00%
+  23  PROM1_1_PE296      0.00%    passed     99.93%
+  24  MICAN_1_PE2347     0.00%    passed     99.96%
+  25  ANAVT_4_PE2640     0.00%    passed    100.00%
+  26  PROMT_1_PE275      0.00%    passed     99.97%
+  27  SYNP6_1_PE913      0.00%    passed     99.84%
+  28  SYNP2_5_PE2540     0.00%    passed     99.99%
+  29  SYNPX_1_PE1932     0.00%    passed    100.00%
+  30  GLVIO1_1_PE3637    0.00%    passed    100.00%
+  31  SYNJA_1_PE2457     0.00%    passed     99.83%
+  32  PROM2_1_PE238      0.00%    passed     99.99%
+  33  SYNPW_2_PE2097     0.00%    passed    100.00%
+  34  SYNJB_1_PE2309     0.00%    passed     99.99%
+  35  ANASP_6_PE49       0.00%    passed     99.99%
+  36  SYNE7_1_PE611      0.00%    passed     99.84%
+****  TOTAL              0.00%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: SYNE7_1_PE611 is identical to SYNP6_1_PE913 but kept for subsequent analysis
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.005 seconds
+Generating 10000 samples for ultrafast bootstrap (seed: 285600)...
+
+NOTE: 11 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -12907.263
+Optimal log-likelihood: -12875.718
+Parameters optimization took 1 rounds (0.018 sec)
+Computing ML distances based on estimated model parameters... 0.071 sec
+Computing BIONJ tree...
+0.001 seconds
+Log-likelihood of BIONJ tree: -12904.851
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.460 second
+Computing log-likelihood of 98 initial trees ... 0.510 seconds
+Current best score: -12872.198
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -12865.211
+Iteration 10 / LogL: -12865.216 / Time: 0h:0m:2s
+Iteration 20 / LogL: -12865.217 / Time: 0h:0m:3s
+Finish initializing candidate tree set (1)
+Current best tree score: -12865.211 / CPU time: 3.548
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -12865.292 / Time: 0h:0m:5s (0h:0m:12s left)
+Iteration 40 / LogL: -12865.325 / Time: 0h:0m:6s (0h:0m:10s left)
+Iteration 50 / LogL: -12865.253 / Time: 0h:0m:8s (0h:0m:8s left)
+Log-likelihood cutoff on original alignment: -12914.376
+UFBoot trees printed to HBG486560_sim.fasta.ufboot
+Iteration 60 / LogL: -12865.213 / Time: 0h:0m:11s (0h:0m:8s left)
+Iteration 70 / LogL: -12871.058 / Time: 0h:0m:13s (0h:0m:6s left)
+Iteration 80 / LogL: -12865.239 / Time: 0h:0m:14s (0h:0m:3s left)
+Iteration 90 / LogL: -12865.220 / Time: 0h:0m:16s (0h:0m:2s left)
+Iteration 100 / LogL: -12865.219 / Time: 0h:0m:17s (0h:0m:0s left)
+Log-likelihood cutoff on original alignment: -12914.545
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 1.000
+UFBoot trees printed to HBG486560_sim.fasta.ufboot
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:20s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -12865.211
+Optimal log-likelihood: -12865.211
+Parameters optimization took 1 rounds (0.008 sec)
+BEST SCORE FOUND : -12865.211
+Creating bootstrap support values...
+Split supports printed to NEXUS file HBG486560_sim.fasta.splits.nex
+Total tree length: 3.346
+
+Total number of iterations: 102
+CPU time used for tree search: 19.967 sec (0h:0m:19s)
+Wall-clock time used for tree search: 20.269 sec (0h:0m:20s)
+Total CPU time used: 21.291 sec (0h:0m:21s)
+Total wall-clock time used: 21.610 sec (0h:0m:21s)
+UFBoot trees printed to HBG486560_sim.fasta.ufboot
+
+Computing bootstrap consensus tree...
+Reading input file HBG486560_sim.fasta.splits.nex...
+36 taxa and 161 splits.
+Consensus tree written to HBG486560_sim.fasta.contree
+Reading input trees file HBG486560_sim.fasta.contree
+Log-likelihood of consensus tree: -12865.213
+
+Analysis results written to: 
+  IQ-TREE report:                HBG486560_sim.fasta.iqtree
+  Maximum-likelihood tree:       HBG486560_sim.fasta.treefile
+  Likelihood distances:          HBG486560_sim.fasta.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          HBG486560_sim.fasta.splits.nex
+  Consensus tree:                HBG486560_sim.fasta.contree
+  UFBoot trees:                  HBG486560_sim.fasta.ufboot
+  Screen log file:               HBG486560_sim.fasta.log
+
+Date and Time: Fri Feb  1 15:50:14 2019

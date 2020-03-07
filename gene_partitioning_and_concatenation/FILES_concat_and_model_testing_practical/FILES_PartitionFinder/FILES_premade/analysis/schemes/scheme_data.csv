@@ -1,0 +1,3 @@
+name,sites,lnL,parameters,subsets,aic,aicc,bic
+start_scheme,2205,-26267.71,41,5,52617.42,52619.01,52851.06
+step_1,2205,-26267.71,40,4,52615.43,52616.94,52843.37

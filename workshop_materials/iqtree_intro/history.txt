@@ -1,0 +1,817 @@
+    1  ls -la
+    2  htop
+    3  ls -la
+    4  mkdir Data
+    5  cd data
+    6  cd Data/
+    7  ls -la
+    8  pwd
+    9  cd ..
+   10  ls -la
+   11  cd workshop_materials/
+   12  ls -la
+   13  cd Bayesian_tutorial/
+   14  ls -la
+   15  cd ..
+   16  l s-la
+   17  ls -la
+   18  cd divtime/
+   19  ls -la
+   20  cd ..
+   21  ls -la
+   22  cd gene_partitioning_and_concatenation/
+   23  l s-la
+   24  ls -la
+   25  cd ..
+   26  ls -la
+   27  cd ng-tutorial/
+   28  ls -la
+   29  cd ..
+   30  ls -la
+   31  cd orthology_lab/
+   32  ls -la
+   33  cd exercise
+   34  ls -la
+   35  cd exercise1/
+   36  ls -la
+   37  cd ..
+   38  ls -la
+   39  cd exercise2/
+   40  ls -la
+   41  cd ..
+   42  ls -la
+   43  cd exercise
+   44  cd exercise3/
+   45  ls -la
+   46  cd ..
+   47  ls -la
+   48  cd exercise4/
+   49  ld -la
+   50  ls -la
+   51  cd ..
+   52  ls -la
+   53  cd ..
+   54  ls -la
+   55  cd trait_evolution/
+   56  ls -la
+   57  cd primate/
+   58  ls -la
+   59  cd ..
+   60  ls -la
+   61  cd ..
+   62  ls -la
+   63  cd trimming_tutorial/
+   64  ls -la
+   65  cd ...
+   66  ls -la
+   67  cd ..
+   68  ls -la
+   69  cd ..
+   70  ls -la
+   71  cd Data/
+   72  ls -la
+   73  pwd
+   74  cd ../
+   75  ls ./Data/
+   76  ls -la
+   77  cd Data/
+   78  ls -la
+   79  ls ../
+   80  ls -la ../
+   81  mkdir tmp
+   82  cd tmp/
+   83  ls -la
+   84  cd ~/
+   85  pwd
+   86  man ls
+   87  ls -t ./Data/
+   88  ls -l ./Data/
+   89  ls -h ./Data/
+   90  ls -tlh ./Data/
+   91  ls -a ./Data/
+   92  ls -tlha ./Data/
+   93  echo $PATH
+   94  cd software/
+   95  ls -la
+   96  ls
+   97  cd ..
+   98  ls -la
+   99  mkdir Working
+  100  ls-la
+  101  ls -la
+  102  cd Data/
+  103  ls -la
+  104  mkdir rags Earth Heaven
+  105  ls -la
+  106  mv ./Earth/ ../Working/
+  107  mv ./Heaven/ ../Working/
+  108  ls -la
+  109  rm -vrf tmp
+  110  ls -la
+  111  cd ..
+  112  ls -la
+  113  cd Data/
+  114  ls -la
+  115  mv rags/ riches
+  116  ls -la
+  117  cd ..
+  118  cd Working/
+  119  ls -la
+  120  cd ..
+  121  cd Data/
+  122  ls -al
+  123  rm -i ../Working/Heaven/
+  124  rm -ri ../Working
+  125  ls -la
+  126  vp -vrf riches/ ../
+  127  cp -vrf riches/ ../
+  128  ls -la
+  129  cd ..
+  130  ls -la
+  131  cp -r ./Data/ ./Backup
+  132  ls -la
+  133  cp ./workshop_materials/Sequences.tar.gz ./Backup/
+  134  cd Backup/
+  135  ls -al
+  136  tarxvzf Sequences.tar.gz 
+  137  tar xvzf Sequences.tar.gz
+  138  ls -la
+  139  cd Sequences/
+  140  ls -la
+  141  mv forward_10k.fastq sequence_1.fq
+  142  mv reverse_10k.fastq sequence_2.fq
+  143  ls -la
+  144  cd ..
+  145  ls -la
+  146  rm -vrf Sequences.tar.gz 
+  147  ls -la
+  148  cd ..
+  149  ls -la
+  150  cd Wo
+  151  cd workshop_materials/
+  152  ls -la
+  153  tar xvzf Blast_Out.tar.gz 
+  154  ls la
+  155  ls -la
+  156  cd Blast_Out/
+  157  ls -la
+  158  head CP_blast_seqs.fna 
+  159  head -30 CP_blast_seqs.fna
+  160  clear
+  161  ls -la
+  162  tail -n 30 CP_blast_seqs.fna 
+  163  ls -la
+  164  wc -l CP_blast_seqs.fna 
+  165  wc -l LP_blast_seqs.fna 
+  166  cat *_blast_seqs.fna
+  167  cat *_blast_seqs.fna > CP_LP_blast_seqs.fna
+  168  ls -la
+  169  wc -l CP_blast_seqs.fna 
+  170  wc -l LP_blast_seqs.fna 
+  171  wc -l CP_LP_blast_seqs.fna
+  172  grep ">" CP_LP_blast_seqs.fna > CP_LP_blast_seqs_headers.txt
+  173  ls -la
+  174  sed -i 's/,//g'  Documents
+  175  drwxr-xr-x  2 phylogenomics workshop         4096 Jan 14 14:15 Downloads
+  176  sed -i 's/,//g' CP_LP_blast_seqs_headers.txt
+  177  vi CP_LP_blast_seqs_headers.txt 
+  178  ls -la
+  179  cd workshop_materials/
+  180  ls la
+  181  ls -la
+  182  cd Blast_Out/
+  183  ls -la
+  184  rm .*
+  185  ls -la
+  186  head CP_LP_blast_seqs_headers.txt 
+  187  sed 's/[A-Z0-9]+\s(.+$)//g' < CP_LP_blast_seqs_headers.txt 
+  188  sed 's/>[A-Z0-9]+\s(.+$)//g' < CP_ 
+  189  ls -la
+  190  cat CP_LP_blast_seqs_headers.txt | cut -f1-3
+  191  cat CP_LP_blast_seqs_headers.txt | cut -f2
+  192  cut -f2 < CP_LP_blast_seqs_headers.txt 
+  193  cut -d ' ' -f2 < CP_LP_blast_seqs_headers.txt 
+  194  cut -d ' ' -f2-3 < CP_LP_blast_seqs_headers.txt
+  195  cut -d ' ' -f2-3 < CP_LP_blast_seqs_headers.txt | sort | uniq
+  196  cut -d ' ' -f2-3 < CP_LP_blast_seqs_headers.txt | sort | uniq | wc -l
+  197  which run_pasta.py
+  198  run_pasta.py --help
+  199  ls- la
+  200  ls -la
+  201  cd software/
+  202  ls -la
+  203  ls
+  204  cd pasta/
+  205  ls -la
+  206  ./run_pasta_gui.py
+  207  ls -la
+  208  cd data/
+  209  ls -la
+  210  vi small.fasta 
+  211  cd software/
+  212  ls -la
+  213  cd pasta/
+  214  ls -la
+  215  cd data/
+  216  ls -la
+  217  less small.fasta 
+  218  rm .*
+  219  rm .small.fasta.swp 
+  220  ls -la
+  221  cd workshop_materials/
+  222  ls -la
+  223  cd orthology_lab/
+  224  ls -la
+  225  cd exercise
+  226  cd exercise4/
+  227  ls -la
+  228  cd ..
+  229  l s-la
+  230  ls -la
+  231  cd exercise1/
+  232  ls -la
+  233  vi get_BRH.py 
+  234  cd workshop_materials/
+  235  ls -la
+  236  cd orthology_lab/
+  237  l s-la
+  238  ls -la
+  239  cd exercise
+  240  cd exercise1/
+  241  ls -la
+  242  python get_BRH.py 
+  243  grep -c ">" ASPCL.fasta 
+  244  grep -c ">" PENCH.fasta 
+  245  python get_BRH.py -s1 ASPCL.fasta -s2 PENCH.fasta 
+  246  makeblastdb
+  247  makeblastdb -in ASPCL.fasta -input_type fasta -dbtype prot -title ASPCL.blast -parse_seqids -out ASPCL.blast
+  248  makeblastdb -in PENCH.fasta -input_type fasta -dbtype prot -title PENCH.blast -parse_seqids -out PENCH.blast
+  249  ls -la
+  250  python get_BRH.py 
+  251  python get_BRH.py -s1 ASPCL.fasta -s2 PENCH.fasta -h1 ASPCL_PENCH.blast -h2 PENCH_ASPCL.blast
+  252  less get_BRH.py 
+  253  python get_BRH.py -s1 ASPCL.fasta -s2 PENCH.fasta -h1 ASPCL_PENCH.blast -h2 PENCH_ASPCL.blast -t out
+  254  ls -la
+  255  blastp
+  256  blastp -h
+  257  blastp -query ASPCL.fasta -db PENCH.blast -out ASPCL_PENCH.blast.out
+  258  blastp -query PENCH.fasta -db ASPCL.blast -out PENCH_ASPCL.blast.out
+  259  ls -la
+  260  python get_BRH.py -s1 ASPCL.fasta -s2 PENCH.fasta -h1 ASPCL_PENCH.blast.out -h2 PENCH_ASPCL.blast.out -t BRH
+  261  ls -la
+  262  rm -vrf BRH.BRH.txt BRH.unpaired.txt
+  263  ls -la
+  264  python get_BRH.py -s1 ASPCL.fasta -s2 PENCH.fasta -h1 ASPCL_PENCH.blast.out -h2 PENCH_ASPCL.blast.out -t results
+  265  ls -la
+  266  less results.unpaired.txt
+  267  wq
+  268  wc -l results.unpaired.txt
+  269  less ASPCL_2_PENCH.blast
+  270  less ASPCL_PENCH.blast.out
+  271  rm ASPCL_PENCH.blast.out PENCH_ASPCL.blast.out 
+  272  ls -la
+  273  rm results.*
+  274  ls -al
+  275  blastp --help
+  276  blastp -help
+  277  ls -la
+  278  blastp -query ASPCL.fasta -db PENCH.blast -out ASPCL_PENCH.blast.out -outfmt 6
+  279  blastp -query PENCH.fasta -db ASPCL.blast -out PENCH_ASPCL.blast.out -outfmt 6
+  280  ls -la
+  281  less ASPCL_PENCH.blast.out 
+  282  python get_BRH.py -s1 ASPCL.fasta -s2 PENCH.fasta -h1 ASPCL_PENCH.blast.out -h2 PENCH_ASPCL.blast.out -t results
+  283  ls -la
+  284  less results.BRH.txt
+  285  ls -la
+  286  head results.BRH.txt 
+  287  grep "PENCH_0029_04302" ASPCL_PENCH.blast.out 
+  288  grep "PENCH_0029_04302" PENCH_ASPCL.blast.out 
+  289  mysql
+  290  ls -la
+  291  cd ..
+  292  ls -la
+  293  cd ..
+  294  ls -la
+  295  cd ..
+  296  ls -la
+  297  cd software/
+  298  ls -la
+  299  ls
+  300  cd ..
+  301  ls -la
+  302  cd workshop_materials/orthology_lab/exercise2/
+  303  ls -la
+  304  perl inparanoid.pl ASPCL.fasta PENCH.fasta 
+  305  ls -la
+  306  rm Output.ASPCL.fasta-PENCH.fasta 
+  307  wget genome.crg.es/~mmarcet/inparanoid_4.1.tar.gz
+  308  ls -la
+  309  tar xvzf inparanoid_4.1.tar.gz
+  310  ls -la
+  311  cd tmp/
+  312  ls -la
+  313  cd tmpoh31dz/
+  314  ls -la
+  315  mv -vrf inparanoid_4.1/ ../../
+  316  mv -vr inparanoid_4.1/ ../../
+  317  mv -v inparanoid_4.1/ ../../
+  318  ls -la
+  319  cd ..
+  320  ls -la
+  321  rm -vrf tmp/
+  322  ls -la
+  323  cd inparanoid_4.1/
+  324  ls -la
+  325  cd ..
+  326  ls -la
+  327  rm BLOSUM62 
+  328  cp inparanoid_4.1/BLOSUM62 .
+  329  ls -la
+  330  cd inparanoid_4.1/
+  331  ls -la
+  332  pwd
+  333  vi inparanoid.pl 
+  334  cd workshop_materials/orthology_lab/exercise2/
+  335  ls -la
+  336  cd inparanoid_4.1/
+  337  ls -la
+  338  pluma inparanoid.pl 
+  339  pwd
+  340  pluma inparanoid.pl 
+  341  ls -la
+  342  cd ..
+  343  ls -la
+  344  perl inparanoid_4.1/inparanoid.pl ASPCL.fasta PENCH.fasta 
+  345  ls -la
+  346  cd inparanoid_4.1/
+  347  pluma inparanoid.pl 
+  348  perl inparanoid_4.1/inparanoid.pl ASPCL.fasta PENCH.fasta 
+  349  cd ..
+  350  ls -la
+  351  perl inparanoid_4.1/inparanoid.pl ASPCL.fasta PENCH.fasta 
+  352  ls -la
+  353  less table.ASPCL.fasta-PENCH.fasta 
+  354  less orthologs.ASPCL.fasta-PENCH.fasta.html
+  355  ls -la
+  356  cd ..
+  357  ls -la
+  358  cd exercise2/
+  359  ls -la
+  360  mkdir result1
+  361  mv table.ASPCL.fasta-PENCH.fasta result1/
+  362  mv orthologs.ASPCL.fasta-PENCH.fasta.html result1/
+  363  mv sqltable.ASPCL.fasta-PENCH.fasta result1/
+  364  ls -al
+  365  cd inparanoid_4.1/
+  366  ls -la
+  367  pluma inparanoid.pl 
+  368  cd ..
+  369  ls -la
+  370  perl inparanoid_4.1/inparanoid.pl ASPCL.fasta PENCH.fasta PENMQ.fasta 
+  371  ls -la
+  372  less orthologs.ASPCL.fasta-PENCH.fasta.html 
+  373  less table.ASPCL.fasta-PENCH.fasta 
+  374  ls -la
+  375  cd ..
+  376  ls -la
+  377  cd exercise4
+  378  ls -la
+  379  ipython
+  380  cd workshop_materials/
+  381  ls -al
+  382  cd gene_partitioning_and_concatenation/
+  383  ls -al
+  384  wget http://evomicsorg.wpengine.netdna-cdn.com/wp-content/uploads/2019/01/FILES_concat_and_model_testing_practical.tar
+  385  ls -la
+  386  tar xvf FILES_concat_and_model_testing_practical.tar 
+  387  ls -la
+  388  cd FILES_concat_and_model_testing_practical/
+  389  ls -la
+  390  cd FILES_
+  391  cd FILES_PartitionFinder/
+  392  ls -la
+  393  FILES_premade/
+  394  ls -la
+  395  cd FILES_premade/
+  396  ls -la
+  397  vi partition_finder.cfg 
+  398  cd workshop_materials/gene_partitioning_and_concatenation/
+  399  ls -la
+  400  cd FILES_concat_and_model_testing_practical/
+  401  ls -la
+  402  cd FILES_
+  403  cd FILES_PartitionFinder/
+  404  ls -la
+  405  cd ..
+  406  ls -la
+  407  cd FILES_scripts/
+  408  ls -la
+  409  cd ..
+  410  ls -la
+  411  cd FILES_aligned_and_trimmed_fastas/
+  412  ls -la
+  413  less EOG092D1MLK.fa.mafft.trimal
+  414  phyutility -concat -in EOG092D* -out concatenated_supermatric.nexus
+  415  ls -la
+  416  less EOG092D1MLK.fa.mafft.trimal
+  417  less concatenated_supermatric.nexus
+  418  wq
+  419  ls la
+  420  ls -la
+  421  head 
+  422  head -n 3 concatenated_supermatrix.nexus | tail -n 1| sed 's/^.*\[//g' | sed 's/\s\].*$//g' | sed 's/.fa.mafft.trimal_gene.\s/=/g' | tr " " "\n" | sed 's/^/AUTO,\s/g'
+  423  head -n 3 concatenated_supermatric.nexus | tail -n 1| sed 's/^.*\[//g' | sed 's/\s\].*$//g' | sed 's/.fa.mafft.trimal_gene.\s/=/g' | tr " " "\n" | sed 's/^/AUTO,\s/g'
+  424  head -n 3 concatenated_supermatric.nexus | tail -n 1| sed 's/^.*\[//g' | sed 's/\s\].*$//g' | sed 's/.fa.mafft.trimal_gene.\s/=/g' | tr " " "\n" | sed 's/^/AUTO,\s/g' > paritions.txt
+  425  ls -la
+  426  less concatenated_supermatric.nexus 
+  427  ls -la
+  428  cd ..
+  429  ls -la
+  430  pwd
+  431  cd FILES_scripts/
+  432  ls -la
+  433  pwd
+  434  ls -la
+  435  cd ..
+  436  ls -la
+  437  cd FILES_aligned_and_trimmed_fastas/
+  438  ls -la
+  439  python ../FILES_scripts/create_concat_matrix.py 
+  440  python ../FILES_scripts/create_concat_matrix.py -h
+  441  ls -la
+  442  ls EOG092D* > alignment.list
+  443  ls -la
+  444  ls- la
+  445  l -la
+  446  ls -la
+  447  cat EOG092D1MLK.fa.mafft.trimal | grep ">" | sed 's/\s.*$//g' | sed 's/>//g' > taxa_names.list
+  448  python ../FILES_scripts/create_concat_matrix.py -a alignment.list -c prot -t taxa_names.list -p concat
+  449  ls -la
+  450  bash ../FILES_scripts/create_nexus_partition.sh concat.partition > concat.partition.nexus
+  451  ls -la
+  452  cd ..
+  453  ls -la
+  454  cd FILES_PartitionFinder/
+  455  ls -al
+  456  cp ../FILES_aligned_and_trimmed_fastas/concat.fa .
+  457  ls -la
+  458  perl ../FILES_scripts/Fasta2Phylip.pl concat.fa
+  459  ls -la
+  460  PartitionFinderProtein.py 
+  461  PartitionFinderProtein.py -help
+  462  ls -la
+  463  PartitionFinderProtein.py 
+  464  PartitionFinderProtein.py | less
+  465  ls -la
+  466  cd FILES_premade/
+  467  ls -la
+  468  cd ..
+  469  ls -la
+  470  PartitionFinderProtein.py partition_finder.cfg 
+  471  pluma partition_finder.cfg 
+  472  nano partition_finder.cfg 
+  473  ls -la
+  474  pluma partition_finder.cfg 
+  475  ls -la
+  476  PartitionFinderProtein.py partition_finder.cfg 
+  477  ls -la
+  478  pluma concat.fa.phy 
+  479  cd FILES_premade/
+  480  ls -la
+  481  head concatenation.fasta.phy 
+  482  ls -la
+  483  cd ..
+  484  ls -la
+  485  PartitionFinderProtein.py partition_finder.cfg 
+  486  cd FILES_premade/
+  487  ls -la
+  488  cat partition_finder.cfg 
+  489  ls -la
+  490  pluma partition_finder.cfg 
+  491  PartitionFinderProtein.py partition_finder.cfg 
+  492  ls -la
+  493  cd analysis/
+  494  ls -la
+  495  less best_scheme.txt 
+  496  which PartitionFinderProtein.py 
+  497  ls -la
+  498  cd ..
+  499  ls -la
+  500  cd ..
+  501  ls -la
+  502  cd ..
+  503  ls -la
+  504  cd ..
+  505  ls -la
+  506  cd ..
+  507  ls -la
+  508  cd gene_partitioning_and_concatenation/
+  509  ls -la
+  510  mkdir challenge
+  511  cd challenge/
+  512  ls -la
+  513  wget http://evomicsorg.wpengine.netdna-cdn.com/wp-content/uploads/2019/01/FILES_Wed_challenge_fastas.tar
+  514  ls -la
+  515  tar xvf FILES_Wed_challenge_fastas.tar
+  516  ls -la
+  517  cd FILES_Wed_challenge_fastas/
+  518  ls -la
+  519  less Ambrosiozyma_ambrosiae.fa
+  520  ls -la
+  521  cd ..
+  522  ls -la
+  523  git clone https://github.com/davidemms/OrthoFinder.git
+  524  ls -la
+  525  cd OrthoFinder/
+  526  ls -la
+  527  less README.md 
+  528  cd orthofinder/
+  529  ls -la
+  530  cd ..
+  531  ls -la
+  532  cd Tests/
+  533  ls la
+  534  ls -la
+  535  cd ..
+  536  ls -la
+  537  cd ..
+  538  ls -la
+  539  cd OrthoFinder/
+  540  ls -la
+  541  cd orthofinder/
+  542  ls -la
+  543  python orthofinder.py 
+  544  ls -la
+  545  mcl
+  546  diamond 
+  547  ls -la
+  548  pwd
+  549  export PATH=/home/phylogenomics/workshop_materials/gene_partitioning_and_concatenation/challenge/OrthoFinder/orthofinder:$PATH
+  550  ls -la
+  551  cd ..
+  552  ls -la
+  553  cd FILES_Wed_challenge_fastas/
+  554  ls -la
+  555  cd ..
+  556  ls -la
+  557  orthofinder.py -help
+  558  orthofinder.py --help
+  559  ls -la
+  560  orthofinder.py -f ./FILES_Wed_challenge_fastas
+  561  ls -la
+  562  cd FILES_Wed_challenge_fastas/
+  563  ls -la
+  564  cd OrthoFinder/
+  565  ls -la
+  566  cd Results_Jan23/
+  567  ls -la
+  568  cd cd Comparative_Genomics_Statistics/
+  569  ls -la
+  570  cd Comparative_Genomics_Statistics/
+  571  ls -la
+  572  less Duplications_per_Orthogroup.tsv 
+  573  less Duplications_per_Species_Tree_Node.tsv 
+  574  ls- la
+  575  ls -al
+  576  cd ..
+  577  ls -la
+  578  cd Orthogroup_Sequences/
+  579  ls la
+  580  ls -la
+  581  less OG0000000.fa 
+  582  wq
+  583  ls -la
+  584  cd ..
+  585  ls -la
+  586  cd Comparative_Genomics_Statistics/
+  587  ls -la
+  588  less OrthologuesStats_one-to-one.tsv
+  589  ls -la
+  590  less OrthologuesStats_one-to-one.tsv
+  591  cd ..
+  592  ls -la
+  593  cd Orthogroup
+  594  cd Orthogroups/
+  595  ls -la
+  596  less Orthogroups.GeneCount.tsv
+  597  ls -la
+  598  less Orthogroups_SingleCopyOrthologues.txt 
+  599  ls -la
+  600  ls- la
+  601  ls -la
+  602  cd ..
+  603  ls -la
+  604  cd Single_Copy_Orthologue_Sequences/
+  605  ls -la
+  606  for i in (ls OG000000*); do grep ">" $i ; done
+  607  for i in $(ls OG000000*); do grep ">" $i ; done
+  608  for i in $(ls OG000000*); do grep ">" $i | wc-l ; done
+  609  for i in $(ls OG000000*); do grep ">" $i | wc -l ; done
+  610  ls -l
+  611  cd ..
+  612  ls -la
+  613  cd ..
+  614  ls -la
+  615  cd ..
+  616  ls -la
+  617  cd ..
+  618  ls -la
+  619  cd FILES_concat_and_model_testing_practical/
+  620  ls -la
+  621  cd FILES_aligned_and_trimmed_fastas/
+  622  ls -la
+  623  less Pichia_terricola
+  624  less EOG092D1MLK.fa.mafft.trimal
+  625  cd ..
+  626  ls -l
+  627  cd ..
+  628  ls -a
+  629  cd challenge/
+  630  cd OrthoFinder/
+  631  ls -la
+  632  cd ..
+  633  ls -la
+  634  cd FILES_Wed_challenge_fastas/
+  635  ls -la
+  636  cd OrthoFinder/
+  637  ls -la
+  638  cd Results_Jan23/
+  639  ls -al
+  640  cd Single_Copy_Orthologue_Sequences/
+  641  ls -la
+  642  cd ..
+  643  ls -la
+  644  cd ..
+  645  ls -a
+  646  ls -la
+  647  cd Results_Jan23/Single_Copy_Orthologue_Sequences/
+  648  ls -la
+  649  mafft OG0000000.fa > OG0000000.fa.aligned 
+  650  ls -la
+  651  grep -c ">" OG0000000.fa.aligned
+  652  ls -l
+  653  rm *.aligned
+  654  ls -l
+  655  for i in $(ls OG*); do echo $i ; mafft $i > $i.aligned ; done
+  656  ls -l
+  657  cd ..
+  658  ls -la
+  659  cd ..
+  660  ls -la
+  661  cd ..
+  662  ls -la
+  663  cd FILES_Wed_challenge_fastas/
+  664  ls -la
+  665  cd OrthoFinder/
+  666  ls -la
+  667  cd Results_Jan23/
+  668  ls -la
+  669  pwd
+  670  cd Single_Copy_Orthologue_Sequences/
+  671  ls -la
+  672  ls- la
+  673  ls -la
+  674  pwd
+  675  cd ..
+  676  ls -la
+  677  cd ..
+  678  ls -la
+  679  cd ..
+  680  ls -la
+  681  cd ..
+  682  ls -la
+  683  cd .
+  684  cd ..
+  685  ls -la
+  686  cd ..
+  687  l s-l
+  688  als -la
+  689  ls -la
+  690  cd ..
+  691  ls -la
+  692  cd workshop_materials/
+  693  ls -la
+  694  pwd
+  695  ls -la
+  696  ls- la
+  697  ls -la
+  698  ls-la
+  699  ls -la
+  700  cd workshop_materials/
+  701  ls -la
+  702  cd ng-tutorial/
+  703  ls -la
+  704  raxml-ng
+  705  ls -la
+  706  raxml-ng --check --msa prim.phy --model GTR+G
+  707  ls -la
+  708  ls- la
+  709  ls -la
+  710  raxml-ng --msa prim.phy --model GTR+G --prefix s1
+  711  less s1.raxml.bestModel
+  712  ls -la
+  713  less s1.raxml.log 
+  714  grep "#" s1.raxml.log 
+  715  grep "#" s1.raxml.log | cut -d " " -f5-7
+  716  grep "#" s1.raxml.log | cut -d " " -f5-7 | sort -k3,3
+  717  ls -la
+  718  raxml-ng --rfdist --tree s1.raxml.mlTrees --prefix RF1
+  719  less RF1.raxml.rfDistances 
+  720  ls -la
+  721  raxml-ng --msa fusob.phy --model GTR+G --prefix s2
+  722  grep "#" s2.raxml.log | cut -d " " -f5-7 | sort -k3,3
+  723  raxml-ng --rfdist --tree s2.raxml.mlTrees --prefix RF2
+  724  less s2.raxml.log 
+  725  ls -la
+  726  less s1.raxml.startTree 
+  727  ls -la
+  728  raxml-ng --bootstrap --msa prim.phy --model GTR+G --prefix B1
+  729  raxml-ng --support --tree s1.raxml.bestTree --bs-trees B1.raxml.bootstraps --prefix B2
+  730  raxml-ng
+  731  raxml-ng --bootstrap --msa prim.phy --model GTR+G --bs-trees 1000 --prefix B3
+  732  raxml-ng --support --tree s1.raxml.bestTree --bs-trees B3.raxml.bootstraps --prefix B4
+  733  ls- la
+  734  ls -la
+  735  ls
+  736  raxml-ng --evaluate --msa prim.phy --tree s1.raxml.bestTree --model GTR+G --prefix E_GTRG
+  737  ls -la
+  738  ls
+  739  ls -la
+  740  ls
+  741  modeltest-ng 
+  742  modeltest-ng --help
+  743  modeltest-ng -i prot21.fa -d aa
+  744  raxml-ng --msa prot21.fa --model LG+G4 --prefix s6
+  745  ls- la
+  746  ls -la
+  747  cat prim2.part 
+  748  raxml-ng
+  749  history | grep "raxml-ng"
+  750  raxml-ng --msa prim.phy --model prim2.part --prefix partition
+  751  ls -la
+  752  ls
+  753  history | grep "raxml-ng"
+  754  lscpu
+  755  cd ..
+  756  ls -la
+  757  cd iqtree_intro/
+  758  ls -la
+  759  seaview turtle.fa 
+  760  less turtle.nex 
+  761  seaview turtle.fa 
+  762  ls -la
+  763  iqtree
+  764  ls -la
+  765  iqtree -s turtle.fa -bb 1000 -nt AUTO
+  766  ls -la
+  767  less turtle.fa.iqtree 
+  768  mkdir partition
+  769  cd partition/
+  770  ls -la
+  771  iqtree -s ../turtle.fa -spp ../turtle.nex -bb 1000 -nt AUTO
+  772  cd ..
+  773  ls -la
+  774  iqtree -s turtle.fa -spp turtle.nex -bb 1000 -nt AUTO -m MFP+MERGE -rcluster 10 -pre turtle.merge
+  775  ls -la
+  776  less turtle.nex.iqtree
+  777  iqtree -s turtle.fa -m GTR+FO+H4 -bb 1000 -nt AUTO -pre turtle.GHOST4
+  778  ls- la
+  779  ls -la
+  780  ls
+  781  cat turtle.fa.iqtree turtle.nex.iqtree > turtle.trees
+  782  iqtree -s turtle.fa -spp turtle.nex.best_scheme.nex -z turtle.trees -zb 1000 -n 0 -wpl -pre turtle.test
+  783  ls -la
+  784  ls
+  785  less turtle.trees
+  786  cat turtle.fa.treefile turtle.nex.treefile > turtle.trees
+  787  less turtle.trees
+  788  iqtree -s turtle.fa -spp turtle.nex.best_scheme.nex -z turtle.trees -zb 1000 -n 0 -wpl -pre turtle.test
+  789  ls -la
+  790  rm turtle.test.*
+  791  ls -la
+  792  rm turtle.trees 
+  793  ls -la
+  794  cat turtle.fa.treefile turtle.nex.treefile > turtle.trees
+  795  pluma turtle.trees 
+  796  pluma turtle.fa.treefile 
+  797  pluma turtle.nex.treefile
+  798  history
+  799  history | grep "iqtree" -
+  800  iqtree -s turtle.fa -bb 1000 -nt AUTO
+  801  iqtree -s turtle.fa -bb 1000 -nt AUTO -redo
+  802  ls -la
+  803  pluma turtle.fa.treefile 
+  804  cat turtle.fa.treefile turtle.nex.treefile > turtle.trees
+  805  iqtree -s turtle.fa -spp turtle.nex.best_scheme.nex -z turtle.trees -zb 1000 -n 0 -wpl -pre turtle.test
+  806  pluma turtle.test.treefile 
+  807  pluma turtle.test.iqtree 
+  808  iqtree -s turtle.fa -S turtle.nex -pre turtle.loci -nt 2
+  809  ls
+  810  iqtree -t turtle.nex.treefile --gcf turtle.loci.treefile -s turtle.fa -scf 100
+  811  iqtree -t turtle.nex.treefile --gcf turtle.loci.treefile -s turtle.fa --scf 100
+  812  pluma turtle.nex.treefile.cf.tree
+  813  pluma turtle.nex.treefile.cf.stat
+  814  pwd
+  815  ls- la
+  816  ls -la
+  817  history > history.txt

@@ -1,0 +1,71 @@
+Scheme Name       : step_1
+Scheme lnL        : -26267.712890625
+Scheme BIC        : 52843.3650928
+Number of params  : 40
+Number of sites   : 2205
+Number of subsets : 4
+
+Subset | Best Model | # sites    | subset id                        | Partition names                                                                                     
+1      | LG         | 481        | 50cc82b2eadd5fc1a5ad96ad64cd98d8 | EOG092D1MLK                                                                                         
+2      | LG         | 573        | 955e7279eab604348983b0c1a749654c | EOG092D1QZM                                                                                         
+3      | LG         | 864        | 130adcc1efccad56d386fd5a1d84bbf8 | EOG092D23QW, EOG092D1YWG                                                                            
+4      | LG         | 287        | 10be25ac1a1f148b354d65e305d2fefc | EOG092D2PES                                                                                         
+
+
+Scheme Description in PartitionFinder format
+Scheme_step_1 = (EOG092D1MLK) (EOG092D1QZM) (EOG092D23QW, EOG092D1YWG) (EOG092D2PES);
+
+Nexus formatted character sets
+begin sets;
+	charset Subset1 = 1-481;
+	charset Subset2 = 482-1054;
+	charset Subset3 = 1493-1918 1055-1492;
+	charset Subset4 = 1919-2205;
+	charpartition PartitionFinder = Group1:Subset1, Group2:Subset2, Group3:Subset3, Group4:Subset4;
+end;
+
+
+Nexus formatted character sets for IQtree
+Warning: the models written in the charpartition are just the best model found in this analysis. Not all models are available in IQtree, so you may need to set up specific model lists for your analysis
+
+#nexus
+begin sets;
+	charset Subset1 = 1-481;
+	charset Subset2 = 482-1054;
+	charset Subset3 = 1493-1918 1055-1492;
+	charset Subset4 = 1919-2205;
+	charpartition PartitionFinder = LG:Subset1, LG:Subset2, LG:Subset3, LG:Subset4;
+end;
+
+
+RaxML-style partition definitions
+Warning: RAxML allows for only a single model of rate heterogeneity in partitioned analyses. I.e. all partitions must be assigned one of three types of model: No heterogeneity (e.g. GTR); +G (e.g. GTR+G); or +I+G (e.g. GTR+I+G). If the best models for your datasetcontain different types of model for different subsets you will need to decide on the best rate heterogeneity model before you run RAxML. If you prefer to do things more rigorously, you can run separate PartitionFinder analyses for each type of rate heterogenetity Then choose the scheme with the lowest AIC/AICc/BIC score. Note that these re-runs will be quick!
+
+LG, Subset1 = 1-481
+LG, Subset2 = 482-1054
+LG, Subset3 = 1493-1918, 1055-1492
+LG, Subset4 = 1919-2205
+
+
+MrBayes block for partition definitions
+Warning: MrBayes only allows a relatively small collection of models. If any model in your analysis is not one that is included in MrBayes (e.g. by setting nst = 1, 2, or 6 for DNA sequences; or is not in the available list of protein models for MrBayes)then this MrBayes block will just set that model to nst = 6 for DNA, or 'wag' for Protein. Similarly, the only additional parameters that this MrBayes block will include are +I and +G. Other  parameters, such as +F and +X, are ignored. If you want to use this MrBayes block for your analysis, please make sure to check it carefully before you use it we've done our best to make it accurate, but there may be errors that remain!
+
+begin mrbayes;
+
+	charset Subset1 = 1-481;
+	charset Subset2 = 482-1054;
+	charset Subset3 = 1493-1918 1055-1492;
+	charset Subset4 = 1919-2205;
+
+	partition PartitionFinder = 4:Subset1, Subset2, Subset3, Subset4;
+	set partition=PartitionFinder;
+
+	prset applyto=(1) aamodelpr=fixed(wag);
+	prset applyto=(2) aamodelpr=fixed(wag);
+	prset applyto=(3) aamodelpr=fixed(wag);
+	prset applyto=(4) aamodelpr=fixed(wag);
+
+	prset applyto=(all) ratepr=variable;
+	unlink statefreq=(all) revmat=(all) shape=(all) pinvar=(all) tratio=(all);
+
+end;

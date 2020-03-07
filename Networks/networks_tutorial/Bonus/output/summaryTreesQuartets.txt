@@ -1,0 +1,15 @@
+data consists of 50 gene trees and 35 4-taxon subsets
+
+ same taxa in gene trees and quartets: ["Aecaudata", "Aecomosa", "Aetauschii", "Aeumbellulata", "Aeuniaristata", "Sitopsis", "outgroup"]
+Taxon Aecaudata appears in 42 input trees (84.0 %)
+Taxon Aecomosa appears in 26 input trees (52.0 %)
+Taxon Aetauschii appears in 44 input trees (88.0 %)
+Taxon Aeumbellulata appears in 38 input trees (76.0 %)
+Taxon Aeuniaristata appears in 43 input trees (86.0 %)
+Taxon Sitopsis appears in 50 input trees (100.0 %)
+Taxon outgroup appears in 50 input trees (100.0 %)
+----------------------------
+
+will print below only the 4-taxon subsets with data from <= 70.0% genes
+----------------------------
+

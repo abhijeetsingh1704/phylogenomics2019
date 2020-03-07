@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">library</span><span class="hl std">(phytools)</span>
+<span class="hl kwd">library</span><span class="hl std">(car)</span>
+<span class="hl kwd">library</span><span class="hl std">(mnormt)</span>
+<span class="hl kwd">library</span><span class="hl std">(caper)</span>
+<span class="hl kwd">library</span><span class="hl std">(geiger)</span>
+<span class="hl kwd">library</span><span class="hl std">(nlme)</span>
+<span class="hl kwd">library</span><span class="hl std">(phylolm)</span>
+<span class="hl kwd">library</span><span class="hl std">(phangorn)</span>
+<span class="hl kwd">library</span><span class="hl std">(castor)</span>
+<span class="hl kwd">library</span><span class="hl std">(diversitree)</span>
+<span class="hl kwd">library</span><span class="hl std">(mvSLOUCH)</span>
+</pre></div>
+</div></div>
+	
+<h3><span style="text-decoration: underline;"><strong>Evolution of continuous traits</strong></span></h3>
+	<h4>Simulation exercises</h4>
+		<p>This little simulation shows how BM generates normal distribution and covariance</p>
+		
+<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">tree</span><span class="hl kwb">&lt;-</span><span class="hl kwd">pbtree</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">=</span><span class="hl num">6</span><span class="hl std">,</span><span class="hl kwc">tip.label</span><span class="hl std">=LETTERS[</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">6</span><span class="hl std">])</span>
+<span class="hl std">X</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fastBM</span><span class="hl std">(tree,</span><span class="hl kwc">nsim</span><span class="hl std">=</span><span class="hl num">100</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(</span><span class="hl kwd">rotateNodes</span><span class="hl std">(tree,</span><span class="hl str">&quot;all&quot;</span><span class="hl std">),</span><span class="hl kwc">edge.width</span><span class="hl std">=</span><span class="hl num">2</span><span class="hl std">,</span><span class="hl kwc">no.margin</span><span class="hl std">=</span><span class="hl num">TRUE</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">scatterplotMatrix</span><span class="hl std">(</span><span class="hl kwd">t</span><span class="hl std">(X))</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-2-2.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">2</span><span class="hl std">))</span>
+<span class="hl kwd">hist</span><span class="hl std">(</span><span class="hl kwd">t</span><span class="hl std">(X)[,</span><span class="hl str">&quot;A&quot;</span><span class="hl std">],</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl str">&quot;variance across simulations&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">hist</span><span class="hl std">(X[,</span><span class="hl num">1</span><span class="hl std">],</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl str">&quot;variance across species&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-2-3.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" class="plot" /></div></div>
+		
+		<p>We will simulate data under different models of trait evolution for a predefined number of species</p>	
+		
+<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">nspec</span><span class="hl kwb">=</span><span class="hl num">100</span>
+<span class="hl std">tree</span><span class="hl kwb">&lt;-</span><span class="hl kwd">pbtree</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">=nspec,</span><span class="hl kwc">scale</span><span class="hl std">=</span><span class="hl num">100</span><span class="hl std">)</span>
+<span class="hl std">x1</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fastBM</span><span class="hl std">(tree,</span><span class="hl kwc">a</span><span class="hl std">=</span><span class="hl num">2</span><span class="hl std">,</span><span class="hl kwc">sig2</span><span class="hl std">=</span><span class="hl num">0.01</span><span class="hl std">,</span> <span class="hl kwc">internal</span><span class="hl std">=</span><span class="hl num">TRUE</span><span class="hl std">)</span> <span class="hl com">#BM model</span>
+<span class="hl std">x2</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fastBM</span><span class="hl std">(tree,</span><span class="hl kwc">a</span><span class="hl std">=</span><span class="hl num">2</span><span class="hl std">,</span><span class="hl kwc">sig2</span><span class="hl std">=</span><span class="hl num">0.01</span><span class="hl std">,</span> <span class="hl kwc">mu</span><span class="hl std">=</span><span class="hl num">0.05</span><span class="hl std">,</span> <span class="hl kwc">internal</span><span class="hl std">=</span><span class="hl num">TRUE</span><span class="hl std">)</span> <span class="hl com">#BM with a trend</span>
+<span class="hl std">x3</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fastBM</span><span class="hl std">(tree,</span><span class="hl kwc">a</span><span class="hl std">=</span><span class="hl num">2</span><span class="hl std">,</span><span class="hl kwc">theta</span><span class="hl std">=</span><span class="hl num">2</span><span class="hl std">,</span><span class="hl kwc">alpha</span><span class="hl std">=</span><span class="hl num">0.8</span><span class="hl std">,</span><span class="hl kwc">sig2</span><span class="hl std">=</span><span class="hl num">0.1</span><span class="hl std">,</span> <span class="hl kwc">internal</span><span class="hl std">=</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;OU&quot;</span><span class="hl std">)</span> <span class="hl com">#OU model</span>
+
+<span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">3</span><span class="hl std">))</span>
+<span class="hl kwd">phenogram</span><span class="hl std">(tree,x1,</span> <span class="hl kwc">spread.labels</span><span class="hl std">=F,</span> <span class="hl kwc">ylim</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">,</span> <span class="hl kwd">max</span><span class="hl std">(</span><span class="hl kwd">as.numeric</span><span class="hl std">(x3),</span><span class="hl kwd">as.numeric</span><span class="hl std">(x2),</span><span class="hl kwd">as.numeric</span><span class="hl std">(x1))),</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl str">&quot;BM&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">phenogram</span><span class="hl std">(tree,x2,</span> <span class="hl kwc">spread.labels</span><span class="hl std">=F,</span> <span class="hl kwc">ylim</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">,</span> <span class="hl kwd">max</span><span class="hl std">(</span><span class="hl kwd">as.numeric</span><span class="hl std">(x3),</span><span class="hl kwd">as.numeric</span><span class="hl std">(x2),</span><span class="hl kwd">as.numeric</span><span class="hl std">(x1))),</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl str">&quot;BM with trend&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">phenogram</span><span class="hl std">(tree,x3,</span> <span class="hl kwc">spread.labels</span><span class="hl std">=F,</span> <span class="hl kwc">ylim</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">,</span> <span class="hl kwd">max</span><span class="hl std">(</span><span class="hl kwd">as.numeric</span><span class="hl std">(x3),</span><span class="hl kwd">as.numeric</span><span class="hl std">(x2),</span><span class="hl kwd">as.numeric</span><span class="hl std">(x1))),</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl str">&quot;OU&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" class="plot" /></div></div>
+		
+		<p>check out how different models fit with the simulated data</p>	
+		
+<div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">fit1</span><span class="hl kwb">=</span><span class="hl kwd">fitContinuous</span><span class="hl std">(tree,x1[</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl std">nspec])</span>
+<span class="hl std">fit2</span><span class="hl kwb">=</span><span class="hl kwd">fitContinuous</span><span class="hl std">(tree,x1[</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl std">nspec],</span><span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;trend&quot;</span><span class="hl std">)</span>
+<span class="hl std">fit3</span><span class="hl kwb">=</span><span class="hl kwd">fitContinuous</span><span class="hl std">(tree,x1[</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl std">nspec],</span><span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;OU&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">setNames</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(fit1</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">aicc,fit2</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">aicc,fit3</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">aicc),</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;BM&quot;</span><span class="hl std">,</span><span class="hl str">&quot;trend&quot;</span><span class="hl std">,</span><span class="hl str">&quot;OU&quot;</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##       BM    trend       OU 
+## 118.1922 120.8212 120.3185
+</pre></div>
+</div></div>
+
+<h3><span style="text-decoration: underline;"><strong>Exercise: Try to play with the above code i.e. by varying the parameters and the number of species. When do you have confident support for one model over another?</strong></span></h3>
+<p> </p>
+
+
+		<p>Now we are going to work with the Pagel's parameters. Let us start with lambda</p>
+<div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">nspec</span><span class="hl kwb">=</span><span class="hl num">100</span>
+<span class="hl std">tree</span><span class="hl kwb">&lt;-</span><span class="hl kwd">pbtree</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">=nspec,</span><span class="hl kwc">scale</span><span class="hl std">=</span><span class="hl num">100</span><span class="hl std">)</span>
+
+<span class="hl com">##transform lambda</span>
+<span class="hl std">tree1</span><span class="hl kwb">=</span><span class="hl kwd">rescale</span><span class="hl std">(tree,</span> <span class="hl str">&quot;lambda&quot;</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">)</span>
+<span class="hl std">tree2</span><span class="hl kwb">=</span><span class="hl kwd">rescale</span><span class="hl std">(tree,</span> <span class="hl str">&quot;lambda&quot;</span><span class="hl std">,</span> <span class="hl num">0.5</span><span class="hl std">)</span>
+
+<span class="hl com">#plot</span>
+<span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">3</span><span class="hl std">))</span>
+<span class="hl kwd">plot</span><span class="hl std">(tree1,</span> <span class="hl kwc">edge.width</span><span class="hl std">=</span><span class="hl num">1.5</span><span class="hl std">,</span> <span class="hl kwc">cex</span><span class="hl std">=</span><span class="hl num">1.2</span><span class="hl std">);</span> <span class="hl kwd">mtext</span><span class="hl std">(</span><span class="hl str">&quot;Lambda = 0&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(tree2,</span> <span class="hl kwc">edge.width</span><span class="hl std">=</span><span class="hl num">1.5</span><span class="hl std">,</span> <span class="hl kwc">cex</span><span class="hl std">=</span><span class="hl num">1.2</span><span class="hl std">);</span> <span class="hl kwd">mtext</span><span class="hl std">(</span><span class="hl str">&quot;Lambda = 0.5&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(tree,</span> <span class="hl kwc">edge.width</span><span class="hl std">=</span><span class="hl num">1.5</span><span class="hl std">,</span> <span class="hl kwc">cex</span><span class="hl std">=</span><span class="hl num">1.2</span><span class="hl std">);</span> <span class="hl kwd">mtext</span><span class="hl std">(</span><span class="hl str">&quot;Lambda = 1 (default)&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl com">#simulate data</span>
+<span class="hl std">x</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fastBM</span><span class="hl std">(tree,</span><span class="hl kwc">a</span><span class="hl std">=</span><span class="hl num">0</span><span class="hl std">,</span><span class="hl kwc">sig2</span><span class="hl std">=</span><span class="hl num">0.01</span><span class="hl std">,</span> <span class="hl kwc">internal</span><span class="hl std">=F)</span>
+<span class="hl std">x1</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fastBM</span><span class="hl std">(tree1,</span><span class="hl kwc">a</span><span class="hl std">=</span><span class="hl num">0</span><span class="hl std">,</span><span class="hl kwc">sig2</span><span class="hl std">=</span><span class="hl num">0.01</span><span class="hl std">,</span> <span class="hl kwc">internal</span><span class="hl std">=F)</span>
+<span class="hl std">x2</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fastBM</span><span class="hl std">(tree2,</span><span class="hl kwc">a</span><span class="hl std">=</span><span class="hl num">0</span><span class="hl std">,</span><span class="hl kwc">sig2</span><span class="hl std">=</span><span class="hl num">0.01</span><span class="hl std">,</span> <span class="hl kwc">internal</span><span class="hl std">=F)</span>
+
+<span class="hl com">#estimate lambda for the simulated data</span>
+<span class="hl kwd">fitContinuous</span><span class="hl std">(tree,x,</span> <span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;lambda&quot;</span><span class="hl std">)</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lambda</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.9998079
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">fitContinuous</span><span class="hl std">(tree,x1,</span> <span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;lambda&quot;</span><span class="hl std">)</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lambda</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 6.819397e-16
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">fitContinuous</span><span class="hl std">(tree,x2,</span> <span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;lambda&quot;</span><span class="hl std">)</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lambda</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.5760693
+</pre></div>
+</div></div>
+
+		<p>To draw likelihood surfaces, we will fit PGLS models with intercept only</p>
+<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">#check likelihood surface</span>
+<span class="hl std">xdata</span><span class="hl kwb">=</span><span class="hl kwd">data.frame</span><span class="hl std">(x)</span>
+<span class="hl std">xdata</span><span class="hl opt">$</span><span class="hl std">species</span><span class="hl kwb">=</span><span class="hl kwd">rownames</span><span class="hl std">(xdata)</span>
+<span class="hl std">tree.x</span><span class="hl kwb">=</span><span class="hl kwd">comparative.data</span><span class="hl std">(</span><span class="hl kwc">phy</span> <span class="hl std">= tree,</span> <span class="hl kwc">data</span> <span class="hl std">= xdata,</span> <span class="hl kwc">names.col</span> <span class="hl std">=species)</span>
+<span class="hl std">res</span><span class="hl kwb">&lt;-</span><span class="hl kwd">pgls</span><span class="hl std">(x</span><span class="hl opt">~</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">data</span> <span class="hl std">= tree.x,</span> <span class="hl kwc">lambda</span><span class="hl std">=</span><span class="hl str">'ML'</span><span class="hl std">)</span>
+
+<span class="hl std">xdata1</span><span class="hl kwb">=</span><span class="hl kwd">data.frame</span><span class="hl std">(x1)</span>
+<span class="hl std">xdata1</span><span class="hl opt">$</span><span class="hl std">species</span><span class="hl kwb">=</span><span class="hl kwd">rownames</span><span class="hl std">(xdata1)</span>
+<span class="hl std">tree.x1</span><span class="hl kwb">=</span><span class="hl kwd">comparative.data</span><span class="hl std">(</span><span class="hl kwc">phy</span> <span class="hl std">= tree,</span> <span class="hl kwc">data</span> <span class="hl std">= xdata1,</span> <span class="hl kwc">names.col</span> <span class="hl std">=species)</span>
+<span class="hl std">res1</span><span class="hl kwb">&lt;-</span><span class="hl kwd">pgls</span><span class="hl std">(x1</span><span class="hl opt">~</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">data</span> <span class="hl std">= tree.x,</span> <span class="hl kwc">lambda</span><span class="hl std">=</span><span class="hl str">'ML'</span><span class="hl std">)</span>
+
+<span class="hl std">xdata2</span><span class="hl kwb">=</span><span class="hl kwd">data.frame</span><span class="hl std">(x2)</span>
+<span class="hl std">xdata2</span><span class="hl opt">$</span><span class="hl std">species</span><span class="hl kwb">=</span><span class="hl kwd">rownames</span><span class="hl std">(xdata2)</span>
+<span class="hl std">tree.x2</span><span class="hl kwb">=</span><span class="hl kwd">comparative.data</span><span class="hl std">(</span><span class="hl kwc">phy</span> <span class="hl std">= tree,</span> <span class="hl kwc">data</span> <span class="hl std">= xdata2,</span> <span class="hl kwc">names.col</span> <span class="hl std">=species)</span>
+<span class="hl std">res2</span><span class="hl kwb">&lt;-</span><span class="hl kwd">pgls</span><span class="hl std">(x2</span><span class="hl opt">~</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">data</span> <span class="hl std">= tree.x2,</span> <span class="hl kwc">lambda</span><span class="hl std">=</span><span class="hl str">'ML'</span><span class="hl std">)</span>
+
+<span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">3</span><span class="hl std">))</span>
+<span class="hl kwd">plot</span><span class="hl std">(</span><span class="hl kwd">pgls.profile</span><span class="hl std">(res,</span> <span class="hl str">'lambda'</span><span class="hl std">))</span>
+<span class="hl kwd">plot</span><span class="hl std">(</span><span class="hl kwd">pgls.profile</span><span class="hl std">(res1,</span> <span class="hl str">'lambda'</span><span class="hl std">))</span>
+<span class="hl kwd">plot</span><span class="hl std">(</span><span class="hl kwd">pgls.profile</span><span class="hl std">(res2,</span> <span class="hl str">'lambda'</span><span class="hl std">))</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" class="plot" /></div></div>
+
+<h3><span style="text-decoration: underline;"><strong>Exercise: Try to vary the number of species and check how the likelihood surface changes</strong></span></h3>
+<p> </p>
+
+		<p>To continue with the phylogenetic signal we will estimate the K and lambda statsistic</p>
+<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">phylosig</span><span class="hl std">(tree,x,</span><span class="hl kwc">method</span><span class="hl std">=</span><span class="hl str">&quot;lambda&quot;</span><span class="hl std">)</span><span class="hl opt">$</span><span class="hl std">lambda</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.9998088
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">phylosig</span><span class="hl std">(tree,x1,</span><span class="hl kwc">method</span><span class="hl std">=</span><span class="hl str">&quot;lambda&quot;</span><span class="hl std">)</span><span class="hl opt">$</span><span class="hl std">lambda</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 6.625954e-05
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">phylosig</span><span class="hl std">(tree,x2,</span><span class="hl kwc">method</span><span class="hl std">=</span><span class="hl str">&quot;lambda&quot;</span><span class="hl std">)</span><span class="hl opt">$</span><span class="hl std">lambda</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.5760544
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">phylosig</span><span class="hl std">(tree,x,</span><span class="hl kwc">method</span><span class="hl std">=</span><span class="hl str">&quot;K&quot;</span><span class="hl std">,</span> <span class="hl kwc">test</span><span class="hl std">=T)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## $K
+## [1] 0.9375224
+## 
+## $P
+## [1] 0.001
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">phylosig</span><span class="hl std">(tree,x1,</span><span class="hl kwc">method</span><span class="hl std">=</span><span class="hl str">&quot;K&quot;</span><span class="hl std">,</span> <span class="hl kwc">test</span><span class="hl std">=T)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## $K
+## [1] 0.1485457
+## 
+## $P
+## [1] 0.008
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">phylosig</span><span class="hl std">(tree,x2,</span><span class="hl kwc">method</span><span class="hl std">=</span><span class="hl str">&quot;K&quot;</span><span class="hl std">,</span> <span class="hl kwc">test</span><span class="hl std">=T)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## $K
+## [1] 0.1875499
+## 
+## $P
+## [1] 0.001
+</pre></div>
+</div></div>
+
+	<p>This are very similar exercises focusing on kappa and delta</p>
+<div class="chunk" id="unnamed-chunk-8"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">#delta transformations</span>
+<span class="hl std">tree1</span><span class="hl kwb">=</span><span class="hl kwd">rescale</span><span class="hl std">(tree,</span> <span class="hl str">&quot;delta&quot;</span><span class="hl std">,</span> <span class="hl num">0.1</span><span class="hl std">)</span>
+<span class="hl std">tree2</span><span class="hl kwb">=</span><span class="hl kwd">rescale</span><span class="hl std">(tree,</span> <span class="hl str">&quot;delta&quot;</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">)</span>
+
+<span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">3</span><span class="hl std">))</span>
+<span class="hl kwd">plot</span><span class="hl std">(tree1,</span> <span class="hl kwc">edge.width</span><span class="hl std">=</span><span class="hl num">1.5</span><span class="hl std">,</span> <span class="hl kwc">cex</span><span class="hl std">=</span><span class="hl num">1.2</span><span class="hl std">);</span> <span class="hl kwd">mtext</span><span class="hl std">(</span><span class="hl str">&quot;delta = 0.1&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(tree,</span> <span class="hl kwc">edge.width</span><span class="hl std">=</span><span class="hl num">1.5</span><span class="hl std">,</span> <span class="hl kwc">cex</span><span class="hl std">=</span><span class="hl num">1.2</span><span class="hl std">);</span> <span class="hl kwd">mtext</span><span class="hl std">(</span><span class="hl str">&quot;delta = 1 (default)&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(tree2,</span> <span class="hl kwc">edge.width</span><span class="hl std">=</span><span class="hl num">1.5</span><span class="hl std">,</span> <span class="hl kwc">cex</span><span class="hl std">=</span><span class="hl num">1.2</span><span class="hl std">);</span> <span class="hl kwd">mtext</span><span class="hl std">(</span><span class="hl str">&quot;delta = 2&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl com">#kappa transformations</span>
+<span class="hl std">tree1</span><span class="hl kwb">=</span><span class="hl kwd">rescale</span><span class="hl std">(tree,</span> <span class="hl str">&quot;kappa&quot;</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">)</span>
+<span class="hl std">tree2</span><span class="hl kwb">=</span><span class="hl kwd">rescale</span><span class="hl std">(tree,</span> <span class="hl str">&quot;kappa&quot;</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">)</span>
+
+<span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">3</span><span class="hl std">))</span>
+<span class="hl kwd">plot</span><span class="hl std">(tree1,</span> <span class="hl kwc">edge.width</span><span class="hl std">=</span><span class="hl num">1.5</span><span class="hl std">,</span> <span class="hl kwc">cex</span><span class="hl std">=</span><span class="hl num">1.2</span><span class="hl std">);</span> <span class="hl kwd">mtext</span><span class="hl std">(</span><span class="hl str">&quot;kappa = 0&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(tree,</span> <span class="hl kwc">edge.width</span><span class="hl std">=</span><span class="hl num">1.5</span><span class="hl std">,</span> <span class="hl kwc">cex</span><span class="hl std">=</span><span class="hl num">1.2</span><span class="hl std">);</span> <span class="hl kwd">mtext</span><span class="hl std">(</span><span class="hl str">&quot;kappa = 1 (default)&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(tree2,</span> <span class="hl kwc">edge.width</span><span class="hl std">=</span><span class="hl num">1.5</span><span class="hl std">,</span> <span class="hl kwc">cex</span><span class="hl std">=</span><span class="hl num">1.2</span><span class="hl std">);</span> <span class="hl kwd">mtext</span><span class="hl std">(</span><span class="hl str">&quot;kappa = 2&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-8-2.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" class="plot" /></div></div>
+
+<h3><span style="text-decoration: underline;"><strong>Exercise: Try to simulate data with the trees tranformed above and repeat the model fits to see if the generated parametres can be recovered</strong></span></h3>
+<p> </p>
+
+<h3><span style="text-decoration: underline;"><strong>Evolution of discrete traits</strong></span></h3>
+	<h4>Simulation exercises</h4>
+		<p>We will simulate data under different evolutionary scenarios then fit models to see how different parameters can be estimated</p>
+<div class="chunk" id="unnamed-chunk-9"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">nspec</span><span class="hl kwb">=</span><span class="hl num">100</span>
+<span class="hl std">tree</span><span class="hl kwb">&lt;-</span><span class="hl kwd">pbtree</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">=nspec,</span><span class="hl kwc">scale</span><span class="hl std">=</span><span class="hl num">100</span><span class="hl std">)</span>
+<span class="hl std">x1</span><span class="hl kwb">&lt;-</span><span class="hl kwd">rTraitDisc</span><span class="hl std">(tree,</span> <span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+<span class="hl std">x2</span><span class="hl kwb">&lt;-</span><span class="hl kwd">rTraitDisc</span><span class="hl std">(tree,</span> <span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;SYM&quot;</span><span class="hl std">)</span>
+<span class="hl std">x3</span><span class="hl kwb">&lt;-</span><span class="hl kwd">rTraitDisc</span><span class="hl std">(tree,</span> <span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;ARD&quot;</span><span class="hl std">,</span> <span class="hl kwc">rate</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">0.1</span><span class="hl std">,</span><span class="hl num">0.4</span><span class="hl std">))</span>
+
+<span class="hl std">fit1</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fitDiscrete</span><span class="hl std">(tree,x1,</span><span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+<span class="hl std">fit2</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fitDiscrete</span><span class="hl std">(tree,x1,</span><span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;SYM&quot;</span><span class="hl std">)</span>
+<span class="hl std">fit3</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fitDiscrete</span><span class="hl std">(tree,x1,</span><span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;ARD&quot;</span><span class="hl std">)</span>
+<span class="hl std">fit4</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fitDiscrete</span><span class="hl std">(tree,x1,</span><span class="hl kwc">model</span><span class="hl std">=</span><span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">,</span><span class="hl num">0</span><span class="hl std">,</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">0</span><span class="hl std">),</span><span class="hl num">2</span><span class="hl std">,</span><span class="hl num">2</span><span class="hl std">))</span>
+</pre></div>
+<div class="warning"><pre class="knitr r">## Warning in fitDiscrete(tree, x1, model = matrix(c(0, 0, 1, 0), 2, 2)): Parameter estimates appear at bounds:
+## 	q21
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">4</span><span class="hl std">))</span>
+<span class="hl kwd">plot</span><span class="hl std">(fit1,</span> <span class="hl kwc">signif</span><span class="hl std">=</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl kwd">paste</span><span class="hl std">(</span><span class="hl str">&quot;ER model, LL =&quot;</span><span class="hl std">,</span> <span class="hl kwd">round</span><span class="hl std">(fit1</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lnL,</span><span class="hl num">3</span><span class="hl std">)))</span>
+<span class="hl kwd">plot</span><span class="hl std">(fit2,</span> <span class="hl kwc">signif</span><span class="hl std">=</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl kwd">paste</span><span class="hl std">(</span><span class="hl str">&quot;SYM model, LL =&quot;</span><span class="hl std">,</span> <span class="hl kwd">round</span><span class="hl std">(fit2</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lnL,</span><span class="hl num">3</span><span class="hl std">)))</span>
+<span class="hl kwd">plot</span><span class="hl std">(fit3,</span> <span class="hl kwc">signif</span><span class="hl std">=</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl kwd">paste</span><span class="hl std">(</span><span class="hl str">&quot;ARD model, LL =&quot;</span><span class="hl std">,</span> <span class="hl kwd">round</span><span class="hl std">(fit3</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lnL,</span><span class="hl num">3</span><span class="hl std">)))</span>
+<span class="hl kwd">plot</span><span class="hl std">(fit4,</span> <span class="hl kwc">signif</span><span class="hl std">=</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl kwd">paste</span><span class="hl std">(</span><span class="hl str">&quot;IRR model, LL =&quot;</span><span class="hl std">,</span> <span class="hl kwd">round</span><span class="hl std">(fit4</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lnL,</span><span class="hl num">3</span><span class="hl std">)))</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl com">#model comparison with AIC</span>
+<span class="hl std">aicc</span><span class="hl kwb">&lt;-</span><span class="hl kwd">setNames</span><span class="hl std">(</span>
+    <span class="hl kwd">c</span><span class="hl std">(fit1</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">aicc,fit2</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">aicc,fit3</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">aicc,fit4</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">aicc),</span>
+    <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;ER&quot;</span><span class="hl std">,</span><span class="hl str">&quot;SYM&quot;</span><span class="hl std">,</span><span class="hl str">&quot;ARD&quot;</span><span class="hl std">,</span><span class="hl str">&quot;IRR&quot;</span><span class="hl std">))</span>
+<span class="hl std">aicc</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##       ER      SYM      ARD      IRR 
+## 129.4297 129.4297 131.1046 156.4679
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com">#model comparison with likelihood ratio test</span>
+<span class="hl std">LRT</span><span class="hl kwb">=</span><span class="hl num">2</span><span class="hl opt">*</span><span class="hl std">(fit1</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lnL</span><span class="hl opt">-</span><span class="hl std">fit3</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lnL)</span>
+<span class="hl kwd">pchisq</span><span class="hl std">(</span><span class="hl kwd">abs</span><span class="hl std">(LRT),</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">lower.tail</span><span class="hl std">=</span><span class="hl num">FALSE</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.5229742
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">LRT</span><span class="hl kwb">=</span><span class="hl num">2</span><span class="hl opt">*</span><span class="hl std">(fit1</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lnL</span><span class="hl opt">-</span><span class="hl std">fit4</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lnL)</span>
+<span class="hl kwd">pchisq</span><span class="hl std">(</span><span class="hl kwd">abs</span><span class="hl std">(LRT),</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">lower.tail</span><span class="hl std">=</span><span class="hl num">FALSE</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 1.994816e-07
+</pre></div>
+</div></div>
+
+		<p>It is possible to model evolution of traits with k>2 states. We will still use fitDiscrete from geiger, but note that fitMk from phytools can also be used, which is actually faster. Below, you can set up the number of states then you appropriately define rates from a random (uniform) distribution between 0.1 and 1. </p>
+<div class="chunk" id="unnamed-chunk-10"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">k</span><span class="hl kwb">=</span><span class="hl num">3</span>
+<span class="hl std">tree</span><span class="hl kwb">&lt;-</span><span class="hl kwd">pbtree</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">=nspec,</span><span class="hl kwc">scale</span><span class="hl std">=</span><span class="hl num">100</span><span class="hl std">)</span>
+<span class="hl std">x1</span><span class="hl kwb">&lt;-</span><span class="hl kwd">rTraitDisc</span><span class="hl std">(tree,</span> <span class="hl kwc">k</span><span class="hl std">=k,</span><span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+<span class="hl std">x2</span><span class="hl kwb">&lt;-</span><span class="hl kwd">rTraitDisc</span><span class="hl std">(tree,</span> <span class="hl kwc">k</span><span class="hl std">=k,</span> <span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;SYM&quot;</span><span class="hl std">,</span> <span class="hl kwc">rate</span><span class="hl std">=</span><span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">0.1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">by</span><span class="hl std">=</span><span class="hl num">0.1</span><span class="hl std">), k</span><span class="hl opt">*</span><span class="hl std">(k</span> <span class="hl opt">-</span> <span class="hl num">1</span><span class="hl std">)</span><span class="hl opt">/</span><span class="hl num">2</span><span class="hl std">))</span>
+<span class="hl std">x3</span><span class="hl kwb">&lt;-</span><span class="hl kwd">rTraitDisc</span><span class="hl std">(tree,</span> <span class="hl kwc">k</span><span class="hl std">=k,</span> <span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;ARD&quot;</span><span class="hl std">,</span> <span class="hl kwc">rate</span><span class="hl std">=</span><span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">0.1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">by</span><span class="hl std">=</span><span class="hl num">0.1</span><span class="hl std">), k</span><span class="hl opt">*</span><span class="hl std">(k</span> <span class="hl opt">-</span> <span class="hl num">1</span><span class="hl std">)))</span>
+</pre></div>
+</div></div>
+
+		<p>See how different models fit with the simulated data. </p>
+<div class="chunk" id="unnamed-chunk-11"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">fit1</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fitDiscrete</span><span class="hl std">(tree,x1,</span><span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+<span class="hl std">fit2</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fitDiscrete</span><span class="hl std">(tree,x2,</span><span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;SYM&quot;</span><span class="hl std">)</span>
+<span class="hl std">fit3</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fitDiscrete</span><span class="hl std">(tree,x3,</span><span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;ARD&quot;</span><span class="hl std">)</span>
+
+<span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">3</span><span class="hl std">))</span>
+<span class="hl kwd">plot</span><span class="hl std">(fit1,</span> <span class="hl kwc">signif</span><span class="hl std">=</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(fit2,</span> <span class="hl kwc">signif</span><span class="hl std">=</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl str">&quot;SYM&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(fit3,</span> <span class="hl kwc">signif</span><span class="hl std">=</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl str">&quot;ARD&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" class="plot" /></div></div>
+
+<p>Note 1: with castor you can generate Q matrix</p>
+<div class="chunk" id="unnamed-chunk-12"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">Q</span> <span class="hl kwb">=</span> <span class="hl std">castor</span><span class="hl opt">::</span><span class="hl kwd">get_random_mk_transition_matrix</span><span class="hl std">(k,</span> <span class="hl kwc">rate_model</span><span class="hl std">=</span><span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+<span class="hl std">tip_states</span> <span class="hl kwb">=</span> <span class="hl std">LETTERS[</span><span class="hl kwd">simulate_mk_model</span><span class="hl std">(tree, Q)</span><span class="hl opt">$</span><span class="hl std">tip_states]</span>
+<span class="hl kwd">names</span><span class="hl std">(tip_states)</span><span class="hl kwb">=</span><span class="hl std">tree</span><span class="hl opt">$</span><span class="hl std">tip.label</span>
+</pre></div>
+</div></div>
+
+<p>Note 2: you can also define your own matrix and use evaluate fit</p>
+<div class="chunk" id="unnamed-chunk-13"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">model</span><span class="hl kwb">&lt;-</span><span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">,</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">0</span><span class="hl std">,</span><span class="hl num">0</span><span class="hl std">,</span> <span class="hl com">#this will be an ordered matrix</span>
+    <span class="hl num">2</span><span class="hl std">,</span><span class="hl num">0</span><span class="hl std">,</span><span class="hl num">3</span><span class="hl std">,</span><span class="hl num">0</span><span class="hl std">,</span>
+    <span class="hl num">0</span><span class="hl std">,</span><span class="hl num">4</span><span class="hl std">,</span><span class="hl num">0</span><span class="hl std">,</span><span class="hl num">5</span><span class="hl std">,</span>
+    <span class="hl num">0</span><span class="hl std">,</span><span class="hl num">0</span><span class="hl std">,</span><span class="hl num">6</span><span class="hl std">,</span><span class="hl num">0</span><span class="hl std">),</span><span class="hl num">4</span><span class="hl std">,</span><span class="hl num">4</span><span class="hl std">)</span>
+<span class="hl std">x1</span><span class="hl kwb">&lt;-</span><span class="hl kwd">rTraitDisc</span><span class="hl std">(tree,</span> <span class="hl kwc">k</span><span class="hl std">=</span><span class="hl num">4</span><span class="hl std">,</span><span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+<span class="hl std">fit1</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fitDiscrete</span><span class="hl std">(tree,x1,</span><span class="hl kwc">model</span><span class="hl std">=</span><span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+<span class="hl std">fit4</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fitDiscrete</span><span class="hl std">(tree,x1,</span><span class="hl kwc">model</span><span class="hl std">=model)</span>
+</pre></div>
+<div class="warning"><pre class="knitr r">## Warning in fitDiscrete(tree, x1, model = model): Parameter estimates appear at bounds:
+## 	q13
+## 	q14
+## 	q24
+## 	q31
+## 	q41
+## 	q42
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span><span class="hl std">=</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span><span class="hl num">2</span><span class="hl std">))</span>
+<span class="hl kwd">plot</span><span class="hl std">(fit1,</span> <span class="hl kwc">signif</span><span class="hl std">=</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(fit2,</span> <span class="hl kwc">signif</span><span class="hl std">=</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">main</span><span class="hl std">=</span><span class="hl str">&quot;ordered&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl std">LRT</span><span class="hl kwb">=</span><span class="hl num">2</span><span class="hl opt">*</span><span class="hl std">(fit1</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lnL</span><span class="hl opt">-</span><span class="hl std">fit4</span><span class="hl opt">$</span><span class="hl std">opt</span><span class="hl opt">$</span><span class="hl std">lnL)</span>
+<span class="hl kwd">pchisq</span><span class="hl std">(</span><span class="hl kwd">abs</span><span class="hl std">(LRT),</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">lower.tail</span><span class="hl std">=</span><span class="hl num">FALSE</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.9482068
+</pre></div>
+</div></div>
+
+<h3><span style="text-decoration: underline;"><strong>Exercise: Check model outpouts, try to interpret Q matrix and other estimates </strong></span></h3>
+
+
+<h3><span style="text-decoration: underline;"><strong>Ancestral state estimation</strong></span></h3>
+	<h4>Continiuous characters</h4>
+		<p>We will use real data for this exercise (primate body mass)</p>
+<div class="chunk" id="unnamed-chunk-14"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">#import tree and data</span>
+<span class="hl std">tree</span><span class="hl kwb">=</span><span class="hl kwd">read.tree</span><span class="hl std">(</span><span class="hl str">&quot;~/Desktop/data/primate/primate_tree.phy&quot;</span><span class="hl std">)</span>
+<span class="hl std">xdata</span><span class="hl kwb">=</span><span class="hl kwd">read.table</span><span class="hl std">(</span><span class="hl kwc">file</span><span class="hl std">=</span><span class="hl str">&quot;~/Desktop/data/primate/primate_spec.txt&quot;</span><span class="hl std">,</span><span class="hl kwc">header</span><span class="hl std">=T,</span><span class="hl kwc">sep</span><span class="hl std">=</span><span class="hl str">&quot;\t&quot;</span><span class="hl std">,</span><span class="hl kwc">fill</span><span class="hl std">=T,</span> <span class="hl kwc">strip.white</span><span class="hl std">=T,</span> <span class="hl kwc">dec</span> <span class="hl std">=</span> <span class="hl str">&quot;.&quot;</span><span class="hl std">)</span>
+
+<span class="hl com">#to define the trait vector, you need to sort the data as in the tree</span>
+<span class="hl kwd">rownames</span><span class="hl std">(xdata)</span><span class="hl kwb">=</span><span class="hl std">xdata</span><span class="hl opt">$</span><span class="hl std">species</span>
+<span class="hl std">xdata</span><span class="hl kwb">=</span><span class="hl std">xdata[tree</span><span class="hl opt">$</span><span class="hl std">tip.label,]</span>
+<span class="hl std">x</span><span class="hl kwb">=</span><span class="hl std">xdata</span><span class="hl opt">$</span><span class="hl std">lg.body</span>
+<span class="hl kwd">names</span><span class="hl std">(x)</span><span class="hl kwb">=</span><span class="hl kwd">rownames</span><span class="hl std">(xdata)</span>
+</pre></div>
+</div></div>
+
+		<p>Ancestral state estimation and ploting</p>
+<div class="chunk" id="unnamed-chunk-15"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">fit</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fastAnc</span><span class="hl std">(tree,x,</span><span class="hl kwc">vars</span><span class="hl std">=</span><span class="hl num">TRUE</span><span class="hl std">,</span><span class="hl kwc">CI</span><span class="hl std">=</span><span class="hl num">TRUE</span><span class="hl std">)</span>
+<span class="hl kwd">print</span><span class="hl std">(fit,</span><span class="hl kwc">printlen</span><span class="hl std">=</span><span class="hl num">10</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## Ancestral character estimates using fastAnc:
+##        87       88       89       90       91       92       93       94
+##  7.452362 7.800204 8.711863 8.614069 8.294638 8.006528 7.971666 8.022384
+##       95       96     
+##  8.03683 7.980642 ....
+## 
+## Variances on ancestral states:
+##        87       88       89       90       91       92       93       94
+##  1.555912 0.803708 0.449232 0.276079 0.161237 0.133447 0.127501 0.104562
+##        95       96     
+##  0.101878 0.111492 ....
+## 
+## Lower &amp; upper 95% CIs:
+##       lower     upper
+## 87 5.007533  9.897191
+## 88 6.043069  9.557339
+## 89 7.398178 10.025548
+## 90 7.584223  9.643915
+## 91 7.507614  9.081662
+## 92 7.290532  8.722525
+## 93 7.271803  8.671529
+## 94 7.388598   8.65617
+## 95 7.411231  8.662429
+## 96 7.326189  8.635095
+##        ....      ....
+</pre></div>
+</div></div>
+
+<p>Inspect tho output and check the precision of estimate at the root</p>
+<div class="chunk" id="unnamed-chunk-16"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">range</span><span class="hl std">(x);</span> <span class="hl kwd">mean</span><span class="hl std">(x)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  4.056817 11.613533
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 7.899106
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">fit</span><span class="hl opt">$</span><span class="hl std">CI95[</span><span class="hl num">1</span><span class="hl std">,]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 5.007533 9.897191
+</pre></div>
+</div></div>
+
+<p>Create a plot to visualise trait evolution along the tree</p>
+to_plot<-contMap(tree,x,plot=F)
+plot(to_plot,type="fan",legend=0.7*max(nodeHeights(tree)),sig=2,fsize=c(0.7,0.9))		
+end.rcode-->
+
+<p>Look it in morphosace</p>
+<div class="chunk" id="unnamed-chunk-17"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">phenogram</span><span class="hl std">(tree,x)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## Optimizing the positions of the tip labels...
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" class="plot" /></div></div>
+
+<p>We may not have paleontological data to check how well the ancestral state reconstruction performed. To check the reliability of the method we are gonna look at some simulated data with known ancestral states </p>	
+
+<div class="chunk" id="unnamed-chunk-18"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">#simulation part</span>
+<span class="hl std">nspec</span><span class="hl kwb">=</span><span class="hl num">100</span>
+<span class="hl std">tree</span><span class="hl kwb">&lt;-</span><span class="hl kwd">pbtree</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">=nspec,</span><span class="hl kwc">scale</span><span class="hl std">=</span><span class="hl num">1</span><span class="hl std">)</span>
+<span class="hl std">x1</span><span class="hl kwb">&lt;-</span><span class="hl kwd">fastBM</span><span class="hl std">(tree,</span><span class="hl kwc">internal</span><span class="hl std">=</span><span class="hl num">TRUE</span><span class="hl std">)</span>
+<span class="hl std">a</span><span class="hl kwb">&lt;-</span><span class="hl std">x1[</span><span class="hl kwd">as.character</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl std">tree</span><span class="hl opt">$</span><span class="hl std">Nnode</span><span class="hl opt">+</span><span class="hl kwd">Ntip</span><span class="hl std">(tree))]</span> <span class="hl com">#these will be the true ancestral states</span>
+<span class="hl std">x1</span><span class="hl kwb">&lt;-</span><span class="hl std">x1[tree</span><span class="hl opt">$</span><span class="hl std">tip.label]</span>   <span class="hl com">#this is the tip data</span>
+
+<span class="hl com">#estimate ancestral states</span>
+<span class="hl std">fit</span><span class="hl kwb">=</span><span class="hl kwd">ace</span><span class="hl std">(x1, tree)</span> <span class="hl com">#from ape</span>
+<span class="hl kwd">plot</span><span class="hl std">(a,fit</span><span class="hl opt">$</span><span class="hl std">ace,</span><span class="hl kwc">xlab</span><span class="hl std">=</span><span class="hl str">&quot;True states&quot;</span><span class="hl std">,</span><span class="hl kwc">ylab</span><span class="hl std">=</span><span class="hl str">&quot;Estimated states&quot;</span><span class="hl std">,</span><span class="hl kwc">bg</span><span class="hl std">=</span><span class="hl str">&quot;black&quot;</span><span class="hl std">,</span><span class="hl kwc">cex</span><span class="hl std">=</span><span class="hl num">1.4</span><span class="hl std">,</span><span class="hl kwc">pch</span><span class="hl std">=</span><span class="hl num">21</span><span class="hl std">)</span>
+<span class="hl kwd">lines</span><span class="hl std">(</span><span class="hl kwd">range</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(x,a)),</span><span class="hl kwd">range</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(x,a)),</span><span class="hl kwc">lty</span><span class="hl std">=</span><span class="hl str">&quot;dashed&quot;</span><span class="hl std">,</span><span class="hl kwc">col</span><span class="hl std">=</span><span class="hl str">&quot;red&quot;</span><span class="hl std">)</span> <span class="hl com">## 1:1 line</span>
+<span class="hl kwd">segments</span><span class="hl std">(</span><span class="hl kwc">x0</span><span class="hl std">=a,</span> <span class="hl kwc">y0</span><span class="hl std">=fit</span><span class="hl opt">$</span><span class="hl std">CI95[,</span><span class="hl num">1</span><span class="hl std">],</span> <span class="hl kwc">x1</span><span class="hl std">=a,</span> <span class="hl kwc">y1</span><span class="hl std">=fit</span><span class="hl opt">$</span><span class="hl std">CI95[,</span><span class="hl num">2</span><span class="hl std">])</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" class="plot" /></div></div>
+
+<h3><span style="text-decoration: underline;"><strong>Exercise: how would you interpret this outcome </strong></span></h3>
+
+	<h4>Discrete characters</h4>
+<p>We will use real data for this exercise (female song in Estrildid finches)</p>
+<div class="chunk" id="unnamed-chunk-19"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">#load tree and data</span>
+<span class="hl std">trees</span><span class="hl kwb">=</span><span class="hl kwd">read.nexus</span><span class="hl std">(</span><span class="hl str">&quot;~/Desktop/data/Estrildid/23755.nex&quot;</span><span class="hl std">)</span>
+<span class="hl std">xdata</span><span class="hl kwb">=</span><span class="hl kwd">read.table</span><span class="hl std">(</span><span class="hl kwc">file</span><span class="hl std">=</span><span class="hl str">&quot;~/Desktop/data/Estrildid/dt(85species).txt&quot;</span><span class="hl std">,</span><span class="hl kwc">header</span><span class="hl std">=T,</span><span class="hl kwc">sep</span><span class="hl std">=</span><span class="hl str">&quot;\t&quot;</span><span class="hl std">,</span><span class="hl kwc">fill</span><span class="hl std">=T,</span> <span class="hl kwc">strip.white</span><span class="hl std">=T,</span> <span class="hl kwc">dec</span> <span class="hl std">=</span> <span class="hl str">&quot;.&quot;</span><span class="hl std">)</span>
+
+<span class="hl std">tree</span><span class="hl kwb">=</span><span class="hl std">trees[[</span><span class="hl num">1</span><span class="hl std">]]</span> <span class="hl com">#this is a multitree object, we will only need one </span>
+
+<span class="hl com">#we need to create the trait vector with appropriate sorting</span>
+<span class="hl kwd">rownames</span><span class="hl std">(xdata)</span><span class="hl kwb">=</span><span class="hl std">xdata</span><span class="hl opt">$</span><span class="hl std">name</span>
+<span class="hl std">xdata</span><span class="hl kwb">=</span><span class="hl std">xdata[tree</span><span class="hl opt">$</span><span class="hl std">tip.label,]</span>
+<span class="hl std">x</span><span class="hl kwb">=</span><span class="hl std">xdata</span><span class="hl opt">$</span><span class="hl std">Fsongbi</span>
+<span class="hl kwd">names</span><span class="hl std">(x)</span><span class="hl kwb">=</span><span class="hl kwd">rownames</span><span class="hl std">(xdata)</span>
+</pre></div>
+</div></div>
+		
+		<p>plot the tree with tip values, then estimate ancestral states and also add on figure</p>
+<div class="chunk" id="unnamed-chunk-20"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">#plot tree and tips</span>
+<span class="hl kwd">plotTree</span><span class="hl std">(tree,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;fan&quot;</span><span class="hl std">,</span> <span class="hl kwc">fsize</span> <span class="hl std">=</span> <span class="hl num">0.7</span><span class="hl std">,</span> <span class="hl kwc">ftype</span><span class="hl std">=</span><span class="hl str">&quot;i&quot;</span><span class="hl std">)</span>
+<span class="hl std">cols</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">setNames</span><span class="hl std">(</span><span class="hl kwd">palette</span><span class="hl std">()[</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl kwd">length</span><span class="hl std">(</span><span class="hl kwd">unique</span><span class="hl std">(x))],</span> <span class="hl kwd">sort</span><span class="hl std">(</span><span class="hl kwd">unique</span><span class="hl std">(x)))</span>
+<span class="hl kwd">tiplabels</span><span class="hl std">(</span><span class="hl kwc">pie</span> <span class="hl std">= x,</span> <span class="hl kwc">piecol</span> <span class="hl std">= cols,</span> <span class="hl kwc">cex</span> <span class="hl std">=</span> <span class="hl num">0.2</span><span class="hl std">)</span>
+
+<span class="hl com">#fit ancestral states and add to the nodes</span>
+<span class="hl std">fit</span><span class="hl kwb">=</span><span class="hl kwd">ace</span><span class="hl std">(x, tree,</span> <span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+<span class="hl com">#fit=rerootingMethod(tree, x, model = &quot;ER&quot;) if you want marginal likelihoods</span>
+<span class="hl kwd">nodelabels</span><span class="hl std">(</span><span class="hl kwc">node</span> <span class="hl std">=</span> <span class="hl kwd">as.numeric</span><span class="hl std">(</span><span class="hl kwd">names</span><span class="hl std">(fit</span><span class="hl opt">$</span><span class="hl std">ace)),</span> <span class="hl kwc">pie</span> <span class="hl std">= fit</span><span class="hl opt">$</span><span class="hl std">ace,</span> <span class="hl kwc">piecol</span> <span class="hl std">= cols,</span> <span class="hl kwc">cex</span> <span class="hl std">=</span> <span class="hl num">0.5</span><span class="hl std">)</span>
+<span class="hl kwd">add.simmap.legend</span><span class="hl std">(</span><span class="hl kwc">leg</span><span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;song&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;no song&quot;</span><span class="hl std">),</span><span class="hl kwc">colors</span> <span class="hl std">= cols,</span> <span class="hl kwc">prompt</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl num">0.9</span> <span class="hl opt">*</span> <span class="hl kwd">par</span><span class="hl std">()</span><span class="hl opt">$</span><span class="hl std">usr[</span><span class="hl num">1</span><span class="hl std">],</span> <span class="hl kwc">y</span> <span class="hl std">=</span> <span class="hl opt">-</span><span class="hl kwd">max</span><span class="hl std">(</span><span class="hl kwd">nodeHeights</span><span class="hl std">(tree)))</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-20-1.png" title="plot of chunk unnamed-chunk-20" alt="plot of chunk unnamed-chunk-20" class="plot" /></div></div>
+
+		<p>using the same data we will perform stochastic character mapping</p>
+<div class="chunk" id="unnamed-chunk-21"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">#single map</span>
+<span class="hl std">mtree</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">make.simmap</span><span class="hl std">(tree, x,</span> <span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;ER&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## make.simmap is sampling character histories conditioned on the transition matrix
+## 
+## Q =
+##             0           1
+## 0 -0.03429279  0.03429279
+## 1  0.03429279 -0.03429279
+## (estimated using likelihood);
+## and (mean) root node prior probabilities
+## pi =
+##   0   1 
+## 0.5 0.5
+</pre></div>
+<div class="message"><pre class="knitr r">## Done.
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">plotSimmap</span><span class="hl std">(mtree, cols,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;fan&quot;</span><span class="hl std">,</span> <span class="hl kwc">fsize</span> <span class="hl std">=</span> <span class="hl num">0.9</span><span class="hl std">,</span> <span class="hl kwc">ftype</span> <span class="hl std">=</span> <span class="hl str">&quot;i&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl com">#simulate several and make inference from them</span>
+<span class="hl std">mtrees</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">make.simmap</span><span class="hl std">(tree, x,</span> <span class="hl kwc">model</span> <span class="hl std">=</span> <span class="hl str">&quot;ER&quot;</span><span class="hl std">,</span> <span class="hl kwc">nsim</span> <span class="hl std">=</span> <span class="hl num">25</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## make.simmap is sampling character histories conditioned on the transition matrix
+## 
+## Q =
+##             0           1
+## 0 -0.03429279  0.03429279
+## 1  0.03429279 -0.03429279
+## (estimated using likelihood);
+## and (mean) root node prior probabilities
+## pi =
+##   0   1 
+## 0.5 0.5
+</pre></div>
+<div class="message"><pre class="knitr r">## Done.
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">))</span>
+<span class="hl kwd">plotSimmap</span><span class="hl std">(mtrees, cols,</span> <span class="hl kwc">lwd</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">ftype</span> <span class="hl std">=</span> <span class="hl str">&quot;off&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-21-2.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">))</span>
+<span class="hl std">pd</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">describe.simmap</span><span class="hl std">(mtrees,</span> <span class="hl kwc">plot</span> <span class="hl std">= F)</span>
+<span class="hl kwd">plotSimmap</span><span class="hl std">(mtree, cols,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;fan&quot;</span><span class="hl std">,</span> <span class="hl kwc">fsize</span> <span class="hl std">=</span> <span class="hl num">0.9</span><span class="hl std">,</span> <span class="hl kwc">ftype</span> <span class="hl std">=</span> <span class="hl str">&quot;i&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">nodelabels</span><span class="hl std">(</span><span class="hl kwc">pie</span> <span class="hl std">= pd</span><span class="hl opt">$</span><span class="hl std">ace,</span> <span class="hl kwc">piecol</span> <span class="hl std">= cols,</span> <span class="hl kwc">cex</span> <span class="hl std">=</span> <span class="hl num">0.5</span><span class="hl std">)</span>
+<span class="hl kwd">add.simmap.legend</span><span class="hl std">(</span><span class="hl kwc">leg</span><span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;no song&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;song&quot;</span><span class="hl std">),</span><span class="hl kwc">colors</span> <span class="hl std">= cols,</span> <span class="hl kwc">prompt</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl num">0.9</span> <span class="hl opt">*</span> <span class="hl kwd">par</span><span class="hl std">()</span><span class="hl opt">$</span><span class="hl std">usr[</span><span class="hl num">1</span><span class="hl std">],</span> <span class="hl kwc">y</span> <span class="hl std">=</span> <span class="hl opt">-</span><span class="hl kwd">max</span><span class="hl std">(</span><span class="hl kwd">nodeHeights</span><span class="hl std">(tree)))</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-21-3.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" class="plot" /></div></div>
+
+</body>
+</html>

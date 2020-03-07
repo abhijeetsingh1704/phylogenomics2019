@@ -1,0 +1,25 @@
+# Concordance factor statistics
+# This file can be read in MS Excel or in R with command:
+#   tab=read.table('gcf1297_scf100_ref.cf.stat',header=TRUE)
+# Columns are tab-separated with following meaning:
+#   ID: Branch ID
+#   gCF: Gene concordance factor (%)
+#   gDF1: Gene discordance factor (%) for NNI-1 branch
+#   gDF2: Gene discordance factor (%) for NNI-2 branch
+#   gN: Number of trees decisive for the branch
+#   sCF: Site concordance factor (%) averaged over 100 quartets
+#   sDF1: Site discordance factor (%) for alternative quartet 1
+#   sDF2: Site discordance factor (%) for alternative quartet 2
+#   sN: Number of informative sites averaged over 100 quartets
+#   Label: Existing branch label
+#   Length: Branch length
+ID	gCF	gDF1	gDF2	gN	sCF	sDF1	sDF2	sN	Label	Length
+13	100	0	0	1287	NA	NA	NA	NA		0.347786
+14	0.7	29.06	1.79	1287	NA	NA	NA	NA		0.347786
+15	0.16	20.9	0	1287	32.1	31.94	35.96	30939.5		0.030077
+16	92.39	0	0	1287	56.13	21.74	22.13	34328.2		0.143774
+17	0.7	6.76	0.54	1287	37.14	28.65	34.21	31384		0.0286231
+18	99.77	0	0	1287	92.91	3.74	3.35	54988.3		0.413264
+19	65.11	17.17	17.72	1287	47.59	33.07	19.33	10483.2		0.0063179
+20	1.55	3.81	0.62	1287	47.55	24.98	27.48	30821.3		0.0751845
+21	3.96	1.55	12.12	1287	40.89	28.72	30.39	27328.4		0.0312129

@@ -1,0 +1,5 @@
+LG, Subset1 = 1-481
+LG, Subset2 = 482-1054
+LG, Subset3 = 1055-1492
+LG, Subset4 = 1493-1918
+LG, Subset5 = 1919-2205

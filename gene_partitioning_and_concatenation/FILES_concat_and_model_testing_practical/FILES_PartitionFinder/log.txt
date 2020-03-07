@@ -1,0 +1,35 @@
+INFO     | 2019-01-23 19:47:20,205 | config     | Loading configuration at './partition_finder.cfg'
+ERROR    | 2019-01-23 19:47:20,208 | parser     | There was a problem loading your .cfg file, please check and try again
+ERROR    | 2019-01-23 19:47:20,208 | parser     | Expected W:(ABCD...) (at char 33), (line:2, col:13)
+INFO     | 2019-01-23 19:47:20,208 | parser     | The line causing the problem is this: 'alignment = ;'. Please check that line, and make sure it appears in the right place in the config file. If it looks OK, try double-checking the semi-colons on other lines
+ERROR    | 2019-01-23 19:47:20,208 | main       | Failed to run. See previous errors.
+INFO     | 2019-01-23 19:51:48,104 | config     | Loading configuration at './partition_finder.cfg'
+INFO     | 2019-01-23 19:51:48,107 | config     | Setting 'alignment' to 'partition_finder.cfg'
+INFO     | 2019-01-23 19:51:48,108 | config     | Setting 'branchlengths' to 'linked'
+INFO     | 2019-01-23 19:51:48,108 | parser     | You set 'models' to: LG, JTT, BLOSUM62
+INFO     | 2019-01-23 19:51:48,133 | model_load | This analysis will use the following 3 models of molecular evolution
+INFO     | 2019-01-23 19:51:48,133 | model_load | LG, JTT, BLOSUM62
+INFO     | 2019-01-23 19:51:48,133 | config     | Setting 'model_selection' to 'bic'
+INFO     | 2019-01-23 19:51:48,135 | config     | Setting 'search' to 'greedy'
+INFO     | 2019-01-23 19:51:48,135 | config     | ------------------------ BEGINNING NEW RUN -------------------------------
+INFO     | 2019-01-23 19:51:48,135 | config     | Looking for alignment file './partition_finder.cfg'...
+INFO     | 2019-01-23 19:51:48,135 | threadpool | Using 2 cpus
+INFO     | 2019-01-23 19:51:48,136 | analysis   | Beginning Analysis
+INFO     | 2019-01-23 19:51:48,147 | alignment  | Reading alignment file './partition_finder.cfg'
+ERROR    | 2019-01-23 19:51:48,148 | alignment  | Line 1: Failed to find the Phyml header that specifies the species count, and sequence length
+ERROR    | 2019-01-23 19:51:48,148 | main       | Failed to run. See previous errors.
+INFO     | 2019-01-23 19:53:48,068 | config     | Loading configuration at './partition_finder.cfg'
+INFO     | 2019-01-23 19:53:48,071 | config     | Setting 'alignment' to 'partition_finder.cfg'
+INFO     | 2019-01-23 19:53:48,072 | config     | Setting 'branchlengths' to 'linked'
+INFO     | 2019-01-23 19:53:48,072 | parser     | You set 'models' to: LG, JTT, BLOSUM62
+INFO     | 2019-01-23 19:53:48,081 | model_load | This analysis will use the following 3 models of molecular evolution
+INFO     | 2019-01-23 19:53:48,082 | model_load | LG, JTT, BLOSUM62
+INFO     | 2019-01-23 19:53:48,082 | config     | Setting 'model_selection' to 'bic'
+INFO     | 2019-01-23 19:53:48,084 | config     | Setting 'search' to 'greedy'
+INFO     | 2019-01-23 19:53:48,084 | config     | ------------------------ BEGINNING NEW RUN -------------------------------
+INFO     | 2019-01-23 19:53:48,084 | config     | Looking for alignment file './partition_finder.cfg'...
+INFO     | 2019-01-23 19:53:48,084 | threadpool | Using 2 cpus
+INFO     | 2019-01-23 19:53:48,084 | analysis   | Beginning Analysis
+INFO     | 2019-01-23 19:53:48,101 | alignment  | Reading alignment file './partition_finder.cfg'
+ERROR    | 2019-01-23 19:53:48,102 | alignment  | Line 1: Failed to find the Phyml header that specifies the species count, and sequence length
+ERROR    | 2019-01-23 19:53:48,102 | main       | Failed to run. See previous errors.

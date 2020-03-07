@@ -1,0 +1,6 @@
+#from	to	freq.
+GLVIO1(7)	THEEB(34)	0.11
+	49	THEEB(34)	0.03
+	56	THEEB(34)	0.79
+	56	38	0.05
+	67	THEEB(34)	0.02

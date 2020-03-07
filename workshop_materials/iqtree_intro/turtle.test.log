@@ -1,0 +1,168 @@
+IQ-TREE multicore version 1.7-beta6 for Linux 64-bit built Nov 19 2018
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    ip-172-30-3-212 (AVX2, FMA3, 7 GB RAM)
+Command: iqtree -s turtle.fa -spp turtle.nex.best_scheme.nex -z turtle.trees -zb 1000 -n 0 -wpl -pre turtle.test
+Seed:    357109 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Thu Jan 24 21:14:47 2019
+Kernel:  AVX+FMA - 1 threads (2 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 2 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading partition model file turtle.nex.best_scheme.nex ...
+Reading alignment file turtle.fa ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 16 sequences with 20820 columns, 8574 distinct patterns
+6084 parsimony-informative, 3551 singleton sites, 11185 constant sites
+                   Gap/Ambiguity  Composition  p-value
+   1  protopterus         67.26%    failed      0.00%
+   2  Anolis               1.61%    passed     48.30%
+   3  Gallus               0.01%    passed     11.30%
+   4  Homo                 0.29%    passed     68.82%
+   5  Monodelphis          0.46%    failed      0.21%
+   6  Ornithorhynchus      3.73%    failed      0.00%
+   7  Taeniopygia          2.10%    failed      0.00%
+   8  Xenopus              1.50%    passed     27.31%
+   9  alligator           80.50%    passed     19.63%
+  10  emys_orbicularis    56.95%    passed     71.94%
+  11  phrynops            36.77%    passed     17.20%
+  12  caiman              41.06%    passed      5.16%
+  13  caretta             36.33%    passed      6.75%
+  14  python              65.18%    failed      0.00%
+  15  chelonoidis_nigra   68.53%    failed      0.77%
+  16  podarcis            76.21%    failed      0.14%
+WARNING: 6 sequences contain more than 50% gaps/ambiguity
+****  TOTAL               33.66%  7 sequences failed composition chi2 test (p-value<5%; df=3)
+
+Loading 29 partitions...
+Subset	Type	Seqs	Sites	Infor	Invar	Model	Name
+1	DNA	11	846	282	382	TNe+I+G4	ENSGALG00000000223.macse_DNA_gb
+2		10	522	193	227	K2P+G4	ENSGALG00000001529.macse_DNA_gb
+3	DNA	10	672	194	351	TN+F+G4	ENSGALG00000002002.macse_DNA_gb
+4	DNA	14	732	222	422	TVM+F+I+G4	ENSGALG00000002514.macse_DNA_gb
+5	DNA	15	966	313	556	TIM2e+I+G4	ENSGALG00000003337.macse_DNA_gb
+6	DNA	14	885	257	525	TIM2+F+G4	ENSGALG00000003700.macse_DNA_gb
+7	DNA	10	1545	359	833	TN+F+G4	ENSGALG00000003702.macse_DNA_gb
+8		12	480	176	225	K2P+R2	ENSGALG00000003907.macse_DNA_gb
+9	DNA	12	576	176	318	TNe+I	ENSGALG00000005820.macse_DNA_gb
+10	DNA	15	696	129	483	TIM2+F+G4	ENSGALG00000005834.macse_DNA_gb
+11	DNA	13	570	124	334	TNe+G4	ENSGALG00000005902.macse_DNA_gb
+12	DNA	12	792	283	334	TIM3e+G4	ENSGALG00000008338.macse_DNA_gb
+13	DNA	11	540	129	329	TPM2+F+G4	ENSGALG00000008517.macse_DNA_gb
+14	DNA	12	546	231	262	TIM2+F+I+G4	ENSGALG00000008916.macse_DNA_gb
+15	DNA	11	930	243	547	TIM2+F+R3	ENSGALG00000009085.macse_DNA_gb
+16	DNA	13	597	239	261	TN+F+I+G4	ENSGALG00000009879.macse_DNA_gb
+17	DNA	9	900	290	406	TPM3u+F+G4	ENSGALG00000011323.macse_DNA_gb
+18	DNA	10	447	201	211	TIM3e+I+G4	ENSGALG00000011434.macse_DNA_gb
+19	DNA	12	981	172	659	TIM3+F+G4	ENSGALG00000011917.macse_DNA_gb
+20		10	468	169	191	K2P+G4	ENSGALG00000011966.macse_DNA_gb
+21	DNA	13	753	233	387	SYM+G4	ENSGALG00000012244.macse_DNA_gb
+22	DNA	13	519	149	292	TIM+F+G4	ENSGALG00000012379.macse_DNA_gb
+23		9	630	158	382	K2P+G4	ENSGALG00000012568.macse_DNA_gb
+24	DNA	10	1302	279	815	TPM2+F+G4	ENSGALG00000013227.macse_DNA_gb
+25	DNA	11	561	176	297	TN+F+G4	ENSGALG00000014038.macse_DNA_gb
+26	DNA	9	498	96	314	TN+F+G4	ENSGALG00000014648.macse_DNA_gb
+27	DNA	10	597	187	238	TIM+F+G4	ENSGALG00000015326.macse_DNA_gb
+28	DNA	12	594	175	281	TIM2+F+G4	ENSGALG00000015397.macse_DNA_gb
+29	DNA	13	675	249	323	TPM2u+F+I+G4	ENSGALG00000016241.macse_DNA_gb
+Degree of missing data: 0.276
+Info: multi-threading strategy over partitions
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.013 seconds
+
+NOTE: 13 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.010)
+Initial log-likelihood: -120831.705
+Current log-likelihood at step 1: -115850.988
+Current log-likelihood at step 2: -115547.523
+Current log-likelihood at step 3: -115511.828
+Current log-likelihood at step 4: -115509.810
+Current log-likelihood at step 5: -115508.506
+Current log-likelihood at step 6: -115507.206
+Current log-likelihood at step 7: -115505.862
+Current log-likelihood at step 8: -115504.525
+Current log-likelihood at step 9: -115503.115
+Current log-likelihood at step 10: -115501.664
+Current log-likelihood at step 11: -115500.171
+Current log-likelihood at step 12: -115498.640
+Current log-likelihood at step 13: -115497.082
+Current log-likelihood at step 14: -115495.468
+Current log-likelihood at step 15: -115493.803
+Current log-likelihood at step 16: -115492.089
+Current log-likelihood at step 17: -115490.310
+Current log-likelihood at step 18: -115488.512
+Current log-likelihood at step 19: -115486.695
+Current log-likelihood at step 20: -115485.039
+Current log-likelihood at step 21: -115483.716
+Current log-likelihood at step 22: -115482.556
+Current log-likelihood at step 23: -115481.570
+Current log-likelihood at step 24: -115480.745
+Current log-likelihood at step 25: -115480.081
+Current log-likelihood at step 26: -115479.551
+Current log-likelihood at step 27: -115479.140
+Current log-likelihood at step 28: -115478.804
+Current log-likelihood at step 29: -115478.534
+Current log-likelihood at step 30: -115478.317
+Current log-likelihood at step 31: -115478.135
+Current log-likelihood at step 32: -115477.970
+Current log-likelihood at step 33: -115477.831
+Current log-likelihood at step 34: -115477.708
+Current log-likelihood at step 35: -115477.605
+Current log-likelihood at step 36: -115477.514
+Current log-likelihood at step 37: -115477.436
+Current log-likelihood at step 38: -115477.367
+Current log-likelihood at step 39: -115477.302
+Current log-likelihood at step 40: -115477.246
+Current log-likelihood at step 41: -115477.198
+Current log-likelihood at step 42: -115477.153
+Current log-likelihood at step 43: -115477.114
+Current log-likelihood at step 44: -115477.076
+Current log-likelihood at step 45: -115477.044
+Current log-likelihood at step 46: -115477.015
+Current log-likelihood at step 47: -115476.989
+Current log-likelihood at step 48: -115476.964
+Current log-likelihood at step 49: -115476.943
+Current log-likelihood at step 50: -115476.924
+Current log-likelihood at step 51: -115476.906
+Current log-likelihood at step 52: -115476.890
+Current log-likelihood at step 53: -115476.876
+Current log-likelihood at step 54: -115476.862
+Current log-likelihood at step 55: -115476.851
+Current log-likelihood at step 56: -115476.841
+Partition-specific rates:  1.101 1.314 1.101 1.067 1.254 0.765 0.884 1.095 0.791 0.471 0.654 1.059 0.704 1.546 1.174 1.210 1.292 1.685 0.611 1.311 1.103 0.972 0.816 0.694 0.920 0.647 1.174 0.996 1.269
+Parameters optimization took 55 rounds (6.704 sec)
+
+Partition information was printed to turtle.test.best_model.nex
+BEST SCORE FOUND : -115476.841
+Partition log-likelihoods printed to turtle.test.partlh
+Total tree length: 1.977
+
+Total number of iterations: 0
+CPU time used for tree search: 0.000 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.000 sec (0h:0m:0s)
+Total CPU time used: 6.582 sec (0h:0m:6s)
+Total wall-clock time used: 6.766 sec (0h:0m:6s)
+
+Reading trees in turtle.trees ...
+2 trees detected
+Note: 34.038 MB of RAM required!
+Creating 1000 bootstrap replicates...
+done
+Tree 1 / LogL: -115476.841
+Tree 2 / LogL: -115470.115
+Performing RELL-BP test...
+Performing KH and SH test...
+Performing ELW test...
+Time for evaluating all trees: 0.507 sec.
+
+Analysis results written to: 
+  IQ-TREE report:                turtle.test.iqtree
+  Maximum-likelihood tree:       turtle.test.treefile
+  Partition log-likelihoods:     turtle.test.partlh
+  Evaluated user trees:          turtle.test.trees
+  Screen log file:               turtle.test.log
+
+Date and Time: Thu Jan 24 21:14:54 2019

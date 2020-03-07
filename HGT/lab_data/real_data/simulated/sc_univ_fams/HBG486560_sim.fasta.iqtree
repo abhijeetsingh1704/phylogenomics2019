@@ -1,0 +1,228 @@
+IQ-TREE 1.7-beta6 built Nov 19 2018
+
+Input file name: HBG486560_sim.fasta
+Type of analysis: tree reconstruction + ultrafast bootstrap (10000 replicates)
+Random seed number: 285600
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Lam-Tung Nguyen, Heiko A. Schmidt, Arndt von Haeseler, and Bui Quang Minh
+(2015) IQ-TREE: A fast and effective stochastic algorithm for estimating
+maximum likelihood phylogenies. Mol Biol Evol, 32:268-274.
+https://doi.org/10.1093/molbev/msu300
+
+Since you used ultrafast bootstrap (UFBoot) please also cite: 
+
+Diep Thi Hoang, Olga Chernomor, Arndt von Haeseler, Bui Quang Minh,
+and Le Sy Vinh (2017) UFBoot2: Improving the ultrafast bootstrap
+approximation. Mol Biol Evol, in press.
+https://doi.org/10.1093/molbev/msx281
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 36 sequences with 600 amino-acid sites
+Number of constant sites: 390 (= 65% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 390 (= 65% of all sites)
+Number of parsimony informative sites: 187
+Number of distinct site patterns: 230
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: LG
+
+State frequencies: (model)
+
+Model of rate heterogeneity: Uniform
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -12865.2113 (s.e. 775.6852)
+Unconstrained log-likelihood (without tree): -2629.0917
+Number of free parameters (#branches + #model parameters): 69
+Akaike information criterion (AIC) score: 25868.4225
+Corrected Akaike information criterion (AICc) score: 25886.6489
+Bayesian information criterion (BIC) score: 26171.8106
+
+Total tree length (sum of branch lengths): 3.3456
+Sum of internal branch lengths: 1.3374 (39.9753% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon 'PRMAR1_1_PE245' is drawn at root
+Numbers in parentheses are  ultrafast bootstrap support (%)
+
++---------PRMAR1_1_PE245
+|
+|                      +--PROMP_1_PE223
+|                   +--| (99)
+|                   |  +---PROM5_1_PE248
+|     +-------------| (100)
+|     |             |   +--PROM9_1_PE228
+|     |             +---| (100)
+|     |                 |     +--PROMS_1_PE238
+|     |                 |  +--| (86)
+|     |                 |  |  +--PROM2_1_PE238
+|     |                 +--| (98)
+|     |                    +--PROM0_1_PE239
+|  +--| (97)
+|  |  |       +--PROM1_1_PE296
+|  |  +-------| (100)
+|  |          +**PROMT_1_PE275
++--| (82)
+|  +----------PROM4_1_PE239
+|
+|              +---SYNSC_1_PE501
+|          +---| (100)
+|          |   |  +----SYNS9_1_PE1809
+|          |   +--| (91)
+|          |      +-----SYNPX_1_PE1932
+|       +--| (98)
+|       |  |  +-------SYNS3_1_PE2353
+|       |  +--| (99)
+|       |     +--SYNPW_2_PE2097
+|    +--| (57)
+|    |  |                                        +--------CYAA5_6_PE1886
+|    |  |                                     +--| (98)
+|    |  |                                     |  +-------CYAP8_1_PE3614
+|    |  |                                  +--| (87)
+|    |  |                                  |  |  +-----CYAP7_1_PE4784
+|    |  |                                  |  +--| (100)
+|    |  |                                  |     +-------MICAN_1_PE2347
+|    |  |                               +--| (99)
+|    |  |                               |  +-----------SYNY3_4_PE1091
+|    |  |                           +---| (100)
+|    |  |                           |   +-----------SYNP2_5_PE2540
+|    |  |                        +--| (87)
+|    |  |                        |  |  +--------TRIEI_1_PE2877
+|    |  |                        |  +--| (69)
+|    |  |                        |     |   +---NOSP7_2_PE102
+|    |  |                        |     +---| (100)
+|    |  |                        |         |   +--ANAVT_4_PE2640
+|    |  |                        |         +---| (100)
+|    |  |                        |             +--ANASP_6_PE49
+|    |  |                  +-----| (100)
+|    |  |                  |     |  +-------ACAM1_1_PE3360
+|    |  |                  |     +--| (97)
+|    |  |                  |        +---------CYAP4_1_PE2503
+|    |  |              +---| (95)
+|    |  |              |   |   +---------------THEEB_1_PE2470
+|    |  |              |   +---| (95)
+|    |  |              |       |   +---------------GLVIO1_1_PE3637
+|    |  |              |       +---| (83)
+|    |  |              |           |            +----SYNJA_1_PE2457
+|    |  |              |           +------------| (100)
+|    |  |              |                        +--SYNJB_1_PE2309
+|    |  |  +-----------| (100)
+|    |  |  |           |        +**SYNP6_1_PE913
+|    |  |  |           +--------| (100)
+|    |  |  |                    +**SYNE7_1_PE611
+|    |  +--| (70)
+|    |     +---------SYNR3_2_PE313
++----| (91)
+     |    +--PROMM_1_PE1906
+     +----| (100)
+          +--PROM3_1_PE385
+
+Tree in newick format:
+
+(PRMAR1_1_PE245:0.0928310394,((((PROMP_1_PE223:0.0248957432,PROM5_1_PE248:0.0386643851)99:0.0345740106,(PROM9_1_PE228:0.0150708266,((PROMS_1_PE238:0.0176158820,PROM2_1_PE238:0.0183517975)86:0.0052615693,PROM0_1_PE239:0.0148758422)98:0.0104520597)100:0.0419864959)100:0.1341092133,(PROM1_1_PE296:0.0050643764,PROMT_1_PE275:0.0000026281)100:0.0799825369)97:0.0265953501,PROM4_1_PE239:0.1072668412)82:0.0181803451,((((SYNSC_1_PE501:0.0384507948,(SYNS9_1_PE1809:0.0497679731,SYNPX_1_PE1932:0.0557637390)91:0.0128470658)100:0.0428561923,(SYNS3_1_PE2353:0.0777320185,SYNPW_2_PE2097:0.0335275092)99:0.0263122686)98:0.0342840267,(((((((((CYAA5_6_PE1886:0.0845615887,CYAP8_1_PE3614:0.0738400905)98:0.0242201640,(CYAP7_1_PE4784:0.0578773697,MICAN_1_PE2347:0.0770906618)100:0.0361680234)87:0.0159921313,SYNY3_4_PE1091:0.1133519379)99:0.0245544537,SYNP2_5_PE2540:0.1145084133)100:0.0404135348,(TRIEI_1_PE2877:0.0898293324,(NOSP7_2_PE102:0.0432061659,(ANAVT_4_PE2640:0.0047351011,ANASP_6_PE49:0.0037065237)100:0.0368713152)100:0.0395447156)69:0.0196503757)87:0.0253664962,(ACAM1_1_PE3360:0.0793362180,CYAP4_1_PE2503:0.0985501277)97:0.0359839447)100:0.0606211722,(THEEB_1_PE2470:0.1460613281,(GLVIO1_1_PE3637:0.1519859452,(SYNJA_1_PE2457:0.0462233453,SYNJB_1_PE2309:0.0297810254)100:0.1260414479)83:0.0363262810)95:0.0388273133)95:0.0422083070,(SYNP6_1_PE913:0.0000010000,SYNE7_1_PE611:0.0000010000)100:0.0888251154)100:0.1117602855,SYNR3_2_PE313:0.0974329603)70:0.0338925837)57:0.0292287881,(PROMM_1_PE1906:0.0078858874,PROM3_1_PE385:0.0095058870)100:0.0468615959)91:0.0454324016);
+
+CONSENSUS TREE
+--------------
+
+Consensus tree is constructed from 10000 bootstrap trees
+Log-likelihood of consensus tree: -12865.213199
+Robinson-Foulds distance between ML tree and consensus tree: 0
+
+Branches with support >0.000000% are kept (extended consensus)
+Branch lengths are optimized by maximum likelihood on original alignment
+Numbers in parentheses are bootstrap supports (%)
+
++---------PRMAR1_1_PE245
+|
+|                      +--PROMP_1_PE223
+|                   +--| (99)
+|                   |  +---PROM5_1_PE248
+|     +-------------| (100)
+|     |             |   +--PROM9_1_PE228
+|     |             +---| (100)
+|     |                 |     +--PROMS_1_PE238
+|     |                 |  +--| (86)
+|     |                 |  |  +--PROM2_1_PE238
+|     |                 +--| (98)
+|     |                    +--PROM0_1_PE239
+|  +--| (97)
+|  |  |       +--PROM1_1_PE296
+|  |  +-------| (100)
+|  |          +--PROMT_1_PE275
++--| (82)
+|  +----------PROM4_1_PE239
+|
+|              +---SYNSC_1_PE501
+|          +---| (100)
+|          |   |  +----SYNS9_1_PE1809
+|          |   +--| (91)
+|          |      +-----SYNPX_1_PE1932
+|       +--| (98)
+|       |  |  +-------SYNS3_1_PE2353
+|       |  +--| (99)
+|       |     +--SYNPW_2_PE2097
+|    +--| (57)
+|    |  |                                        +--------CYAA5_6_PE1886
+|    |  |                                     +--| (98)
+|    |  |                                     |  +-------CYAP8_1_PE3614
+|    |  |                                  +--| (87)
+|    |  |                                  |  |  +-----CYAP7_1_PE4784
+|    |  |                                  |  +--| (100)
+|    |  |                                  |     +-------MICAN_1_PE2347
+|    |  |                               +--| (99)
+|    |  |                               |  +-----------SYNY3_4_PE1091
+|    |  |                           +---| (100)
+|    |  |                           |   +-----------SYNP2_5_PE2540
+|    |  |                        +--| (87)
+|    |  |                        |  |  +--------TRIEI_1_PE2877
+|    |  |                        |  +--| (69)
+|    |  |                        |     |   +---NOSP7_2_PE102
+|    |  |                        |     +---| (100)
+|    |  |                        |         |   +--ANAVT_4_PE2640
+|    |  |                        |         +---| (100)
+|    |  |                        |             +--ANASP_6_PE49
+|    |  |                  +-----| (100)
+|    |  |                  |     |  +-------ACAM1_1_PE3360
+|    |  |                  |     +--| (97)
+|    |  |                  |        +---------CYAP4_1_PE2503
+|    |  |              +---| (95)
+|    |  |              |   |   +---------------THEEB_1_PE2470
+|    |  |              |   +---| (95)
+|    |  |              |       |   +---------------GLVIO1_1_PE3637
+|    |  |              |       +---| (83)
+|    |  |              |           |            +----SYNJA_1_PE2457
+|    |  |              |           +------------| (100)
+|    |  |              |                        +--SYNJB_1_PE2309
+|    |  |  +-----------| (100)
+|    |  |  |           |        +--SYNP6_1_PE913
+|    |  |  |           +--------| (100)
+|    |  |  |                    +--SYNE7_1_PE611
+|    |  +--| (70)
+|    |     +---------SYNR3_2_PE313
++----| (91)
+     |    +--PROMM_1_PE1906
+     +----| (100)
+          +--PROM3_1_PE385
+
+
+Consensus tree in newick format: 
+
+(PRMAR1_1_PE245:0.0928326479,((((PROMP_1_PE223:0.0248945558,PROM5_1_PE248:0.0386649511)99:0.0345715309,(PROM9_1_PE228:0.0150704007,((PROMS_1_PE238:0.0176154130,PROM2_1_PE238:0.0183527091)86:0.0052614143,PROM0_1_PE239:0.0148763875)98:0.0104523357)100:0.0419876304)100:0.1341104651,(PROM1_1_PE296:0.0050643013,PROMT_1_PE275:0.0000026281)100:0.0799823716)97:0.0265945797,PROM4_1_PE239:0.1072689603)82:0.0181788452,((((SYNSC_1_PE501:0.0384505583,(SYNS9_1_PE1809:0.0497675498,SYNPX_1_PE1932:0.0557635678)91:0.0128465787)100:0.0428574045,(SYNS3_1_PE2353:0.0777328285,SYNPW_2_PE2097:0.0335261655)99:0.0263119157)98:0.0342868808,(((((((((CYAA5_6_PE1886:0.0845783545,CYAP8_1_PE3614:0.0738524893)98:0.0242350312,(CYAP7_1_PE4784:0.0578771579,MICAN_1_PE2347:0.0770950107)100:0.0361839059)87:0.0160082067,SYNY3_4_PE1091:0.1133612505)99:0.0245633284,SYNP2_5_PE2540:0.1145162031)100:0.0404249722,(TRIEI_1_PE2877:0.0898314502,(NOSP7_2_PE102:0.0432085917,(ANAVT_4_PE2640:0.0047350597,ANASP_6_PE49:0.0037066916)100:0.0368699080)100:0.0395447776)69:0.0196528660)87:0.0253700553,(ACAM1_1_PE3360:0.0793350414,CYAP4_1_PE2503:0.0985509056)97:0.0359856544)100:0.0606300438,(THEEB_1_PE2470:0.1460618448,(GLVIO1_1_PE3637:0.1519870002,(SYNJA_1_PE2457:0.0462245761,SYNJB_1_PE2309:0.0297779549)100:0.1260430609)83:0.0363245960)95:0.0388370296)95:0.0422195646,(SYNP6_1_PE913:0.0000026281,SYNE7_1_PE611:0.0000026281)100:0.0888317062)100:0.1117629469,SYNR3_2_PE313:0.0974396426)70:0.0338981039)57:0.0292303801,(PROMM_1_PE1906:0.0078854572,PROM3_1_PE385:0.0095066370)100:0.0468620617)91:0.0454341905);
+
+TIME STAMP
+----------
+
+Date and time: Fri Feb  1 15:50:13 2019
+Total CPU time used: 21.290977 seconds (0h:0m:21s)
+Total wall-clock time used: 22.89815617 seconds (0h:0m:22s)
+

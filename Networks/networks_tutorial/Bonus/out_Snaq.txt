@@ -1,0 +1,49 @@
+
+julia> q=readTrees2CF("Triticeae_small.txt", CFfile="tableCF_small.txt")
+will use all quartets on 7 taxa
+calculating obsCF from 50 gene trees and for 35 quartets
+Reading in quartets...
+0+-----------------------------------+100%  
+  ***********************************  
+table of obsCF printed to file tableCF_small.txt
+descriptive stat of input data printed to file summaryTreesQuartets.txt
+Object DataCF
+number of quartets: 35
+number of trees: 50
+
+julia> T=readTopologyLevel1("/Users/celinescornavacca/Dropbox/practical/startingTree_snaQ_small.txt")
+
+HybridNetwork, Un-rooted Network
+11 edges
+12 nodes: 7 tips, 0 hybrid nodes, 5 internal tree nodes.
+tip labels: outgroup, Aeuniaristata, Aecomosa, Aetauschii, ...
+(Aeuniaristata:0.884,Aecomosa:0.513,(Aetauschii:0.442,((Sitopsis:0.385,(Aeumbellulata:0.147,Aecaudata:0.894):0.196):0.064,outgroup:0.096):0.061):0.511);
+
+
+julia> N1_small=snaq!(T,q,hmax=1,filename="net_1_snaq_small");
+
+optimization of topology, BL and inheritance probabilities using:
+ hmax = 1,
+ tolerance parameters: ftolRel=1.0e-6, ftolAbs=1.0e-6,
+                       xtolAbs=0.001, xtolRel=0.01.
+ max number of failed proposals = 75, liktolAbs = 1.0e-6.
+rootname for files: net_1_snaq_small
+BEGIN: 10 runs on starting tree (Aeuniaristata,Aecomosa,(Aetauschii,((Sitopsis,(Aeumbellulata,Aecaudata):0.19565150970956188):0.06431189246037054,outgroup):0.061195350654810535):0.5105282961723762);
+2019-01-24 23:56:37.956
+seed: 77679 for run 1, 2019-01-24 23:56:54.153
+seed: 89492 for run 2, 2019-01-25 0:2:3.323
+seed: 82352 for run 3, 2019-01-25 0:4:46.07
+seed: 47874 for run 4, 2019-01-25 0:6:38.167
+seed: 97401 for run 5, 2019-01-25 0:9:53.073
+seed: 4191 for run 6, 2019-01-25 0:13:16.735
+seed: 35207 for run 7, 2019-01-25 0:17:0.748
+seed: 50241 for run 8, 2019-01-25 0:17:49.466
+seed: 83037 for run 9, 2019-01-25 0:23:28.594
+seed: 92808 for run 10, 2019-01-25 0:32:30.071
+best network and networks with different hybrid/gene flow directions printed to .networks file
+
+MaxNet is (Aeuniaristata,Aecomosa,((Aecaudata,(Aeumbellulata,#H8:0.20655709020677526::0.42050838805106905):0.17659373922008964):0.645246113555574,(Aetauschii,((Sitopsis,outgroup):0.0)#H8:0.7521493379277122::0.579491611948931):0.28473444933986):0.2605352316991927); 
+with -loglik 80.74910502504562
+
+julia> writeTopology(N1_small, di=true, "bestnet_h1_small.tre")
+

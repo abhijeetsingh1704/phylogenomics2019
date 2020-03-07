@@ -1,0 +1,21 @@
+#NEXUS
+BEGIN TREES;
+	Title Consensus_Tree;
+	LINK Taxa = Taxa;
+	TRANSLATE
+		2 Stenus_melanarius,
+		3 Stenus_bimaculatus,
+		4 Stenus_juno,
+		5 Stenus_biguttatus,
+		6 Stenus_comma,
+		7 Stenus_guttula,
+		8 daysfossulatus,
+		9 Stenus_providus,
+		10 Stenus_lustrator,
+		11 Stenus_clavicornis,
+		12 Stenus_boops,
+		13 Stenus_humilis,
+		14 Stenus_intricatus,
+		15 Stenus_morio;
+	TREE PAUP_1 = (((((2:0.068201,12:0.066755):0.015682,15:0.176266):0.086615,((((3:0.097967,(4:0.060051,(9:0.045002,11:0.062125):0.008646):0.037188):0.002573,(10:0.086127,14:0.098511):0.037443):0.022767,13:0.126856):0.024244,(7:0.074249,8:0.077252):0.074196):0.012446):0.015925,6:0.091195):0.036086,5:0.062864):0.36048;
+END;

@@ -1,0 +1,14 @@
+
+
+using PhyloNetworks;
+
+q=readTrees2CF("Triticeae_small.txt", CFfile="tableCF_small.txt")
+
+T=readTopologyLevel1("startingTree_snaQ_small.txt")
+
+N1_small=snaq!(T,q,hmax=1,filename="net_1_snaq_small");
+
+#rootatnode!(N1_small, "outgroup")
+
+writeTopology(N1_small, di=true, "bestnet_h1_small.tre") 
+

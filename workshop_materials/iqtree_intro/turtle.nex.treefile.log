@@ -1,0 +1,30 @@
+IQ-TREE multicore version 1.7-beta6 for Linux 64-bit built Nov 19 2018
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    ip-172-30-3-212 (AVX2, FMA3, 7 GB RAM)
+Command: iqtree -t turtle.nex.treefile --gcf turtle.loci.treefile -s turtle.fa --scf 100
+Seed:    267025 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Thu Jan 24 21:30:51 2019
+Kernel:  AVX+FMA - 1 threads (2 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 2 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file turtle.fa ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 16 sequences with 20820 columns, 8574 distinct patterns
+6084 parsimony-informative, 3551 singleton sites, 11185 constant sites
+Reading tree turtle.nex.treefile ...
+16 taxa and 29 branches
+Reading tree(s) file turtle.loci.treefile ...
+29 un-rooted tree(s) loaded
+Trees have different number of taxa
+Computing gene concordance factor...
+0.001 sec
+Computing site concordance factor...
+0.093 sec
+Tree with concordance factors written to turtle.nex.treefile.cf.tree
+Tree with branch IDs written to turtle.nex.treefile.cf.branch
+Concordance factors per branch printed to turtle.nex.treefile.cf.stat
+Date and Time: Thu Jan 24 21:30:51 2019

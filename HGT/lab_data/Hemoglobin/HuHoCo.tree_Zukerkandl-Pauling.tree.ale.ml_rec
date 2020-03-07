@@ -1,0 +1,121 @@
+#ALEml using ALE v0.5 by Szollosi GJ et al.; ssolo@elte.hu; CC BY-SA 3.0;
+
+S:	(Human:1,(Horse:0.5,Cow:0.5)1:0.5)2;
+
+
+Input ale from:	HuHoCo.tree_Zukerkandl-Pauling.tree.ale
+>logl: -10.0385
+rate of	 Duplications	Transfers	Losses
+ML 	0.721451	0	0.699903
+
+100 reconciled G-s:
+
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma.2:5,(Cow_beta-delta.1:1,Cow_gamma.1:1).2D@1|1:2)D@2|2:1,(Horse_beta-delta.2.1:2,(Human_beta:1,Human_delta:1).2D@0|Human:1)D@2|2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma.2:5,(Cow_beta-delta:1,Cow_gamma:1).2.1D@0|Cow:2)D@2|2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma.2:5,(Cow_beta-delta:1,Cow_gamma:1).2.1D@0|Cow:2)D@2|2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.2.1:2,(Human_beta:1,Human_delta:1).2D@1|Human:1)D@2|2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+(Human_gamma.2:5,((Cow_beta-delta.1:1,Cow_gamma.1:1).2D@1|1:2,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:5)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.2.1:2,(Human_beta:1,Human_delta:1).2D@1|Human:1)D@2|2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma.2:5,(Cow_beta-delta:1,Cow_gamma:1).2.1D@0|Cow:2)D@2|2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+(Human_gamma.2:5,((Cow_beta-delta:1,Cow_gamma:1).2.1D@0|Cow:2,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:5)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_beta:1,Human_delta:1).2D@1|Human:1,(Horse_beta-delta.2.1:2,(Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1)D@2|2:1)D@2|2:0;
+(Human_gamma.2:5,((Cow_beta-delta:1,Cow_gamma:1).2.1D@0|Cow:2,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:5)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma.2:5,(Cow_beta-delta:1,Cow_gamma:1).2.1D@0|Cow:2)D@2|2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Cow_beta-delta:1,Cow_gamma:1).2.1D@0|Cow:2,(Human_gamma.2:5,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:2)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_beta:1,Human_delta:1).2D@1|Human:1,(Horse_beta-delta.2.1:2,(Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1)D@2|2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+(Human_gamma.2:5,((Cow_beta-delta:1,Cow_gamma:1).2.1D@0|Cow:2,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:5)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.2.1:2,(Human_beta:1,Human_delta:1).2D@1|Human:1)D@2|2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.2.1:2,(Human_beta:1,Human_delta:1).2D@1|Human:1)D@2|2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma.2:5,(Cow_beta-delta:1,Cow_gamma:1).2.1D@0|Cow:2)D@2|2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma.2:5,(Cow_beta-delta.2.1:1,Cow_gamma.2.1:1)D@2|2:2)D@2|2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.2.1:2,(Human_beta:1,Human_delta:1).2D@0|Human:1)D@2|2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+(Horse_beta-delta.2.1:2,((Human_beta:1,Human_delta:1).2D@0|Human:1,(Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1)D@2|2:2)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta.1:1,Cow_gamma.1:1)D@1|1:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Cow_beta-delta:1,Cow_gamma:1).2.1D@0|Cow:2,(Human_gamma.2:5,(Horse_beta-delta.2.1:2,(Human_beta:1,Human_delta:1).2D@1|Human:1)D@2|2:1)D@2|2:2)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@0|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+((Human_gamma:5,(Cow_beta-delta:1,Cow_gamma:1).1D@0|Cow:2).2:1,(Horse_beta-delta.1:2,(Human_beta:1,Human_delta:1)D@1|Human:1).2:1)D@2|2:0;
+# of	 Duplications	Transfers	Losses	Speciations
+Total 	3.23	0	2.63	4.4
+
+# of	 Duplications	Transfers	Losses	copies
+S_terminal_branch	Cow	0.84	0	1	2
+S_terminal_branch	Horse	0	0	1.16	1
+S_terminal_branch	Human	1	0	0.24	3
+S_internal_branch	1	0.15	0	0.23	2.16
+S_internal_branch	2	1.24	0	0	2.24

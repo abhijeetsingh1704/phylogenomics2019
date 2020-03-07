@@ -1,0 +1,10 @@
+Model selection results for subset: 955e7279eab604348983b0c1a749654c
+Subset alignment stored here: ./analysis/phylofiles/955e7279eab604348983b0c1a749654c.phy
+This subset contains the following data_blocks: EOG092D1QZM
+Number of columns in subset: 573
+Models are organised according to their AICc scores
+
+Model           | Parameters      | lnL             | AICc             | AIC             | BIC            
+LG              | 0               | -7687.0664      | 15374.133        | 15374.133       | 15374.133      
+JTT             | 0               | -7743.432       | 15486.864        | 15486.864       | 15486.864      
+BLOSUM62        | 0               | -7764.7046      | 15529.409        | 15529.409       | 15529.409      

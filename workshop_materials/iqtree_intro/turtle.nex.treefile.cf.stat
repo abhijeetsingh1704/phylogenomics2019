@@ -1,0 +1,29 @@
+# Concordance factor statistics
+# This file can be read in MS Excel or in R with command:
+#   tab=read.table('turtle.nex.treefile.cf.stat',header=TRUE)
+# Columns are tab-separated with following meaning:
+#   ID: Branch ID
+#   gCF: Gene concordance factor (%)
+#   gDF1: Gene discordance factor (%) for alternative split 1
+#   gDF2: Gene discordance factor (%) for alternative split 2
+#   gN: Number of trees decisive for the branch
+#   sCF: Site concordance factor (%) averaged over 100 quartets
+#   sDF1: Site discordance factor (%) for alternative quartet 1
+#   sDF2: Site discordance factor (%) for alternative quartet 2
+#   sN: Number of informative sites averaged over 100 quartets
+#   Label: Existing branch label
+#   Length: Branch length
+ID	gCF	gDF1	gDF2	gN	sCF	sDF1	sDF2	sN	Label	Length
+17	72.73	18.18	0	11	48	27.88	24.13	341.12	100	0.0976914
+18	55.17	10.34	20.69	29	39.88	25.93	34.19	335.66	100	0.0389967
+19	100	0	0	13	55.73	22.61	21.66	177.15	100	0.0940479
+20	75	0	25	4	38.4	27.26	34.34	67.98	52	0.00354162
+21	37.93	10.34	17.24	29	43.05	24.74	29.21	192.69	99	0.0178905
+22	48.28	3.45	13.79	29	35.15	22.66	41.19	172.45	70	0.0184898
+23	89.66	0	0	29	64.72	17.84	17.44	320.61	100	0.0680267
+24	100	0	0	3	94.64	1.58	3.78	24.55	100	0.0621489
+25	95.24	0	0	21	73.86	13.12	11.02	179.38	100	0.0397788
+26	83.33	16.67	0	12	65.17	21.67	13.15	48.38	100	0.0106079
+27	60	20	20	5	55.86	30.6	13.53	16.78	93	0.00333405
+28	79.31	0	6.9	29	45.3	25.96	28.74	547.48	100	0.0578442
+29	68.97	13.79	0	29	41.9	30.34	27.76	645.65	100	0.0294669

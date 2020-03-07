@@ -1,0 +1,37 @@
+#ALEml using ALE v0.5 by Szollosi GJ et al.; ssolo@elte.hu; CC BY-SA 3.0;
+
+S:	((((a:0.25,b:0.25)1:0.25,c:0.5)3:0.25,(d:0.375,e:0.375)2:0.375)4:0.25,f:1)5;
+
+
+Input ale from:	S.tree_green.tree.ale
+>logl: -11.5043
+rate of	 Duplications	Transfers	Losses
+ML 	0.25049	0	0.76842
+
+10 reconciled G-s:
+
+(f:1,(d.4.2:1,(e.2:1,(c:1,(a:1,b:1).1:1).3:1).4:1)D@4|4:1).5:0;
+((d.4.2:1,f:1).5:1,(e.2:1,(c:1,(a:1,b:1).1:1).3:1).5.4:1)D@5|5:0;
+(f:1,(d.4.2:1,(e.2:1,(c:1,(a:1,b:1).1:1).3:1).4:1)D@4|4:1).5:0;
+((d.4.2:1,f:1).5:1,(e.2:1,(c:1,(a:1,b:1).1:1).3:1).5.4:1)D@5|5:0;
+(d.5.4.2:1,(f:1,(e.2:1,(c:1,(a:1,b:1).1:1).3:1).4:1).5:1)D@5|5:0;
+(f:1,(d.4.2:1,(e.2:1,(c:1,(a:1,b:1).1:1).3:1).4:1)D@4|4:1).5:0;
+(d.5.4.2:1,(f:1,(e.2:1,(c:1,(a:1,b:1).1:1).3:1).4:1).5:1)D@5|5:0;
+(f:1,(d.4.2:1,(e.2:1,(c:1,(a:1,b:1).1:1).3:1).4:1)D@4|4:1).5:0;
+(f:1,(d.4.2:1,(e.2:1,(c:1,(a:1,b:1).1:1).3:1).4:1)D@4|4:1).5:0;
+(d.5.4.2:1,(f:1,(e.2:1,(c:1,(a:1,b:1).1:1).3:1).4:1).5:1)D@5|5:0;
+# of	 Duplications	Transfers	Losses	Speciations
+Total 	1	0	3.5	7.5
+
+# of	 Duplications	Transfers	Losses	copies
+S_terminal_branch	a	0	0	0	1
+S_terminal_branch	b	0	0	0	1
+S_terminal_branch	c	0	0	0	1
+S_terminal_branch	d	0	0	1	1
+S_terminal_branch	e	0	0	1	1
+S_terminal_branch	f	0	0	0.5	1
+S_internal_branch	1	0	0	0	1
+S_internal_branch	2	0	0	0	2
+S_internal_branch	3	0	0	1	1
+S_internal_branch	4	0.5	0	0	2
+S_internal_branch	5	0.5	0	0	1.5

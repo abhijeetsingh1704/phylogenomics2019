@@ -1,0 +1,24 @@
+#Steps to follow to run orthoMCL using the docker image: 
+
+bash run_orthomcl.sh
+cd orthomcl
+bash create_config.sh >orthomcl.config
+orthomclInstallSchema orthomcl.config 
+mkdir compliantFasta
+cd compliantFasta/
+orthomclAdjustFasta ASCL ../ASPCL.fasta 1
+orthomclAdjustFasta PECH ../PENCH.fasta 1
+orthomclAdjustFasta PEMQ ../PENMQ.fasta 1
+orthomclAdjustFasta PEEN ../PENEN.fasta 1
+orthomclAdjustFasta ASFL ../ASPFL.fasta 1
+cd ..
+orthomclFilterFasta compliantFasta/ 10 20
+formatdb -i goodProteins.fasta
+blastall -p blastp -i goodProteins.fasta -d goodProteins.fasta -m 8 -o all_vs_all.blast
+orthomclBlastParser all_vs_all.blast compliantFasta/ >> similarSequences.txt
+orthomclLoadBlast orthomcl.config similarSequences.txt
+orthomclPairs orthomcl.config pairs.log cleanup=yes
+orthomclDumpPairsFiles orthomcl.config
+mcl mclInput --abc -I 1.5 -o mclOutput
+orthomclMclToGroups GROUP 1  <mclOutput >groups.txt
+

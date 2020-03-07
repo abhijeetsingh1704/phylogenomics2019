@@ -1,0 +1,9 @@
+#nexus
+begin sets;
+	charset part1 = 1-481;
+	charset part2 = 482-1054;
+	charset part3 = 1055-1492;
+	charset part4 = 1493-1918;
+	charset part5 = 1919-2205;
+	charpartition mine = AUTO:part1, AUTO:part2, AUTO:part3, AUTO:part4, AUTO:part5;
+end;

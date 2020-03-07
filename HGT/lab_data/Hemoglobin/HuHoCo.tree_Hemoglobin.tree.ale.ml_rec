@@ -1,0 +1,31 @@
+#ALEml using ALE v0.5 by Szollosi GJ et al.; ssolo@elte.hu; CC BY-SA 3.0;
+
+S:	(Human:1,(Horse:0.5,Cow:0.5)1:0.5)2;
+
+
+Input ale from:	HuHoCo.tree_Hemoglobin.tree.ale
+>logl: -4.45543
+rate of	 Duplications	Transfers	Losses
+ML 	0.76128	0	1e-10
+
+10 reconciled G-s:
+
+((Human_gamma:2,(Human_beta:1,Human_delta:1)D@0|Human:1)D@1|Human:2,(Horse_beta-delta:3,(Cow_beta-delta:2,Cow_gamma:2)D@0|Cow:1).1:2).2:0;
+((Human_gamma:2,(Human_beta:1,Human_delta:1)D@0|Human:1)D@1|Human:2,(Horse_beta-delta:3,(Cow_beta-delta:2,Cow_gamma:2)D@0|Cow:1).1:2).2:0;
+((Human_gamma:2,(Human_beta:1,Human_delta:1)D@0|Human:1)D@0|Human:2,(Horse_beta-delta:3,(Cow_beta-delta:2,Cow_gamma:2)D@0|Cow:1).1:2).2:0;
+((Human_gamma:2,(Human_beta:1,Human_delta:1)D@0|Human:1)D@1|Human:2,(Horse_beta-delta:3,(Cow_beta-delta:2,Cow_gamma:2)D@0|Cow:1).1:2).2:0;
+((Human_gamma:2,(Human_beta:1,Human_delta:1)D@0|Human:1)D@1|Human:2,(Horse_beta-delta:3,(Cow_beta-delta:2,Cow_gamma:2)D@0|Cow:1).1:2).2:0;
+((Human_gamma:2,(Human_beta:1,Human_delta:1)D@0|Human:1)D@1|Human:2,(Horse_beta-delta:3,(Cow_beta-delta:2,Cow_gamma:2)D@0|Cow:1).1:2).2:0;
+((Human_gamma:2,(Human_beta:1,Human_delta:1)D@1|Human:1)D@1|Human:2,(Horse_beta-delta:3,(Cow_beta-delta:2,Cow_gamma:2)D@0|Cow:1).1:2).2:0;
+((Human_gamma:2,(Human_beta:1,Human_delta:1)D@0|Human:1)D@1|Human:2,(Horse_beta-delta:3,(Cow_beta-delta:2,Cow_gamma:2)D@0|Cow:1).1:2).2:0;
+((Human_gamma:2,(Human_beta:1,Human_delta:1)D@0|Human:1)D@0|Human:2,(Horse_beta-delta:3,(Cow_beta-delta:2,Cow_gamma:2)D@0|Cow:1).1:2).2:0;
+((Human_gamma:2,(Human_beta:1,Human_delta:1)D@0|Human:1)D@1|Human:2,(Horse_beta-delta:3,(Cow_beta-delta:2,Cow_gamma:2)D@0|Cow:1).1:2).2:0;
+# of	 Duplications	Transfers	Losses	Speciations
+Total 	3	0	0	2
+
+# of	 Duplications	Transfers	Losses	copies
+S_terminal_branch	Cow	1	0	0	2
+S_terminal_branch	Horse	0	0	0	1
+S_terminal_branch	Human	2	0	0	3
+S_internal_branch	1	0	0	0	1
+S_internal_branch	2	0	0	0	1
