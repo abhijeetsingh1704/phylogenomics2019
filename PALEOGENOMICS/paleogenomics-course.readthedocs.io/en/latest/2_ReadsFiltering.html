@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Quality filtering of reads &mdash; Physalia Paleogenomics 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Metagenomic screening of shotgun data" href="3_Metagenomics_v2.html" />
+    <link rel="prev" title="1. List of Tools" href="1_ListTools.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="https://paleogenomics-course.readthedocs.io/en/latest/2_ReadsFiltering.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2020-11-10T15:37:15Z", "builder": "sphinx", "canonical_url": "https://paleogenomics-course.readthedocs.io/en/latest/", "commit": "4118c42f", "docroot": "/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "2_ReadsFiltering", "programming_language": "words", "project": "paleogenomics-course", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Physalia Paleogenomics
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_ListTools.html">1. List of Tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Quality filtering of reads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reads-quality-control">2.1. Reads quality control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reads-quality-filtering">2.2. Reads quality filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Metagenomics_v2.html">3. Metagenomic screening of shotgun data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_ReadsMapping_v2.html">4. Alignment of reads to a reference genome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_VariantsCall.html">5. Variant calling and visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Filtering_SNPs.html">6. Filtering, annotating and combining SNPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DIY.html">7. DO-IT-YOURSELF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_R_session.html">8. R session</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Physalia Paleogenomics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>2. Quality filtering of reads</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://bitbucket.org/ottocla/paleogenomics_course/src/master/source/2_ReadsFiltering.rst?mode=view" class="fa fa-bitbucket"> Edit on Bitbucket</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quality-filtering-of-reads">
+<h1>2. Quality filtering of reads<a class="headerlink" href="#quality-filtering-of-reads" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reads-quality-control">
+<h2>2.1. Reads quality control<a class="headerlink" href="#reads-quality-control" title="Permalink to this headline">¶</a></h2>
+<p>The first step is the quality-control of the reads generated by the sequencing platform in the <code class="docutils literal notranslate"><span class="pre">fastq</span></code> file format.
+To do that, we will use <a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a>, which provides a modular set of analyses that you can use to have a first impression of whether your data has any problems of which you should be aware before doing any further analysis.
+To run FastQC type the following command:</p>
+<blockquote>
+<div></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fastqc</span> <span class="n">filename</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<p>To analyze multiple <code class="docutils literal notranslate"><span class="pre">fastq</span></code> files you can run <code class="docutils literal notranslate"><span class="pre">FastQC</span></code> as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fastqc</span> <span class="o">*.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<p>At the end of the analysis, FastQC generates for each input file a summary report, like in the screenshot below:</p>
+<img alt="_images/fastqc.png" src="_images/fastqc.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last">
+<li><p class="first">You can download the reports of FastQC (and any other file) in your laptop with the command <code class="docutils literal notranslate"><span class="pre">scp</span></code> (Secure Copy), which allows files to be copied to, from, or between different hosts. It uses ssh for data transfer and provides the same authentication and same level of security as ssh. For example, to copy from a remote host (our server) to your computer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="n">username</span><span class="nd">@remotehost</span><span class="p">:</span><span class="o">/</span><span class="n">full_path_to_file</span> <span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">directory</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To copy a folder you need to call the option <code class="docutils literal notranslate"><span class="pre">-r</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="o">-</span><span class="n">r</span> <span class="n">username</span><span class="nd">@remotehost</span><span class="p">:</span><span class="o">/</span><span class="n">full_path_to_file</span> <span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">directory</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you are using a <code class="docutils literal notranslate"><span class="pre">pem</span></code> file to connect to the server, you have to use in order to download the files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="o">-</span><span class="n">i</span> <span class="n">filename</span><span class="o">.</span><span class="n">pem</span> <span class="o">-</span><span class="n">r</span> <span class="n">username</span><span class="nd">@remotehost</span><span class="p">:</span><span class="o">/</span><span class="n">full_path_to_file</span> <span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">directory</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="reads-quality-filtering">
+<h2>2.2. Reads quality filtering<a class="headerlink" href="#reads-quality-filtering" title="Permalink to this headline">¶</a></h2>
+<p>Reads filtering is a crucial step as it will affect all downstream analyses. One of the important things to do is to trim the adapters that were used during the preparation of the genomic libraries. For this step we will use the program <a class="reference external" href="https://github.com/MikkelSchubert/adapterremoval">AdapterRemoval</a>, which performs adapter trimming of sequencing reads and subsequent merging (collapse) of paired-end reads with negative insert sizes (an overlap between two sequencing reads derived from a single DNA fragment) into a single collapsed read. Here we have single-end reads, so we are going to just trim the adapters:</p>
+<blockquote>
+<div></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AdapterRemoval</span> <span class="o">--</span><span class="n">file1</span> <span class="n">filename</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span> <span class="o">--</span><span class="n">basename</span> <span class="n">filename</span> <span class="o">--</span><span class="n">minlength</span> <span class="mi">30</span> <span class="o">--</span><span class="n">trimns</span> <span class="o">--</span><span class="n">trimqualities</span> <span class="o">--</span><span class="n">gzip</span>
+</pre></div>
+</div>
+<p>Here some of the options of AdapterRemoval:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>-file1</strong> <em>string</em></td>
+<td>Forward reads input file(s) in fastq(.gz) file format. Required option (single-end reads).</td>
+</tr>
+<tr class="row-odd"><td><strong>-file2</strong> <em>string</em></td>
+<td>Reverse reads input file(s) in fastq(.gz) file format.</td>
+</tr>
+<tr class="row-even"><td><strong>–basename</strong> <em>string</em></td>
+<td>Default prefix for all output files for which no filename was explicitly set [current: your_output]</td>
+</tr>
+<tr class="row-odd"><td><strong>–adapter1</strong> <em>sequence</em></td>
+<td>Adapter sequence expected to be found in mate 1 reads [current: AGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNATCTCGTATGCCGTCTTCTGCTTG]</td>
+</tr>
+<tr class="row-even"><td><strong>–adapter2</strong> <em>sequence</em></td>
+<td>Adapter sequence expected to be found in mate 2 reads [current: AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT]</td>
+</tr>
+<tr class="row-odd"><td><strong>–trimns</strong></td>
+<td>If set, trim ambiguous bases (N) at 5’/3’ termini [current: off]</td>
+</tr>
+<tr class="row-even"><td><strong>–trimqualities</strong></td>
+<td>If set, trim bases at 5’/3’ termini with quality scores &lt;= to <strong>–minquality</strong> value [current: off]</td>
+</tr>
+<tr class="row-odd"><td><strong>–minquality</strong> <em>integer</em></td>
+<td>PHRED inclusive minimum values; see <strong>–trimqualities</strong> for details [current: 2]</td>
+</tr>
+<tr class="row-even"><td><strong>–minlength</strong> <em>integer</em></td>
+<td>Reads shorter than this length are discarded following trimming [current: 15].</td>
+</tr>
+<tr class="row-odd"><td><strong>–collapse</strong></td>
+<td>When set, paired ended read alignments of <strong>–minalignmentlength</strong> or more bases are combined into a single consensus sequence, representing the complete insert</td>
+</tr>
+<tr class="row-even"><td><strong>–minalignmentlength</strong> <em>integer</em></td>
+<td>If <strong>–collapse</strong> is set, paired reads must overlap at least this number of bases to be collapsed, and single-ended reads must overlap at least this number of bases with the adapter to be considered complete template molecules [current: 11].</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last">
+<li><p class="first">Here we are using a Single-End library, for paired-end libraries the command to clip the adapter and merge the read pairs is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AdapterRemoval</span> <span class="o">--</span><span class="n">file1</span> <span class="n">filename_R1</span><span class="o">.</span><span class="n">fastq</span> <span class="o">--</span><span class="n">file2</span> <span class="n">filename_R2</span><span class="o">.</span><span class="n">fastq</span> <span class="o">--</span><span class="n">basename</span> <span class="n">filename</span> <span class="o">--</span><span class="n">minlength</span> <span class="mi">30</span> <span class="o">--</span><span class="n">trimns</span> <span class="o">--</span><span class="n">trimqualities</span> <span class="o">--</span><span class="n">collapse</span> <span class="o">--</span><span class="n">gzip</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Several tools can be used for reads pre-processing and filtering, for example: <a class="reference external" href="https://github.com/apeltzer/ClipAndMerge">ClipAndMerge</a>, <a class="reference external" href="https://github.com/grenaud/leeHom">leeHom</a>, <a class="reference external" href="https://github.com/jdidion/atropos">Atropos</a>, <a class="reference external" href="https://github.com/OpenGene/fastp">fastp</a>.</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+</ul>
+</div>
+<p>After reads filtering open your adapter-trimmed <code class="docutils literal notranslate"><span class="pre">fastq</span></code> file again in FastQC and see the differences before (the two original paired-end reads files) and after (the collapsed reads file) adapter trimming.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3_Metagenomics_v2.html" class="btn btn-neutral float-right" title="3. Metagenomic screening of shotgun data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1_ListTools.html" class="btn btn-neutral float-left" title="1. List of Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Amine Namouchi &amp; Claudio Ottoni
+      
+        <span class="commit">
+          Revision <code>4118c42f</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/pdf/">pdf</a></dd>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/htmlzip/">html</a></dd>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/epub/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/paleogenomics-course/?fromdocs=paleogenomics-course">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/paleogenomics-course/?fromdocs=paleogenomics-course">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Variant calling and visualization &mdash; Physalia Paleogenomics 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Filtering, annotating and combining SNPs" href="8_Filtering_SNPs.html" />
+    <link rel="prev" title="4. Alignment of reads to a reference genome" href="4_ReadsMapping_v2.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="https://paleogenomics-course.readthedocs.io/en/latest/7_VariantsCall.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2020-11-10T15:37:15Z", "builder": "sphinx", "canonical_url": "https://paleogenomics-course.readthedocs.io/en/latest/", "commit": "4118c42f", "docroot": "/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "7_VariantsCall", "programming_language": "words", "project": "paleogenomics-course", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Physalia Paleogenomics
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_ListTools.html">1. List of Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_ReadsFiltering.html">2. Quality filtering of reads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Metagenomics_v2.html">3. Metagenomic screening of shotgun data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_ReadsMapping_v2.html">4. Alignment of reads to a reference genome</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Variant calling and visualization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#variants-calling">5.1. Variants calling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variants-visualization">5.2. Variants visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="8_Filtering_SNPs.html">6. Filtering, annotating and combining SNPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DIY.html">7. DO-IT-YOURSELF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_R_session.html">8. R session</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Physalia Paleogenomics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>5. Variant calling and visualization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://bitbucket.org/ottocla/paleogenomics_course/src/master/source/7_VariantsCall.rst?mode=view" class="fa fa-bitbucket"> Edit on Bitbucket</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="variant-calling-and-visualization">
+<h1>5. Variant calling and visualization<a class="headerlink" href="#variant-calling-and-visualization" title="Permalink to this headline">¶</a></h1>
+<p>Once the reads are aligned and the data authenticated through <em>post-mortem</em> damage analysis, we can analyse the variant positions in the samples against the reference sequence.</p>
+<div class="section" id="variants-calling">
+<h2>5.1. Variants calling<a class="headerlink" href="#variants-calling" title="Permalink to this headline">¶</a></h2>
+<p>We will use two common tools for variants calling: Samtools, in particular <code class="docutils literal notranslate"><span class="pre">samtools</span> <span class="pre">mpileup</span></code>, in combination with <code class="docutils literal notranslate"><span class="pre">bcftools</span> <span class="pre">call</span></code> of the program <a class="reference external" href="http://www.htslib.org/">BCFtools</a>.</p>
+<blockquote>
+<div></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">mpileup</span> <span class="o">-</span><span class="n">B</span> <span class="o">-</span><span class="n">ugf</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">rescaled</span><span class="o">.</span><span class="n">bam</span> <span class="o">|</span> <span class="n">bcftools</span> <span class="n">call</span> <span class="o">-</span><span class="n">vmO</span> <span class="n">z</span> <span class="o">-</span> <span class="o">&gt;</span> <span class="n">filename</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Samtools mpileup options</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>-B, –no-BAQ</strong></td>
+<td>BAQ is the Phred-scaled probability of a read base being misaligned. Applying this option greatly helps to reduce false SNPs caused by misalignments.</td>
+</tr>
+<tr class="row-odd"><td><strong>-u, –uncompressed</strong></td>
+<td>Generate uncompressed VCF/BCF output, which is preferred for piping.</td>
+</tr>
+<tr class="row-even"><td><strong>-g, –BCF</strong></td>
+<td>Compute genotype likelihoods and output them in the binary call format (BCF). As of v1.0, this is BCF2 which is incompatible with the BCF1 format produced by previous (0.1.x) versions of samtools.</td>
+</tr>
+<tr class="row-odd"><td><strong>-f, –fasta-ref</strong> <em>file</em></td>
+<td>The faidx-indexed reference file in the FASTA format. The file can be optionally compressed by bgzip.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">BCFtools call options</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>-v, –variants-only</strong></td>
+<td>Output variant sites only.</td>
+</tr>
+<tr class="row-odd"><td><strong>-m, –multiallelic-caller</strong></td>
+<td>Alternative modelfor multiallelic and rare-variant calling designed to overcome known limitations in -c calling model (conflicts with -c)</td>
+</tr>
+<tr class="row-even"><td><strong>-g, –BCF</strong></td>
+<td>Compute genotype likelihoods and output them in the binary call format (BCF). As of v1.0, this is BCF2 which is incompatible with the BCF1 format produced by previous (0.1.x) versions of samtools.</td>
+</tr>
+<tr class="row-odd"><td><strong>-O, –output-type</strong> <em>b|u|z|v</em></td>
+<td>Output compressed BCF (b), uncompressed BCF (u), compressed VCF (z), uncompressed VCF (v).</td>
+</tr>
+</tbody>
+</table>
+<p>The detected genetic variants will be stored in the <code class="docutils literal notranslate"><span class="pre">vcf</span></code> file. The genetic variants can be filtered according to some criteria using BCFtools:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bcftools</span> <span class="nb">filter</span> <span class="o">-</span><span class="n">O</span> <span class="n">z</span> <span class="o">-</span><span class="n">o</span> <span class="n">filename</span><span class="o">.</span><span class="n">filtered</span><span class="o">.</span><span class="n">vcf</span> <span class="o">-</span><span class="n">s</span> <span class="n">LOWQUAL</span> <span class="o">-</span><span class="n">i</span><span class="s1">&#39;%QUAL&gt;19&#39;</span> <span class="n">filename</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">BCFtools filter options</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>-O, –output-type</strong> <em>b|u|z|v</em></td>
+<td>Output compressed BCF (b), uncompressed BCF (u), compressed VCF (z), uncompressed VCF (v).</td>
+</tr>
+<tr class="row-odd"><td><strong>-o, –output</strong> <em>file</em></td>
+<td>Output file.</td>
+</tr>
+<tr class="row-even"><td><strong>-s, –soft-filter</strong> <em>string|+</em></td>
+<td>Annotate FILTER column with &lt;string&gt; or, with +, a unique filter name generated by the program (“Filter%d”).</td>
+</tr>
+<tr class="row-odd"><td><strong>-i, –include</strong> <em>expression</em></td>
+<td>Include only sites for which <a class="reference external" href="https://samtools.github.io/bcftools/bcftools.html#expressions">expression</a> is true.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>other options can be added when using BCFtools filter:</p>
+<blockquote class="last">
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>-g, –SnpGap</strong> <em>int</em></td>
+<td>Filter SNPs within <em>int</em> base pairs of an indel</td>
+</tr>
+<tr class="row-odd"><td><strong>-G, –IndelGap</strong> <em>int</em></td>
+<td>Filter clusters of indels separated by <em>int</em> or fewer base pairs allowing only one to pass</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<p>Instead of <code class="docutils literal notranslate"><span class="pre">samtools</span> <span class="pre">mpileup</span></code> and <code class="docutils literal notranslate"><span class="pre">bcftools</span> <span class="pre">call</span></code> (or in addition to) we can use <code class="docutils literal notranslate"><span class="pre">gatk</span> <span class="pre">HaplotypeCaller</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">GenomeAnalysisTK</span><span class="o">.</span><span class="n">jar</span> <span class="o">-</span><span class="n">T</span> <span class="n">HaplotypeCaller</span> <span class="o">-</span><span class="n">R</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">I</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">rescaled</span><span class="o">.</span><span class="n">bam</span> <span class="o">-</span><span class="n">o</span> <span class="n">original</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">GenomeAnalysisTK</span><span class="o">.</span><span class="n">jar</span> <span class="o">-</span><span class="n">T</span> <span class="n">VariantFiltration</span> <span class="o">-</span><span class="n">R</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">V</span> <span class="n">filename</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">o</span> <span class="n">filename</span><span class="o">.</span><span class="n">filtered</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span> <span class="o">--</span><span class="n">filterName</span> <span class="s1">&#39;Cov3|Qual20&#39;</span> <span class="o">--</span><span class="n">filterExpression</span> <span class="s1">&#39;DP&gt;2||QUAL&gt;19&#39;</span>
+</pre></div>
+</div>
+<p>Now that you have your <code class="docutils literal notranslate"><span class="pre">vcf</span></code> file, you can open the file (use <code class="docutils literal notranslate"><span class="pre">nano</span></code> or <code class="docutils literal notranslate"><span class="pre">vim</span></code> in the server, or download the file in your laptop with <code class="docutils literal notranslate"><span class="pre">scp</span></code> and open it in a text editor) and try to search diagnostic variants (e.g. for classification). You can also visualize the variants in a specific program, as described below.</p>
+</div>
+<div class="section" id="variants-visualization">
+<h2>5.2. Variants visualization<a class="headerlink" href="#variants-visualization" title="Permalink to this headline">¶</a></h2>
+<p>To be able to visualize the variants in the <code class="docutils literal notranslate"><span class="pre">vcf</span></code> files, you can use the program <code class="docutils literal notranslate"><span class="pre">IGV</span></code>, which accepts multiple input files formats eg. <code class="docutils literal notranslate"><span class="pre">fasta</span></code>, <code class="docutils literal notranslate"><span class="pre">bam</span></code>, <code class="docutils literal notranslate"><span class="pre">vcf</span></code> and <code class="docutils literal notranslate"><span class="pre">gff</span></code>. After loading your <code class="docutils literal notranslate"><span class="pre">bam</span></code> file(s) and the corrsponding <code class="docutils literal notranslate"><span class="pre">vcf</span></code> file(s), you will see something likt that:</p>
+<img alt="_images/igv-bam_vcf.png" src="_images/igv-bam_vcf.png" />
+<p>In this figure, we observe in the <code class="docutils literal notranslate"><span class="pre">bam</span></code> alignment file a T-&gt;C transition in the corresponding position.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="8_Filtering_SNPs.html" class="btn btn-neutral float-right" title="6. Filtering, annotating and combining SNPs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="4_ReadsMapping_v2.html" class="btn btn-neutral float-left" title="4. Alignment of reads to a reference genome" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Amine Namouchi &amp; Claudio Ottoni
+      
+        <span class="commit">
+          Revision <code>4118c42f</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/pdf/">pdf</a></dd>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/htmlzip/">html</a></dd>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/epub/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/paleogenomics-course/?fromdocs=paleogenomics-course">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/paleogenomics-course/?fromdocs=paleogenomics-course">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

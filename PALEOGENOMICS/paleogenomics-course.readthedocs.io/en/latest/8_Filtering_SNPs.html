@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Filtering, annotating and combining SNPs &mdash; Physalia Paleogenomics 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. DO-IT-YOURSELF" href="9_DIY.html" />
+    <link rel="prev" title="5. Variant calling and visualization" href="7_VariantsCall.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="https://paleogenomics-course.readthedocs.io/en/latest/8_Filtering_SNPs.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2020-11-10T15:37:15Z", "builder": "sphinx", "canonical_url": "https://paleogenomics-course.readthedocs.io/en/latest/", "commit": "4118c42f", "docroot": "/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "8_Filtering_SNPs", "programming_language": "words", "project": "paleogenomics-course", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Physalia Paleogenomics
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_ListTools.html">1. List of Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_ReadsFiltering.html">2. Quality filtering of reads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Metagenomics_v2.html">3. Metagenomic screening of shotgun data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_ReadsMapping_v2.html">4. Alignment of reads to a reference genome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_VariantsCall.html">5. Variant calling and visualization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Filtering, annotating and combining SNPs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#snps-filtering-and-annotion">6.1. SNPs filtering and annotion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compare-and-combine-multiple-annotation-files">6.2. Compare and combine multiple annotation files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phylogenetic-tree-reconstruction">6.3. Phylogenetic tree reconstruction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="9_DIY.html">7. DO-IT-YOURSELF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_R_session.html">8. R session</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Physalia Paleogenomics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>6. Filtering, annotating and combining SNPs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://bitbucket.org/ottocla/paleogenomics_course/src/master/source/8_Filtering_SNPs.rst?mode=view" class="fa fa-bitbucket"> Edit on Bitbucket</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="filtering-annotating-and-combining-snps">
+<h1>6. Filtering, annotating and combining SNPs<a class="headerlink" href="#filtering-annotating-and-combining-snps" title="Permalink to this headline">¶</a></h1>
+<p>To investigate the genetic variants in the <code class="docutils literal notranslate"><span class="pre">vcf</span></code> files we will use the program <a class="reference external" href="https://github.com/Amine-Namouchi/snpToolkit">snpToolkit</a>.
+The <code class="docutils literal notranslate"><span class="pre">-h</span></code> option will display the following message:</p>
+<blockquote>
+<div></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snpToolkit</span> <span class="o">-</span><span class="n">h</span>
+
+<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="p">{</span><span class="n">annotate</span><span class="p">,</span><span class="n">combine</span><span class="p">}</span>  <span class="n">commands</span>
+    <span class="n">annotate</span>          <span class="n">Please</span> <span class="n">provide</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">multiple</span> <span class="n">vcf</span> <span class="n">files</span>
+    <span class="n">combine</span>           <span class="n">combine</span> <span class="n">snpToolkit</span> <span class="n">output</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">one</span> <span class="n">alignment</span> <span class="ow">in</span> <span class="n">fasta</span> <span class="nb">format</span>
+</pre></div>
+</div>
+<p>Two options are possible: <code class="docutils literal notranslate"><span class="pre">annotate</span></code> or <code class="docutils literal notranslate"><span class="pre">combine</span></code>.</p>
+<div class="section" id="snps-filtering-and-annotion">
+<h2>6.1. SNPs filtering and annotion<a class="headerlink" href="#snps-filtering-and-annotion" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">snpToolkit</span> <span class="pre">annotate</span></code> command will display general information about the usage of the program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snpToolkit</span> <span class="n">annotate</span>
+
+<span class="n">usage</span><span class="p">:</span> <span class="n">snpToolkit</span> <span class="n">annotate</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="o">-</span><span class="n">i</span> <span class="n">IDENTIFIER</span> <span class="o">-</span><span class="n">g</span> <span class="n">GENBANK</span>
+                              <span class="p">[</span><span class="o">-</span><span class="n">f</span> <span class="n">EXCLUDECLOSESNPS</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">q</span> <span class="n">QUALITY</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span> <span class="n">DEPTH</span><span class="p">]</span>
+                              <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">RATIO</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">e</span> <span class="n">EXCLUDE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">plot</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>           <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+
+<span class="n">snpToolkit</span> <span class="n">annotate</span> <span class="n">required</span> <span class="n">options</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">i</span> <span class="n">IDENTIFIER</span>        <span class="n">provide</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">identifier</span> <span class="n">to</span> <span class="n">recognize</span> <span class="n">the</span> <span class="n">file</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                       <span class="n">to</span> <span class="n">be</span> <span class="n">analyzed</span>
+  <span class="o">-</span><span class="n">g</span> <span class="n">GENBANK</span>           <span class="n">Please</span> <span class="n">provide</span> <span class="n">a</span> <span class="n">genbank</span> <span class="n">file</span>
+
+<span class="n">snpToolkit</span> <span class="n">annotate</span> <span class="n">additional</span> <span class="n">options</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">f</span> <span class="n">EXCLUDECLOSESNPS</span>  <span class="n">exclude</span> <span class="n">SNPs</span> <span class="k">if</span> <span class="n">the</span> <span class="n">distance</span> <span class="n">between</span> <span class="n">them</span> <span class="ow">is</span> <span class="n">lower</span> <span class="n">then</span>
+                       <span class="n">the</span> <span class="n">specified</span> <span class="n">window</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">bp</span>
+  <span class="o">-</span><span class="n">q</span> <span class="n">QUALITY</span>           <span class="n">quality</span> <span class="n">score</span> <span class="n">to</span> <span class="n">consider</span> <span class="k">as</span> <span class="n">a</span> <span class="n">cutoff</span> <span class="k">for</span> <span class="n">variant</span>
+                       <span class="n">calling</span><span class="o">.</span> <span class="n">default</span> <span class="n">value</span> <span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+  <span class="o">-</span><span class="n">d</span> <span class="n">DEPTH</span>             <span class="n">minimum</span> <span class="n">depth</span> <span class="n">caverage</span><span class="o">.</span> <span class="n">default</span> <span class="n">value</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+  <span class="o">-</span><span class="n">r</span> <span class="n">RATIO</span>             <span class="n">minimum</span> <span class="n">ratio</span> <span class="n">that</span> <span class="n">correspond</span> <span class="n">to</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">reads</span>
+                       <span class="n">that</span> <span class="n">has</span> <span class="n">the</span> <span class="n">mutated</span> <span class="n">allele</span> <span class="o">/</span> <span class="n">total</span> <span class="n">depth</span> <span class="ow">in</span> <span class="n">that</span>
+                       <span class="n">particular</span> <span class="n">position</span><span class="o">.</span> <span class="n">default</span> <span class="n">value</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="o">-</span><span class="n">e</span> <span class="n">EXCLUDE</span>           <span class="n">provide</span> <span class="n">a</span> <span class="n">tab</span> <span class="n">file</span> <span class="k">with</span> <span class="n">genomic</span> <span class="n">regions</span> <span class="n">to</span> <span class="n">exclude</span> <span class="ow">in</span>
+                       <span class="n">this</span> <span class="nb">format</span><span class="p">:</span> <span class="n">region1</span> <span class="n">start</span> <span class="n">stop</span>
+</pre></div>
+</div>
+<p>Here is a simple example on how to use snpToolkit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snpToolkit</span> <span class="n">annotate</span> <span class="o">-</span><span class="n">i</span> <span class="n">VCF</span><span class="o">-</span><span class="n">filename</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">g</span> <span class="n">genbankFile</span><span class="o">.</span><span class="n">gbff</span> <span class="o">-</span><span class="n">q</span> <span class="mi">30</span> <span class="o">-</span><span class="n">d</span> <span class="mi">5</span> <span class="o">-</span><span class="n">r</span> <span class="mf">0.9</span>
+</pre></div>
+</div>
+<p>snpToolkit can automatically recogninze <code class="docutils literal notranslate"><span class="pre">vcf</span></code> files generated with the following programs: <code class="docutils literal notranslate"><span class="pre">samtools</span> <span class="pre">mpileup</span></code>, <code class="docutils literal notranslate"><span class="pre">gatk</span> <span class="pre">HaplotyCaller</span></code> and <code class="docutils literal notranslate"><span class="pre">freeBayes</span></code>. The <code class="docutils literal notranslate"><span class="pre">vcf</span></code> files could be gzipped or not. In the command line above, snpToolkit will filter and annotate all SNPs in the <code class="docutils literal notranslate"><span class="pre">vcf</span></code> file(s) that fullfil the following criteria: <code class="docutils literal notranslate"><span class="pre">quality</span> <span class="pre">&gt;=</span> <span class="pre">30</span></code>, <code class="docutils literal notranslate"><span class="pre">depth</span> <span class="pre">of</span> <span class="pre">coverage</span> <span class="pre">&gt;=</span> <span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">ratio</span> <span class="pre">&gt;=</span> <span class="pre">0.9</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>For each SNP position, the ratio (r) is calculated as follows:</p>
+<p>r= dm / (dr + dm)</p>
+<ul class="last simple">
+<li>dr= Number of reads having the reference allele</li>
+<li>dm= Number of reads having the mutated allele</li>
+</ul>
+</div>
+<p>The output file(s) of snpToolkit is a tabulated file(s) that you can open with Microsoft Excel and it will look as follow:</p>
+<img alt="_images/snpToolkitHeader.png" src="_images/snpToolkitHeader.png" />
+<p>The header of the generated snpToolkit output file includes useful information e.g. raw number of SNPs, Number of filtered SNPs, SNPs distribution, etc…</p>
+</div>
+<div class="section" id="compare-and-combine-multiple-annotation-files">
+<h2>6.2. Compare and combine multiple annotation files<a class="headerlink" href="#compare-and-combine-multiple-annotation-files" title="Permalink to this headline">¶</a></h2>
+<p>After generating a set of output files, you can run <code class="docutils literal notranslate"><span class="pre">snpToolkit</span> <span class="pre">combine</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">snpToolkit</span> <span class="n">combine</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="o">--</span><span class="n">location</span> <span class="n">LOCATION</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">RATIO</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span> <span class="n">DEPTH</span><span class="p">]</span>
+                             <span class="p">[</span><span class="o">--</span><span class="n">bam</span> <span class="n">BAMFOLDER</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">snps</span> <span class="p">{</span><span class="n">ns</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="nb">all</span><span class="p">,</span><span class="n">inter</span><span class="p">}]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+
+<span class="n">snpToolkit</span> <span class="n">combine</span> <span class="n">required</span> <span class="n">options</span><span class="p">:</span>
+  <span class="o">--</span><span class="n">location</span> <span class="n">LOCATION</span>         <span class="n">provide</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">locus</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">create</span>
+                                              <span class="n">fasta</span> <span class="n">alignment</span> <span class="k">for</span>
+
+<span class="n">snpToolkit</span> <span class="n">additional</span> <span class="n">options</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">r</span> <span class="n">RATIO</span>              <span class="n">SNP</span> <span class="n">ratio</span>
+  <span class="o">-</span><span class="n">d</span> <span class="n">DEPTH</span>              <span class="n">depth</span> <span class="n">cutoff</span> <span class="k">for</span> <span class="n">cheking</span> <span class="n">missing</span> <span class="n">data</span>
+  <span class="o">--</span><span class="n">bam</span> <span class="n">BAMFOLDER</span>       <span class="n">path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">folder</span> <span class="n">containing</span> <span class="n">bam</span> <span class="n">files</span>
+  <span class="o">--</span><span class="n">snps</span> <span class="p">{</span><span class="n">ns</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="nb">all</span><span class="p">,</span><span class="n">inter</span><span class="p">}</span>
+                        <span class="n">Specify</span> <span class="k">if</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">concatenate</span> <span class="nb">all</span> <span class="n">SNPs</span> <span class="ow">or</span> <span class="n">just</span>
+                        <span class="n">synonymous</span> <span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">non</span><span class="o">-</span><span class="n">synonymous</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span> <span class="ow">or</span> <span class="n">intergenic</span>
+                        <span class="p">(</span><span class="n">inter</span><span class="p">)</span> <span class="n">SNPs</span><span class="o">.</span> <span class="n">default</span> <span class="p">[</span><span class="nb">all</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">snpToolkit</span> <span class="pre">combine</span></code> will compare all the SNPs identified in each file and create two additional output files:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>a tabulated files with all polymorphic sites</li>
+<li>a <code class="docutils literal notranslate"><span class="pre">fasta</span></code> file.</li>
+</ol>
+</div></blockquote>
+<p>As we will be working with ancient DNA, a small fraction of your genome could be covered. In this case we will use the option <code class="docutils literal notranslate"><span class="pre">--bam</span></code> to indicate the path to the folder containing the <code class="docutils literal notranslate"><span class="pre">bam</span></code> files.
+The option <code class="docutils literal notranslate"><span class="pre">-d</span></code> must be used with the option <code class="docutils literal notranslate"><span class="pre">--bam</span></code>. By default, all SNPs will be reported. This behaviour can be changed using the option <code class="docutils literal notranslate"><span class="pre">--snp</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is also possible to use the option <code class="docutils literal notranslate"><span class="pre">--bam</span></code> with modern data as some genomic regions could be deleted.</p>
+</div>
+<p>The file reporting the polymorphic sites is organized as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="14%" />
+<col width="4%" />
+<col width="4%" />
+<col width="36%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">ID</th>
+<th class="head">Coordinates</th>
+<th class="head">REF</th>
+<th class="head">SNP</th>
+<th class="head">Columns with SNP information</th>
+<th class="head">sample1</th>
+<th class="head">sample2</th>
+<th class="head">sample3</th>
+<th class="head">sample4</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>snp1</td>
+<td>130</td>
+<td>A</td>
+<td>T</td>
+<td>&#160;</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>snp2</td>
+<td>855</td>
+<td>C</td>
+<td>G</td>
+<td>&#160;</td>
+<td>0</td>
+<td>0</td>
+<td>?</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>snp3</td>
+<td>1315</td>
+<td>A</td>
+<td>C</td>
+<td>&#160;</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>snp4</td>
+<td>12086</td>
+<td>G</td>
+<td>A</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>?</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>The table above reports the distribution of all polymorphic sites in all provided files.
+As we provided the <code class="docutils literal notranslate"><span class="pre">bam</span></code> files of the ancient DNA samples, snpToolkit will check if the polymorphic sites (snp2 and snp4) are absent in sample3
+because there is no SNP in that positions or because the region where the snps are located is not covered. In the latter case, snpToolkit will add a question mark <code class="docutils literal notranslate"><span class="pre">?</span></code> that reflects a missing data.
+From the table above, it will be possible to generate a <code class="docutils literal notranslate"><span class="pre">fasta</span></code> file, like the one below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;Reference
+ATCGGGTATGCCAATGCGT
+&gt;Sample1
+ACCGGGTATGCCAATGTGT
+&gt;Sample2
+ATTGGGTATGCCAGTGCGT
+&gt;Sample3
+?TTGAGT?TGTCA?TACGT
+&gt;Sample4
+ATCGGGTATGCCAATGCGT
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">fasta</span></code> output file will be used to generate a maximum likelihood tree using <code class="docutils literal notranslate"><span class="pre">IQ-TREE</span></code></p>
+</div>
+<div class="section" id="phylogenetic-tree-reconstruction">
+<h2>6.3. Phylogenetic tree reconstruction<a class="headerlink" href="#phylogenetic-tree-reconstruction" title="Permalink to this headline">¶</a></h2>
+<p>There are several tools to build phylogenetic trees. All of these tools, use an alignment file as input file. Now that we have generated an alignment file in <code class="docutils literal notranslate"><span class="pre">fasta</span></code> format, we will use <code class="docutils literal notranslate"><span class="pre">IQ-TREE</span></code> to build a maximum likelihood tree.
+We use <code class="docutils literal notranslate"><span class="pre">IQ-TREE</span></code> for several reasons:</p>
+<ul>
+<li><p class="first">It performs a composition chi-square test for every sequence in the alignment. A sequence is denoted failed if its character composition significantly deviates from the average composition of the alignment.</p>
+</li>
+<li><p class="first">Availability of a wide variety of phylogenetic models. <code class="docutils literal notranslate"><span class="pre">IQ-TREE</span></code> uses <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/28481363">ModelFinder</a> to find the best substitution model that will be used directly to build the maximum likelihood phylogenetic tree.</p>
+</li>
+<li><p class="first">Multithreading</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+</ul>
+<p>The phylogenetic tree generated can be visualized using <code class="docutils literal notranslate"><span class="pre">Figtree</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="9_DIY.html" class="btn btn-neutral float-right" title="7. DO-IT-YOURSELF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="7_VariantsCall.html" class="btn btn-neutral float-left" title="5. Variant calling and visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Amine Namouchi &amp; Claudio Ottoni
+      
+        <span class="commit">
+          Revision <code>4118c42f</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/pdf/">pdf</a></dd>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/htmlzip/">html</a></dd>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/epub/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/paleogenomics-course/?fromdocs=paleogenomics-course">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/paleogenomics-course/?fromdocs=paleogenomics-course">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Alignment of reads to a reference genome &mdash; Physalia Paleogenomics 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Variant calling and visualization" href="7_VariantsCall.html" />
+    <link rel="prev" title="3. Metagenomic screening of shotgun data" href="3_Metagenomics_v2.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="https://paleogenomics-course.readthedocs.io/en/latest/4_ReadsMapping_v2.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2020-11-10T15:37:15Z", "builder": "sphinx", "canonical_url": "https://paleogenomics-course.readthedocs.io/en/latest/", "commit": "4118c42f", "docroot": "/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "4_ReadsMapping_v2", "programming_language": "words", "project": "paleogenomics-course", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Physalia Paleogenomics
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_ListTools.html">1. List of Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_ReadsFiltering.html">2. Quality filtering of reads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Metagenomics_v2.html">3. Metagenomic screening of shotgun data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Alignment of reads to a reference genome</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preparation-of-the-reference-sequence">4.1. Preparation of the reference sequence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#index-the-reference-sequence-with-bwa">4.1.1. Index the reference sequence with bwa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-reference-dictionary">4.1.2. Create a reference dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#index-the-reference-sequence-with-samtools">4.1.3. Index the reference sequence with Samtools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#alignment-of-the-reads-to-the-reference-sequence">4.2. Alignment of the reads to the reference sequence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#alignment-of-pre-processed-reads-to-the-reference-genome-with-bwa-aln">4.2.1. Alignment of pre-processed reads to the reference genome with BWA aln</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#converting-sam-file-to-bam-file">4.2.2. Converting sam file to bam file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sorting-and-indexing-the-bam-file">4.2.3. Sorting and indexing the bam file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-read-group-tags-and-indexing-bam-files">4.2.4. Adding Read Group tags and indexing bam files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#marking-and-removing-duplicates">4.2.5. Marking and removing duplicates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-realignment-of-reads">4.2.6. Local realignment of reads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-flagstat-file">4.2.7. Generate flagstat file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualization-of-reads-alignment">4.2.8. Visualization of reads alignment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-mapping-summary-reports">4.3. Create mapping summary reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#damage-analysis-and-quality-rescaling-of-the-bam-file">4.4. Damage analysis and quality rescaling of the BAM file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#edit-distance">4.5. Edit Distance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_VariantsCall.html">5. Variant calling and visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Filtering_SNPs.html">6. Filtering, annotating and combining SNPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DIY.html">7. DO-IT-YOURSELF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_R_session.html">8. R session</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Physalia Paleogenomics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>4. Alignment of reads to a reference genome</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://bitbucket.org/ottocla/paleogenomics_course/src/master/source/4_ReadsMapping_v2.rst?mode=view" class="fa fa-bitbucket"> Edit on Bitbucket</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="alignment-of-reads-to-a-reference-genome">
+<h1>4. Alignment of reads to a reference genome<a class="headerlink" href="#alignment-of-reads-to-a-reference-genome" title="Permalink to this headline">¶</a></h1>
+<p>The metagenomic screenig of the shotgun library detected reads assigned to <em>Yersinia pestis</em>. The following step is to ascertain that these molecules are authentic.
+You can do that by mapping your pre-processed <code class="docutils literal notranslate"><span class="pre">fastq</span></code> files (merged and trimmed) to the <em>Yersinia pestis</em> CO92 strain reference sequence, available in the <a class="reference external" href="https://www.ncbi.nlm.nih.gov/genome/?term=Yersinia%20pestis">RefSeq NCBI</a> database.
+Here, in order to obtain an optimal coverage for the subsequent variant call, we will run the alignment on a different <code class="docutils literal notranslate"><span class="pre">fastq</span></code> file that we prepared to simulate an enriched library.</p>
+<blockquote>
+<div></div></blockquote>
+<div class="section" id="preparation-of-the-reference-sequence">
+<h2>4.1. Preparation of the reference sequence<a class="headerlink" href="#preparation-of-the-reference-sequence" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="index-the-reference-sequence-with-bwa">
+<h3>4.1.1. Index the reference sequence with bwa<a class="headerlink" href="#index-the-reference-sequence-with-bwa" title="Permalink to this headline">¶</a></h3>
+<p>To align the reads to the reference sequence we will use the program <a class="reference external" href="https://github.com/lh3/bwa">BWA</a>, in particular the <code class="docutils literal notranslate"><span class="pre">BWA</span> <span class="pre">aln</span></code> algorithm. BWA first needs to construct the <strong>FM-index</strong> for the reference genome, with the command <code class="docutils literal notranslate"><span class="pre">BWA</span> <span class="pre">index</span></code>. FM-indexing in Burrows-Wheeler transform is used to efficiently find the number of occurrences of a pattern within a compressed text, as well as locate the position of each occurrence. It is an essential step for querying the DNA reads to the reference sequence. This command generates five files with different extensions: <code class="docutils literal notranslate"><span class="pre">amb</span></code>, <code class="docutils literal notranslate"><span class="pre">ann</span></code>, <code class="docutils literal notranslate"><span class="pre">bwt</span></code>, <code class="docutils literal notranslate"><span class="pre">pac</span></code>, <code class="docutils literal notranslate"><span class="pre">sa</span></code>.</p>
+<blockquote>
+<div></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bwa</span> <span class="n">index</span> <span class="o">-</span><span class="n">a</span> <span class="ow">is</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The option <code class="docutils literal notranslate"><span class="pre">-a</span></code> indicates the algorithm to use for constructing the index. For genomes smaller than &lt; 2 Gb use the <code class="docutils literal notranslate"><span class="pre">is</span></code> algorithm. For larger genomes (&gt;2 Gb), use the <code class="docutils literal notranslate"><span class="pre">bwtsw</span></code> algorithm.</p>
+</div>
+</div>
+<div class="section" id="create-a-reference-dictionary">
+<h3>4.1.2. Create a reference dictionary<a class="headerlink" href="#create-a-reference-dictionary" title="Permalink to this headline">¶</a></h3>
+<p>A dictionary file (<code class="docutils literal notranslate"><span class="pre">dict</span></code>) is necessary to run later in the pipeline <code class="docutils literal notranslate"><span class="pre">GATK</span> <span class="pre">RealignerTargetCreator</span></code>. A sequence dictionary contains the sequence name, sequence length, genome assembly identifier, and other information about the sequences. To create the <code class="docutils literal notranslate"><span class="pre">dict</span></code> file we use <a class="reference external" href="https://broadinstitute.github.io/picard/">Picard</a>.</p>
+<blockquote>
+<div></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">picard</span> <span class="n">CreateSequenceDictionary</span> <span class="n">R</span><span class="o">=</span> <span class="n">referece</span><span class="o">.</span><span class="n">fasta</span> <span class="n">O</span><span class="o">=</span> <span class="n">reference</span><span class="o">.</span><span class="n">dict</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>In our server environment we can call Picard just by typing the program name. In other environments (including your laptop) you may have to call Picard by providing the full path to the java file <code class="docutils literal notranslate"><span class="pre">jar</span></code> of the program:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">picard</span><span class="o">.</span><span class="n">jar</span> <span class="n">CreateSequenceDictionary</span> <span class="n">R</span><span class="o">=</span> <span class="n">referece</span><span class="o">.</span><span class="n">fasta</span> <span class="n">O</span><span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="n">dict</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="index-the-reference-sequence-with-samtools">
+<h3>4.1.3. Index the reference sequence with Samtools<a class="headerlink" href="#index-the-reference-sequence-with-samtools" title="Permalink to this headline">¶</a></h3>
+<p>The reference sequence has to be indexed in order to run later in the pipeline <code class="docutils literal notranslate"><span class="pre">GATK</span> <span class="pre">IndelRealigner</span></code>. To do that, we will use <a class="reference external" href="http://www.htslib.org/">Samtools</a>, in particular the tool <code class="docutils literal notranslate"><span class="pre">samtools</span> <span class="pre">faidx</span></code>, which enables efficient access to arbitrary regions within the reference sequence. The index file typically has the same filename as the corresponding reference sequece, with the extension <code class="docutils literal notranslate"><span class="pre">fai</span></code> appended.</p>
+<blockquote>
+<div></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">faidx</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="alignment-of-the-reads-to-the-reference-sequence">
+<h2>4.2. Alignment of the reads to the reference sequence<a class="headerlink" href="#alignment-of-the-reads-to-the-reference-sequence" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="alignment-of-pre-processed-reads-to-the-reference-genome-with-bwa-aln">
+<h3>4.2.1. Alignment of pre-processed reads to the reference genome with BWA aln<a class="headerlink" href="#alignment-of-pre-processed-reads-to-the-reference-genome-with-bwa-aln" title="Permalink to this headline">¶</a></h3>
+<p>To align the reads to the reference genome we will use <code class="docutils literal notranslate"><span class="pre">BWA</span> <span class="pre">aln</span></code>, which supports an end-to-end alignment of reads to the reference sequence. The alternative algorithm, <code class="docutils literal notranslate"><span class="pre">BWA</span> <span class="pre">mem</span></code> supports also local (portion of the reads) and chimeric alignments (resulting in a larger number of mapped reads than <code class="docutils literal notranslate"><span class="pre">BWA</span> <span class="pre">aln</span></code>). <code class="docutils literal notranslate"><span class="pre">BWA</span> <span class="pre">aln</span></code> is more suitable for aliging short reads, like expected for ancient DNA samples. The following comand will generate a <code class="docutils literal notranslate"><span class="pre">sai</span></code> file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bwa</span> <span class="n">aln</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span> <span class="n">filename</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">n</span> <span class="mf">0.1</span> <span class="o">-</span><span class="n">l</span> <span class="mi">1000</span> <span class="o">&gt;</span> <span class="n">filename</span><span class="o">.</span><span class="n">sai</span>
+</pre></div>
+</div>
+<p>Some of the options available in <code class="docutils literal notranslate"><span class="pre">BWA</span> <span class="pre">aln</span></code>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>-n</strong> <em>number</em></td>
+<td>Maximum edit distance if the value is an <em>integer</em>. If the value is <em>float</em> the edit distance is automatically chosen for different read lengths (default=0.04)</td>
+</tr>
+<tr class="row-odd"><td><strong>-l</strong> <em>integer</em></td>
+<td>Seed length. If the value is larger than the query sequence, seeding will be disabled.</td>
+</tr>
+<tr class="row-even"><td><strong>-o</strong> <em>integer</em></td>
+<td>Maximum number of gap opens. For aDNA, tolerating more gaps helps mapping more reads (default=1).</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Due to the particular damaged nature of ancient DNA molecules, carrying deaminations at the molecules ends, we deactivate the <code class="docutils literal notranslate"><span class="pre">seed-length</span></code> option by giving it a high value (e.g. <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">1000</span></code>).</li>
+<li>Here we are aligning reads to a bacterial reference genome. To reduce the impact of spurious alignemnts due to presence bacterial species closely related to the one that we are investigating, we will adopt stringent conditions by decreasing the <code class="docutils literal notranslate"><span class="pre">maximum</span> <span class="pre">edit</span> <span class="pre">distance</span></code> option (<code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">0.1</span></code>). For alignment of DNA reads to the human reference sequence, less stringent conditions can be used (<code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">0.01</span></code> and <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">2</span></code>).</li>
+</ul>
+</div>
+<p>Once obtained the <code class="docutils literal notranslate"><span class="pre">sai</span></code> file, we align the reads (<code class="docutils literal notranslate"><span class="pre">fastq</span></code> file) to the reference (<code class="docutils literal notranslate"><span class="pre">fasta</span></code> file) using <code class="docutils literal notranslate"><span class="pre">BWA</span> <span class="pre">samse</span></code>, to generate the alignment file <code class="docutils literal notranslate"><span class="pre">sam</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bwa</span> <span class="n">samse</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span> <span class="n">filename</span><span class="o">.</span><span class="n">sai</span> <span class="n">filename</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">f</span> <span class="n">filename</span><span class="o">.</span><span class="n">sam</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="converting-sam-file-to-bam-file">
+<h3>4.2.2. Converting sam file to bam file<a class="headerlink" href="#converting-sam-file-to-bam-file" title="Permalink to this headline">¶</a></h3>
+<p>For the downstream analyses we will work with the binary (more compact) version of the <code class="docutils literal notranslate"><span class="pre">sam</span></code> file, called <code class="docutils literal notranslate"><span class="pre">bam</span></code>. To convert the <code class="docutils literal notranslate"><span class="pre">sam</span></code> file in <code class="docutils literal notranslate"><span class="pre">bam</span></code> we will use <code class="docutils literal notranslate"><span class="pre">Samtools</span> <span class="pre">view</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">view</span> <span class="o">-</span><span class="n">Sb</span> <span class="n">filename</span><span class="o">.</span><span class="n">sam</span> <span class="o">&gt;</span> <span class="n">filename</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The conversion from <code class="docutils literal notranslate"><span class="pre">sam</span></code> to <code class="docutils literal notranslate"><span class="pre">bam</span></code> can be piped (<code class="docutils literal notranslate"><span class="pre">|</span></code>) in one command right after the alignment step:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bwa</span> <span class="n">samse</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span> <span class="n">filename</span><span class="o">.</span><span class="n">sai</span> <span class="n">filename</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span> <span class="o">|</span> <span class="n">samtools</span> <span class="n">view</span> <span class="o">-</span><span class="n">Sb</span> <span class="o">-</span> <span class="o">&gt;</span> <span class="n">filename</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+</div>
+<p>To view the content of a <code class="docutils literal notranslate"><span class="pre">sam</span></code> file we can just use standard commands like <code class="docutils literal notranslate"><span class="pre">head</span></code>, <code class="docutils literal notranslate"><span class="pre">tail</span></code>, <code class="docutils literal notranslate"><span class="pre">less</span></code>, while to view the content of a <code class="docutils literal notranslate"><span class="pre">bam</span></code> file (binary format of <code class="docutils literal notranslate"><span class="pre">sam</span></code>) we have to use <code class="docutils literal notranslate"><span class="pre">Samtools</span> <span class="pre">view</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">view</span> <span class="n">filename</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+<p>You may want to display on the screen one read/line (scrolling with the spacebar):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">view</span> <span class="n">filename</span><span class="o">.</span><span class="n">bam</span> <span class="o">|</span> <span class="n">less</span> <span class="o">-</span><span class="n">S</span>
+</pre></div>
+</div>
+<p>while to display just the header of the <code class="docutils literal notranslate"><span class="pre">bam</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">view</span> <span class="o">-</span><span class="n">H</span> <span class="n">filename</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sorting-and-indexing-the-bam-file">
+<h3>4.2.3. Sorting and indexing the bam file<a class="headerlink" href="#sorting-and-indexing-the-bam-file" title="Permalink to this headline">¶</a></h3>
+<p>To go on with the analysis, we have to sort the reads aligned in the <code class="docutils literal notranslate"><span class="pre">bam</span></code> file by leftmost coordinates (or by read name when the option <code class="docutils literal notranslate"><span class="pre">-n</span></code> is used) with <code class="docutils literal notranslate"><span class="pre">Samtools</span> <span class="pre">sort</span></code>. The option <code class="docutils literal notranslate"><span class="pre">-o</span></code> is used to provide an output file name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">sort</span> <span class="n">filename</span><span class="o">.</span><span class="n">bam</span> <span class="o">-</span><span class="n">o</span> <span class="n">filename</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+<p>The sorted bam files are then indexed with <code class="docutils literal notranslate"><span class="pre">Samtools</span> <span class="pre">index</span></code>. Indexes allow other programs to retrieve specific parts of the <code class="docutils literal notranslate"><span class="pre">bam</span></code> file without reading through each sequence. The following command generates a <code class="docutils literal notranslate"><span class="pre">bai</span></code> file, a companion file of the <code class="docutils literal notranslate"><span class="pre">bam</span></code> which contains the indexes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">index</span> <span class="n">filename</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-read-group-tags-and-indexing-bam-files">
+<h3>4.2.4. Adding Read Group tags and indexing bam files<a class="headerlink" href="#adding-read-group-tags-and-indexing-bam-files" title="Permalink to this headline">¶</a></h3>
+<p>A number of predefined tags may be appropriately assigned to specific set of reads in order to distinguish samples, libraries and other technical features. To do that we will use Picard. You may want to use <code class="docutils literal notranslate"><span class="pre">RGLB</span></code> (library ID) and <code class="docutils literal notranslate"><span class="pre">RGSM</span></code> (sample ID) tags at your own convenience based on the experimental design. Remember to call Picard from the path of the <code class="docutils literal notranslate"><span class="pre">jar</span></code> file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">picard</span> <span class="n">AddOrReplaceReadGroups</span> <span class="n">INPUT</span><span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">bam</span> <span class="n">OUTPUT</span><span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">RG</span><span class="o">.</span><span class="n">bam</span> <span class="n">RGID</span><span class="o">=</span><span class="n">rg_id</span> <span class="n">RGLB</span><span class="o">=</span><span class="n">lib_id</span> <span class="n">RGPL</span><span class="o">=</span><span class="n">platform</span> <span class="n">RGPU</span><span class="o">=</span><span class="n">plat_unit</span> <span class="n">RGSM</span><span class="o">=</span><span class="n">sam_id</span> <span class="n">VALIDATION_STRINGENCY</span><span class="o">=</span><span class="n">LENIENT</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>In some instances, Picard may stop running and return error messages due to conflicts with <code class="docutils literal notranslate"><span class="pre">sam</span></code> specifications produced by <code class="docutils literal notranslate"><span class="pre">BWA</span></code> (e.g. “MAPQ should be 0 for unmapped reads”). To suppress this error and allow Picard to continue, we pass the <code class="docutils literal notranslate"><span class="pre">VALIDATION_STRINGENCY=LENIENT</span></code> options (default is <code class="docutils literal notranslate"><span class="pre">STRICT</span></code>).</li>
+<li>Read Groups may be also added during the alignment with <code class="docutils literal notranslate"><span class="pre">BWA</span></code> using the option <code class="docutils literal notranslate"><span class="pre">-R</span></code>.</li>
+</ul>
+</div>
+<p>Once added the Read Group tags, we index again the bam file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">index</span> <span class="n">filename</span><span class="o">.</span><span class="n">RG</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="marking-and-removing-duplicates">
+<h3>4.2.5. Marking and removing duplicates<a class="headerlink" href="#marking-and-removing-duplicates" title="Permalink to this headline">¶</a></h3>
+<p>Amplification through PCR of genomic libraries leads to duplication formation, hence reads originating from a single fragment of DNA. The <code class="docutils literal notranslate"><span class="pre">MarkDuplicates</span></code> tool of Picard marks the reads as duplicates when the 5’-end positions of both reads and read-pairs match. A metric file with various statistics is created, and reads are removed from the bam file by using the <code class="docutils literal notranslate"><span class="pre">REMOVE_DUPLICATES=True</span></code> option (the default option is <code class="docutils literal notranslate"><span class="pre">False</span></code>, which simply ‘marks’ duplicate reads keep them in the <code class="docutils literal notranslate"><span class="pre">bam</span></code> file).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">picard</span> <span class="n">MarkDuplicates</span> <span class="n">I</span><span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">RG</span><span class="o">.</span><span class="n">bam</span> <span class="n">O</span><span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">DR</span><span class="o">.</span><span class="n">bam</span> <span class="n">M</span><span class="o">=</span><span class="n">output_metrics</span><span class="o">.</span><span class="n">txt</span> <span class="n">REMOVE_DUPLICATES</span><span class="o">=</span><span class="kc">True</span> <span class="n">VALIDATION_STRINGENCY</span><span class="o">=</span><span class="n">LENIENT</span> <span class="o">&amp;&gt;</span> <span class="n">logFile</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+<p>Once removed the duplicates, we index again the bam file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">index</span> <span class="n">filename</span><span class="o">.</span><span class="n">DR</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="local-realignment-of-reads">
+<h3>4.2.6. Local realignment of reads<a class="headerlink" href="#local-realignment-of-reads" title="Permalink to this headline">¶</a></h3>
+<p>The presence of insertions or deletions (indels) in the genome may be responsible of misalignments and bases mismatches that are easily mistaken as SNPs. For this reason, we locally realign reads to minimize the number of mispatches around the indels. The realignment process is done in two steps using two different tools of GATK called with the -T option. We first detect the intervals which need to be realigned with the <code class="docutils literal notranslate"><span class="pre">GATK</span> <span class="pre">RealignerTargetCreator</span></code>, and save the list of these intevals in a file that we name <code class="docutils literal notranslate"><span class="pre">target.intervals</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gatk</span> <span class="o">-</span><span class="n">T</span> <span class="n">RealignerTargetCreator</span> <span class="o">-</span><span class="n">R</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">I</span> <span class="n">filename</span><span class="o">.</span><span class="n">DR</span><span class="o">.</span><span class="n">bam</span> <span class="o">-</span><span class="n">o</span> <span class="n">target</span><span class="o">.</span><span class="n">intervals</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Like Picard, in some server environment you can call GATK just by typing the program name. In other environments (also in this server) you have to call GATK by providing the full path to the java <code class="docutils literal notranslate"><span class="pre">jar</span></code> file. Here, the absolute path to the file is <code class="docutils literal notranslate"><span class="pre">~/Share/Paleogenomics/programs/GenomeAnalysisTK.jar</span></code>:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="o">~/</span><span class="n">Share</span><span class="o">/</span><span class="n">Paleogenomics</span><span class="o">/</span><span class="n">programs</span><span class="o">/</span><span class="n">GenomeAnalysisTK</span><span class="o">.</span><span class="n">jar</span> <span class="o">-</span><span class="n">T</span> <span class="n">RealignerTargetCreator</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">In  <em>version 4</em> of GATK the indel realigment tools have been retired from the best practices (they are unnecessary if you are using an assembly based caller like <strong>Mutect2</strong> or <strong>HaplotypeCaller</strong>). To use the indel realignment tools make sure to install <em>version 3</em> of GATK.</p>
+</div>
+<p>Then, we realign the reads over the intervals listed in the <code class="docutils literal notranslate"><span class="pre">target.intervals</span></code> file with the option <code class="docutils literal notranslate"><span class="pre">-targetIntervals</span></code> of the tool <code class="docutils literal notranslate"><span class="pre">IndelRealigner</span></code> in GATK:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="o">~/</span><span class="n">Share</span><span class="o">/</span><span class="n">Paleogenomics</span><span class="o">/</span><span class="n">programs</span><span class="o">/</span><span class="n">GenomeAnalysisTK</span><span class="o">.</span><span class="n">jar</span>  <span class="o">-</span><span class="n">T</span> <span class="n">IndelRealigner</span> <span class="o">-</span><span class="n">R</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">I</span> <span class="n">filename</span><span class="o">.</span><span class="n">RG</span><span class="o">.</span><span class="n">DR</span><span class="o">.</span><span class="n">bam</span> <span class="o">-</span><span class="n">targetIntervals</span> <span class="n">target</span><span class="o">.</span><span class="n">intervals</span> <span class="o">-</span><span class="n">o</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">bam</span> <span class="o">--</span><span class="n">filter_bases_not_stored</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>If you want, you can redirect the standard output of the command into a <code class="docutils literal notranslate"><span class="pre">log</span></code> file by typing at the end of the command <code class="docutils literal notranslate"><span class="pre">&amp;&gt;</span> <span class="pre">logFile.log</span></code></li>
+<li>The option <code class="docutils literal notranslate"><span class="pre">--filter_bases_not_stored</span></code> is used to filter out reads with no stored bases (i.e. with * where the sequence should be), instead of failing with an error</li>
+</ul>
+</div>
+<p>The final <code class="docutils literal notranslate"><span class="pre">bam</span></code> file has to be sorted and indexed as previously done:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">sort</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">bam</span> <span class="o">-</span><span class="n">o</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">bam</span>
+<span class="n">samtools</span> <span class="n">index</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-flagstat-file">
+<h3>4.2.7. Generate flagstat file<a class="headerlink" href="#generate-flagstat-file" title="Permalink to this headline">¶</a></h3>
+<p>We can generate a file with useful information about our alignment with <code class="docutils literal notranslate"><span class="pre">Samtools</span> <span class="pre">flagstat</span></code>. This file is a final summary report of the bitwise <code class="docutils literal notranslate"><span class="pre">FLAG</span></code> fields assigned to the reads in the <code class="docutils literal notranslate"><span class="pre">sam</span></code> file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">flagstat</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">bam</span> <span class="o">&gt;</span> <span class="n">flagstat_filename</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last">
+<li><p class="first">You could generate a flagstat file for the two <code class="docutils literal notranslate"><span class="pre">bam</span></code> files before and after refinement and see the differences.</p>
+</li>
+<li><p class="first">You can decode each <code class="docutils literal notranslate"><span class="pre">FLAG</span></code> field assigned to a read on the <a class="reference external" href="https://broadinstitute.github.io/picard/explain-flags.html">Broad Institute</a> website.</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="visualization-of-reads-alignment">
+<h3>4.2.8. Visualization of reads alignment<a class="headerlink" href="#visualization-of-reads-alignment" title="Permalink to this headline">¶</a></h3>
+<p>Once generated the final <code class="docutils literal notranslate"><span class="pre">bam</span></code> file,  you can compare the <code class="docutils literal notranslate"><span class="pre">bam</span></code> files before and after the refinement and polishing process (duplicates removal, realignment around indels and sorting). To do so, we will use the program <code class="docutils literal notranslate"><span class="pre">IGV</span></code>, in which we will first load the reference fasta file from <em>Genomes –&gt; Load genome from file</em> and then we will add one (or more) bam files with <em>File –&gt; Load from file</em>:</p>
+<img alt="_images/igv-bam_bam.png" src="_images/igv-bam_bam.png" />
+</div>
+</div>
+<div class="section" id="create-mapping-summary-reports">
+<h2>4.3. Create mapping summary reports<a class="headerlink" href="#create-mapping-summary-reports" title="Permalink to this headline">¶</a></h2>
+<p>We will use <code class="docutils literal notranslate"><span class="pre">Qualimap</span></code> to create summary reports from the generated <code class="docutils literal notranslate"><span class="pre">bam</span></code> files. As mentioned in the website, <code class="docutils literal notranslate"><span class="pre">Qualimap</span></code> examines sequencing alignment data in <code class="docutils literal notranslate"><span class="pre">sam/bam</span></code> files according to the features of the mapped reads and provides an overall view of the data that helps to detect biases in the sequencing and/or mapping of the data and eases decision-making for further analysis.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qualimap</span> <span class="n">bamqc</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">bam</span> <span class="nb">input</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+<p>Here are some screenshots of the outputs:</p>
+<img alt="_images/qualimap.png" src="_images/qualimap.png" />
+<p>At this stage we have created different type of summary report using <code class="docutils literal notranslate"><span class="pre">FastQC</span></code> and <code class="docutils literal notranslate"><span class="pre">Qualimap</span></code>. To create a unique summary that integrate and compare all the generated reports, we will use <code class="docutils literal notranslate"><span class="pre">MultiQC</span></code>. If all the reports are in the same directory and its sub-directories, you can run <code class="docutils literal notranslate"><span class="pre">MultiQC</span></code> as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">multiqc</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>A list of programs that generate output files recognized by <code class="docutils literal notranslate"><span class="pre">MultiQC</span></code> are availble here: <a class="reference external" href="https://github.com/ewels/MultiQC">https://github.com/ewels/MultiQC</a></p>
+<p>Multiqc will create a summary report in <code class="docutils literal notranslate"><span class="pre">html</span></code> format that will let you compare all the summary reports for each of your samples:</p>
+<img alt="_images/multiqc.png" src="_images/multiqc.png" />
+</div>
+<div class="section" id="damage-analysis-and-quality-rescaling-of-the-bam-file">
+<h2>4.4. Damage analysis and quality rescaling of the BAM file<a class="headerlink" href="#damage-analysis-and-quality-rescaling-of-the-bam-file" title="Permalink to this headline">¶</a></h2>
+<p>To authenticate our analysis we will assess the <em>post-mortem</em> damage of the reads aligned to the reference sequence. We can track the <em>post-portem</em> damage accumulated by DNA molecules in the form of fragmentation due to depurination and cytosine deamination, which generates the typical pattern of <strong>C-&gt;T</strong> and <strong>G-&gt;A</strong> variation at the 5’- and 3’-end of the DNA molecules. To assess the <em>post-mortem</em> damage patterns in our <code class="docutils literal notranslate"><span class="pre">bam</span></code> file we will use <code class="docutils literal notranslate"><span class="pre">mapDamage</span></code>, which analyses the size distribution of the reads and the base composition of the genomic regions located up- and downstream of each read, generating various plots and summary tables. To start the analysis we need the final <code class="docutils literal notranslate"><span class="pre">bam</span></code> and the reference sequence:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapDamage</span> <span class="o">-</span><span class="n">i</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">bam</span> <span class="o">-</span><span class="n">r</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mapDamage</span></code> creates a new folder where the output files are created. One of these files, is named <code class="docutils literal notranslate"><span class="pre">Fragmisincorporation_plot.pdf</span></code> which contains the following plots:</p>
+<img alt="_images/damage.png" src="_images/damage.png" />
+<p>If DNA damage is detected, we can run <code class="docutils literal notranslate"><span class="pre">mapDamage</span></code> again using the <code class="docutils literal notranslate"><span class="pre">--rescale-only</span></code> option and providing the path to the results folder that has been created by the program (option <code class="docutils literal notranslate"><span class="pre">-d</span></code>). This command will downscale the quality scores at positions likely affected by deamination according to their initial quality values, position in reads and damage patterns.
+A new rescaled <code class="docutils literal notranslate"><span class="pre">bam</span></code> file is then generated.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapDamage</span> <span class="o">-</span><span class="n">i</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">bam</span> <span class="o">-</span><span class="n">r</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span> <span class="o">--</span><span class="n">rescale</span><span class="o">-</span><span class="n">only</span> <span class="o">-</span><span class="n">d</span> <span class="n">results_folder</span>
+</pre></div>
+</div>
+<p>You can also rescale the <code class="docutils literal notranslate"><span class="pre">bam</span></code> file directly in the first command with the option <code class="docutils literal notranslate"><span class="pre">--rescale</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapDamage</span> <span class="o">-</span><span class="n">i</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">bam</span> <span class="o">-</span><span class="n">r</span> <span class="n">reference</span><span class="o">.</span><span class="n">fasta</span> <span class="o">--</span><span class="n">rescale</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Another useful tool for estimating <em>post-mortem</em> damage (PMD) is <a class="reference external" href="https://github.com/pontussk/PMDtools">PMDTools</a>. This program uses a model incorporating PMD, base quality scores and biological polymorphism to assign a PMD score to the reads. PMD &gt; 0 indicates support for the sequence being genuinely ancient. PMDTools filters the damaged reads (based on the selected score) in a separate <code class="docutils literal notranslate"><span class="pre">bam</span></code> file which can be used for downstream analyses (e.g. variant call).</p>
+</div>
+<p>The rescaled <code class="docutils literal notranslate"><span class="pre">bam</span></code> file has to be indexed, as usual.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samtools</span> <span class="n">index</span> <span class="n">filename</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">rescaled</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="edit-distance">
+<h2>4.5. Edit Distance<a class="headerlink" href="#edit-distance" title="Permalink to this headline">¶</a></h2>
+<p>The edit distance defines the number of nucleotide changes that have to be made to one read sequence for it to be identical to the reference sequence.
+To be more confident about the quality and authenticity of your sequencing data, you need to align your reads againt your reference sequence and the genome of a closely related species.
+Here we will align our <code class="docutils literal notranslate"><span class="pre">fastq</span></code> file against the <a class="reference external" href="https://www.ncbi.nlm.nih.gov/genome/?term=Yersinia+pseudotuberculosis">Yersinia pseudotuberculosis</a> genome, following all the steps from 4.1 to 4.4.
+The edit distance must be lower when aligning the reads to the reference sequence compared to the closely related species.</p>
+<blockquote>
+<div></div></blockquote>
+<img alt="_images/EditDistance.png" src="_images/EditDistance.png" />
+<p>To calculate the edit distance we will use <a class="reference external" href="http://bamstats.sourceforge.net/">BAMStats</a>, a tool for summarising Next Generation Sequencing alignments. The commands to generate summary-charts, including the edit distance is:</p>
+<blockquote>
+<div></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BAMStats</span> <span class="o">-</span><span class="n">i</span> <span class="n">filename</span><span class="o">.</span><span class="n">rescaled</span><span class="o">.</span><span class="n">bam</span> <span class="o">-</span><span class="n">v</span> <span class="n">html</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">o</span> <span class="n">outfile</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>-i</strong> <em>filename</em></td>
+<td>SAM or BAM input file (must be sorted).</td>
+</tr>
+<tr class="row-odd"><td><strong>-v</strong> <em>html/simple</em></td>
+<td>View option for output format (currently accepts ‘simple’ or ‘html’; default, simple).</td>
+</tr>
+<tr class="row-even"><td><strong>-d</strong></td>
+<td>If selected, edit distance statistics will also be displayed as a separate table (optional).</td>
+</tr>
+<tr class="row-odd"><td><strong>-q</strong></td>
+<td>If selected, mapping quality (MAPQ) statistics will also be displayed as a separate table (optional).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="7_VariantsCall.html" class="btn btn-neutral float-right" title="5. Variant calling and visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="3_Metagenomics_v2.html" class="btn btn-neutral float-left" title="3. Metagenomic screening of shotgun data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Amine Namouchi &amp; Claudio Ottoni
+      
+        <span class="commit">
+          Revision <code>4118c42f</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/pdf/">pdf</a></dd>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/htmlzip/">html</a></dd>
+        
+          <dd><a href="//paleogenomics-course.readthedocs.io/_/downloads/en/latest/epub/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/paleogenomics-course/?fromdocs=paleogenomics-course">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/paleogenomics-course/?fromdocs=paleogenomics-course">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
